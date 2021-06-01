@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../../components/Layout"
-import * as styles from "../../styles/projects.module.css"
+import * as styles from "../../styles/projects.module.scss"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Projects({ data }) {
@@ -17,7 +17,9 @@ export default function Projects({ data }) {
             <Link to={`/projects/${project.frontmatter.slug}`} key={project.id}>
               <div>
                 <GatsbyImage
-                  image={project.frontmatter.thumb.childImageSharp.gatsbyImageData}
+                  image={
+                    project.frontmatter.thumb.childImageSharp.gatsbyImageData
+                  }
                 />
                 <h3>{project.frontmatter.title}</h3>
                 <p>{project.frontmatter.stack}</p>

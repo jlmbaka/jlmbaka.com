@@ -1,0 +1,31 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.header p {
+  font-size: 24px;
+}
+
+.header a {
+  color: #b3b3b3;
+}
+
+.header a:hover {
+  color: #222020;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 24px;
+  margin-top: 20px;
+  background-color: #222020;
+  color: white !important;
+}

@@ -21,12 +21,7 @@ export default function Navbar() {
         <Link to="/blog">Blog</Link>
         <Link to="/projects">Projects</Link>
         <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <div className="social">
-          <span>twitter</span>
-          <span>github</span>
-          <span>Linkedin</span>
-        </div>
+        <Link to="/contacts">Contacts</Link>
       </div>
     </nav>
   )
