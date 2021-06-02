@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+$phone: 640px;
+$tablet: 768px;
+$desktop: 1024px;
 
 * {
   margin: 0;
@@ -56,13 +61,15 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  p {
+    color: #bbb;
+  }
 }
 
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-footer p {
-  color: #bbb;
+  @media (max-width: $tablet) {
+    padding: 0 15px;
+  }
 }
