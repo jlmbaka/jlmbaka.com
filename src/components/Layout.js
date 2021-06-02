@@ -1,19 +1,14 @@
 import React from "react"
 import Navbar from "./Navbar"
 import "../styles/global.scss"
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
 
 export default function Layout({ children }) {
   return (
-    <Container fluid>
-      <Row>
-        <Col>
-          <div className="layout">
-            <Navbar />
-            <div className="content">{children}</div>
-          </div>
+    <div fluid className="container-fluid page-wrapper">
+      <div className="row">
+        <div className="col">
+          <Navbar />
+          <div className="container row col content">{children}</div>
           <footer>
             <div className="footer__container">
               <p>© 2021 Jean-Louis Mbaka</p>
@@ -21,8 +16,8 @@ export default function Layout({ children }) {
               <p>Kinshasa, DRC</p>
             </div>
           </footer>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
+    </div>
   )
 }
