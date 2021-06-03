@@ -267,7 +267,7 @@ export default function Navbar({ fixed }) {
       <div className="header-wrapper">
         <header>
           <div className={`header ${fixed && "fixed"}`}>
-            <div className="container row">
+            <div className="container-fluid row">
               <div className="col-9 col-md-2 offset-md-1">
                 <Logo title={title} />
               </div>
