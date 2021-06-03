@@ -1,0 +1,143 @@
+header,
+.header-wrapper {
+  width: 100%;
+  height: 108px;
+}
+
+header {
+  display: block;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  color: #000000;
+  transition: background 0.35s, border 0.35s, opacity 0.35s;
+}
+
+.header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: auto;
+  padding-top: 56px;
+  padding-bottom: 27px;
+  background: #ffffff;
+  line-height: 1;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.logo {
+  position: relative;
+  z-index: 10;
+}
+
+.btn-open-menu {
+  position: relative;
+  z-index: 10;
+  display: none;
+  width: 22px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: 5.555555%;
+  border: 0;
+  background: none;
+  -webkit-transition: 0.35s;
+  -o-transition: 0.35s;
+  transition: 0.35s;
+}
+
+@media (max-width: 1024px) {
+  ul.page-nav {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.page-nav {
+  -ms-flex: 0 0 70%;
+  flex: 0 0 70%;
+  width: 70%;
+  font-family: "Circe-Regular", sans-serif;
+}
+
+@media (max-width: 1199px) {
+  .page-nav__item {
+    margin-right: 60px;
+  }
+}
+.page-nav__item {
+  margin-right: 81px;
+}
+
+@media (max-width: 1024px) {
+  .social-nav {
+    display: none;
+  }
+}
+
+.social-nav {
+  position: relative;
+  top: -5px;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  width: 30%;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.social-nav__item:first-of-type {
+  margin-left: 0;
+}
+
+@media (max-width: 1199px) {
+  .social-nav__item {
+    margin-left: 22px;
+  }
+}
+.social-nav__item {
+  margin-left: 49px;
+  transition: opacity 0.35s;
+  opacity: 0.3;
+}
+
+@media (max-width: 806px) {
+  .page-nav__item {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 907px) {
+  .page-nav__item {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 961px) {
+  .page-nav__item {
+    margin-right: 30px;
+  }
+}
+@media (max-width: 991px) {
+  .page-nav__item {
+    margin-right: 40px;
+  }
+}
+@media (max-width: 1199px) {
+  .page-nav__item {
+    margin-right: 60px;
+  }
+}
+.page-nav__item {
+  margin-right: 81px;
+}
+
+.page-nav__link {
+  opacity: 0.3;
+}
