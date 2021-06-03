@@ -48,13 +48,9 @@ a {
 }
 
 footer {
-  background-color: ${color.primary};
   width: 100%;
   padding: 24px 0;
   display: block;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   p {
     color: #bbb;
   }
@@ -74,7 +70,11 @@ footer {
 }
 
 .page-wrapper {
-  min-height: 73vh;
+  min-height: 81vh;
+}
+.footer-wrapper {
+  min-height: 19vh;
+  background-color: ${color.primary};
 }
 `
 
@@ -90,6 +90,12 @@ function Layout({ children }) {
           <div className="col">
             <Navbar fixed={fixed} />
             <div className="row col content">{children}</div>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid footer-wrapper">
+        <div className="row">
+          <div className="col">
             <footer>
               <div className="footer__container">
                 <p>© 2021 Jean-Louis Mbaka</p>
