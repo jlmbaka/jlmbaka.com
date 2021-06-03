@@ -81,7 +81,7 @@ footer {
 function Layout({ children }) {
   const { scrollPosition } = useScroll()
   const fixed = scrollPosition > 1
-  console.log("fixed=", fixed)
+
   return (
     <>
       <GlobalStyle />

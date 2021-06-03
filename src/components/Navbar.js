@@ -189,21 +189,22 @@ const Style = styled.div`
 
     &__item {
       margin-right: 81px;
-      @media (max-width: 806px) {
-        margin-right: 10px;
-      }
-      @media (max-width: 907px) {
-        margin-right: 20px;
-      }
-      @media (max-width: 961px) {
-        margin-right: 30px;
+      @media (max-width: 1199px) {
+        margin-right: 60px;
       }
       @media (max-width: 991px) {
         margin-right: 40px;
       }
+      @media (max-width: 961px) {
+        margin-right: 30px;
+      }
 
-      @media (max-width: 1199px) {
-        margin-right: 60px;
+      @media (max-width: 907px) {
+        margin-right: 20px;
+      }
+
+      @media (max-width: 806px) {
+        margin-right: 10px;
       }
     }
 
@@ -305,8 +306,8 @@ const PageNav = () => (
       </Link>
     </li>
     <li className="page-nav__item">
-      <Link className="page-nav__link" to="/projets">
-        Projets
+      <Link className="page-nav__link" to="/projects">
+        Projects
       </Link>
     </li>
     <li className="page-nav__item">
