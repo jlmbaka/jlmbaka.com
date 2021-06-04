@@ -57,8 +57,8 @@ footer {
 }
 
 .content {
-  margin: 0 auto;
-  max-width: 1200px;
+  /* margin: 0 auto;
+  max-width: 1200px; */
 }
 
 .footer__container {

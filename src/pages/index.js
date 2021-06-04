@@ -7,12 +7,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
 
 const Style = styled.div`
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 40px;
-    align-items: center;
-
+  .hero--textblock {
     h1 {
       font-size: 50px;
       font-weight: 400;
@@ -62,8 +57,8 @@ export default function Home({ data }) {
   return (
     <Layout>
       <Style>
-        <section className="hero">
-          <div>
+        <section className="hero row">
+          <div className="hero--textblock order-2 order-lg-1 col-lg offset-lg-1">
             <h1>Jean-Louis Mbaka</h1>
             <Paragraph>
               I'm a Co-Founder at{" "}
@@ -80,11 +75,13 @@ export default function Home({ data }) {
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>
           </div>
-          <GatsbyImage
-            image={data.file.childImageSharp.gatsbyImageData}
-            alt="site banner"
-            style={{ maxWidth: "100%" }}
-          />
+          <div className="hero--banner order-1 order-lg-2 col-lg">
+            <GatsbyImage
+              image={data.file.childImageSharp.gatsbyImageData}
+              alt="site banner"
+              style={{ maxWidth: "100%" }}
+            />
+          </div>
         </section>
       </Style>
     </Layout>
