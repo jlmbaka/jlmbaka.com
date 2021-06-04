@@ -10,20 +10,6 @@ import {
 import classNames from "classnames"
 
 const Style = styled.div`
-  header {
-    display: block;
-  }
-
-  header,
-  .header-wrapper {
-    width: 100%;
-    height: 108px;
-
-    @media (max-width: 767px) {
-      height: 77px;
-    }
-  }
-
   .nav-2 {
     display: flex;
     position: relative;
@@ -36,57 +22,6 @@ const Style = styled.div`
 
     @media (max-width: 767px) {
       display: none;
-    }
-  }
-
-  .header {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin-bottom: auto;
-    padding-top: 56px;
-    padding-bottom: 27px;
-    background: white;
-    line-height: 1;
-
-    @media (max-width: 767px) {
-      padding-top: 30px;
-      padding-bottom: 22px;
-    }
-  }
-
-  .fixed.header {
-    padding-top: 35px;
-    padding-bottom: 27px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: #ffffff;
-    transition: 0.35s;
-
-    .logo a {
-      position: relative;
-      top: 0;
-    }
-  }
-
-  @media (max-width: 991px) {
-    .fixed.header {
-      padding-top: 30px;
-      padding-bottom: 22px;
-    }
-    .fixed.open.header .mobile-nav {
-      top: 77px;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .fixed.header {
-      transition: none;
-    }
-
-    .fixed.open + .mobile-nav {
-      top: 77px;
     }
   }
 
@@ -180,6 +115,49 @@ const Style = styled.div`
   }
 `
 
+const Header = styled.header`
+  width: 100%;
+  height: 108px;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin-bottom: auto;
+  padding-top: 56px;
+  padding-bottom: 27px;
+  background: white;
+  line-height: 1;
+
+  @media (max-width: 767px) {
+    height: 77px;
+    padding-top: 30px;
+    padding-bottom: 22px;
+  }
+
+  ${props =>
+    props.fixed &&
+    css`
+      padding-top: 35px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      transition: 0.35s;
+
+      .logo a {
+        position: relative;
+        top: 0;
+      }
+
+      @media (max-width: 767px) {
+        transition: none;
+      }
+
+      @media (max-width: 991px) {
+        padding-top: 30px;
+        padding-bottom: 22px;
+      }
+    `}
+`
+
 export default function Navbar({ fixed }) {
   const data = useStaticQuery(graphql`
     query SiteInfo {
@@ -202,32 +180,28 @@ export default function Navbar({ fixed }) {
 
   return (
     <Style>
-      <div className="header-wrapper">
-        <header>
-          <div className={classNames("header", { fixed })}>
-            <div className="container-fluid row">
-              <div className="col-9 col-md-2 offset-md-1">
-                <Logo title={title} />
-              </div>
-              <ButtonOpenMenu onClick={handleButtonOpenMenuClick} open={open} />
-              <div className="col-md-9">
-                <nav className="nav-2">
-                  <PageNav />
-                  <SocialNavList />
-                </nav>
-              </div>
-            </div>
+      <Header fixed={fixed}>
+        <div className="container-fluid row">
+          <div className="col-9 col-md-2 offset-md-1">
+            <Logo title={title} />
           </div>
-          <MobileNav open={open} />
-        </header>
-      </div>
+          <ButtonOpenMenu onClick={handleButtonOpenMenuClick} open={open} />
+          <div className="col-md-9">
+            <nav className="nav-2">
+              <PageNav />
+              <SocialNavList />
+            </nav>
+          </div>
+        </div>
+        <MobileNav open={open} />
+      </Header>
     </Style>
   )
 }
 
 const ButtonOpenMenu = styled(({ onClick, className }) => (
   <button className={className} onClick={onClick}>
-    <span></span>
+    <span />
   </button>
 ))`
   position: relative;
