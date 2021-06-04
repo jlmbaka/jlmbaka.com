@@ -48,7 +48,7 @@ const Style = styled.div`
     margin-bottom: auto;
     padding-top: 56px;
     padding-bottom: 27px;
-    background: $background;
+    background: white;
     line-height: 1;
 
     @media (max-width: 767px) {
@@ -84,10 +84,10 @@ const Style = styled.div`
     .fixed.header {
       transition: none;
     }
-  }
 
-  .fixed.open + .mobile-nav {
-    top: 77px;
+    .fixed.open + .mobile-nav {
+      top: 77px;
+    }
   }
 
   .mobile-nav {
@@ -136,32 +136,6 @@ const Style = styled.div`
       width: 100%;
       padding: 30px 5.555555%;
       background: #ffffff;
-    }
-
-    @media (max-width: 767px) {
-      padding-left: 70px;
-      padding-right: 70px;
-    }
-
-    &__item {
-      margin-right: 81px;
-      @media (max-width: 1199px) {
-        margin-right: 60px;
-      }
-      @media (max-width: 991px) {
-        margin-right: 40px;
-      }
-      @media (max-width: 961px) {
-        margin-right: 30px;
-      }
-
-      @media (max-width: 907px) {
-        margin-right: 20px;
-      }
-
-      @media (max-width: 806px) {
-        margin-right: 10px;
-      }
     }
 
     &__link {
@@ -244,7 +218,7 @@ export default function Navbar({ fixed }) {
               </div>
             </div>
           </div>
-          <MobileNav />
+          <MobileNav open={open} />
         </header>
       </div>
     </Style>
@@ -325,13 +299,45 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
   }
 `
 
-const PageNavItem = ({ children, to }) => (
-  <li className="page-nav__item">
+const PageNavItem = styled(({ children, to, className }) => (
+  <li className={className}>
     <Link className="page-nav__link" activeClassName="active" to={to}>
       {children}
     </Link>
   </li>
-)
+))`
+  margin-right: 81px;
+
+  @media (max-width: 1199px) {
+    margin-right: 60px;
+  }
+
+  @media (max-width: 991px) {
+    margin-right: 40px;
+  }
+
+  @media (max-width: 961px) {
+    margin-right: 30px;
+  }
+
+  @media (max-width: 907px) {
+    margin-right: 20px;
+  }
+
+  @media (max-width: 806px) {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 767px) {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 7px;
+    font-size: 24px;
+    line-height: 40px;
+    color: #000000;
+  }
+`
 
 const PageNav = () => (
   <ul className="page-nav list">
@@ -343,46 +349,37 @@ const PageNav = () => (
   </ul>
 )
 
+const MobileNav = styled(({ className }) => (
+  <div className={classNames(className)}>
+    <ul className="page-nav list page-nav--mobile">
+      <PageNavItem to="/">Home</PageNavItem>
+      <PageNavItem to="/blog">Blog</PageNavItem>
+      <PageNavItem to="/projects">Projects</PageNavItem>
+      <PageNavItem to="/about">About</PageNavItem>
+      <PageNavItem to="/contacts">Contacts</PageNavItem>
+    </ul>
+  </div>
+))`
+  display: none;
+  @media (max-width: 767px) {
+    position: fixed;
+    top: ${props => (props.open ? "77px" : "-800px")};
+    left: 0;
+    z-index: 9;
+    display: block;
+    width: 100%;
+    overflow: ${props => (props.open ? "visible" : "hidden")};
+    transition: 0.6s;
+    ${props => props.open && "height: auto"};
+  }
+  .page-nav--mobile {
+    flex-wrap: wrap;
+  }
+`
+
 const Logo = ({ title }) => (
   <div className="logo">
     <Link to="/">{title}</Link>
-  </div>
-)
-
-const MobileNav = () => (
-  <div className="mobile-nav">
-    <ul className="page-nav list">
-      <li className="page-nav__item">
-        <Link className="page-nav__link" to="/">
-          Home
-        </Link>
-      </li>
-      <li className="page-nav__item">
-        <Link className="page-nav__link" to="/blog">
-          Blog
-        </Link>
-      </li>
-      <li className="page-nav__item current">
-        <Link className="page-nav__link" to="/projets">
-          Projets
-        </Link>
-      </li>
-      <li className="page-nav__item">
-        <Link className="page-nav__link" to="/about">
-          About
-        </Link>
-      </li>
-      <li className="page-nav__item">
-        <Link className="page-nav__link" to="/contacts">
-          Contacts
-        </Link>
-      </li>
-      <li className="page-nav__item">
-        <Link className="page-nav__link" to="/contacts">
-          Contacts
-        </Link>
-      </li>
-    </ul>
   </div>
 )
 
