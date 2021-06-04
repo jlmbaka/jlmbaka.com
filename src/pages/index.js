@@ -7,6 +7,10 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
 
 const Style = styled.div`
+  .hero {
+    padding: 17vh 0;
+  }
+
   .hero--textblock {
     h1 {
       font-size: 50px;
@@ -58,7 +62,7 @@ export default function Home({ data }) {
     <Layout>
       <Style>
         <section className="hero row">
-          <div className="hero--textblock order-2 order-lg-1 col-lg offset-lg-1">
+          <div className="hero--textblock order-2 order-lg-1 col-lg offset-md-3">
             <h1>Jean-Louis Mbaka</h1>
             <Paragraph>
               I'm a Co-Founder at{" "}

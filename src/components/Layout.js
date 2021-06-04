@@ -1,6 +1,6 @@
 import React from "react"
 import Navbar from "./Navbar"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import { useScroll, ScrollProvider } from "../context/scroll-context.js"
 
 const screen = {
@@ -56,27 +56,39 @@ footer {
   }
 }
 
-.content {
-  /* margin: 0 auto;
-  max-width: 1200px; */
-}
-
 .footer__container {
-  max-width: 1200px;
-  margin: 0 auto;
   @media (max-width: ${screen.tablet}) {
     padding: 0 15px;
   }
 }
+`
 
-.page-wrapper {
+const BaseWrapper = ({ children, className }) => (
+  <div className={`container-fluid ${className}`}>{children}</div>
+)
+
+const MainContentWrapper = styled(BaseWrapper)`
   min-height: 81vh;
-}
-.footer-wrapper {
+`
+
+const FooterWrapper = styled(BaseWrapper)`
   min-height: 19vh;
   background-color: ${color.primary};
-}
 `
+
+const Footer = () => (
+  <div className="row">
+    <div className="col offset-md-1">
+      <footer>
+        <div className="footer__container">
+          <p>© 2021 Jean-Louis Mbaka</p>
+          <p>hello@jlmbaka.com</p>
+          <p>Kinshasa, DRC</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+)
 
 function Layout({ children }) {
   const { scrollPosition } = useScroll()
@@ -85,27 +97,19 @@ function Layout({ children }) {
   return (
     <>
       <GlobalStyle />
-      <div className="container-fluid page-wrapper">
+      <MainContentWrapper>
         <div className="row">
           <div className="col">
             <Navbar fixed={fixed} />
-            <div className="row col content">{children}</div>
           </div>
         </div>
-      </div>
-      <div className="container-fluid footer-wrapper">
         <div className="row">
-          <div className="col">
-            <footer>
-              <div className="footer__container">
-                <p>© 2021 Jean-Louis Mbaka</p>
-                <p>hello@jlmbaka.com</p>
-                <p>Kinshasa, DRC</p>
-              </div>
-            </footer>
-          </div>
+          <div className="col">{children}</div>
         </div>
-      </div>
+      </MainContentWrapper>
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </>
   )
 }
