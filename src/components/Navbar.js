@@ -1,6 +1,6 @@
 import { Link, graphql, useStaticQuery } from "gatsby"
 import React, { useState } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faGithub,
@@ -108,76 +108,6 @@ const Style = styled.div`
       margin-bottom: 1rem;
       font-size: 1rem;
       text-transform: uppercase;
-    }
-  }
-
-  .btn-open-menu {
-    position: relative;
-    z-index: 10;
-    display: none;
-    width: 22px;
-    height: 20px;
-    margin-left: auto;
-    margin-right: 5.555555%;
-    border: 0;
-    background: none;
-    transition: 0.35s;
-
-    @media (max-width: 767px) {
-      margin-right: 0;
-      display: block;
-      margin-right: 0;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 22px;
-      height: 2px;
-      background: #000000;
-      transition: 0.35s;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 22px;
-      height: 2px;
-      background: #000000;
-      transition: 0.35s;
-    }
-
-    span {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      width: 14px;
-      height: 2px;
-      margin-top: -1px;
-      background: #000000;
-    }
-  }
-
-  .open {
-    .btn-open-menu {
-      &::before {
-        top: 9px;
-        width: 20px;
-        transform: rotate(45deg);
-      }
-      &::after {
-        bottom: 9px;
-        width: 20px;
-        transform: rotate(-45deg);
-      }
-
-      span {
-        display: none;
-      }
     }
   }
 
@@ -300,12 +230,12 @@ export default function Navbar({ fixed }) {
     <Style>
       <div className="header-wrapper">
         <header>
-          <div className={classNames("header", { fixed, open })}>
+          <div className={classNames("header", { fixed })}>
             <div className="container-fluid row">
               <div className="col-9 col-md-2 offset-md-1">
                 <Logo title={title} />
               </div>
-              <ButtonOpenMenu onClick={handleButtonOpenMenuClick} />
+              <ButtonOpenMenu onClick={handleButtonOpenMenuClick} open={open} />
               <div className="col-md-9">
                 <nav className="nav-2">
                   <PageNav />
@@ -321,11 +251,79 @@ export default function Navbar({ fixed }) {
   )
 }
 
-const ButtonOpenMenu = ({ onClick }) => (
-  <button className="btn-open-menu" onClick={onClick}>
+const ButtonOpenMenu = styled(({ onClick, className }) => (
+  <button className={className} onClick={onClick}>
     <span></span>
   </button>
-)
+))`
+  position: relative;
+  z-index: 10;
+  display: none;
+  width: 22px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: 5.555555%;
+  border: 0;
+  background: none;
+  transition: 0.35s;
+
+  @media (max-width: 767px) {
+    margin-right: 0;
+    display: block;
+    margin-right: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: #000000;
+    transition: 0.35s;
+    ${props =>
+      props.open &&
+      css`
+        top: 9px;
+        width: 20px;
+        transform: rotate(45deg);
+      `}
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: #000000;
+    transition: 0.35s;
+    ${props =>
+      props.open &&
+      css`
+        bottom: 9px;
+        width: 20px;
+        transform: rotate(-45deg);
+      `}
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 14px;
+    height: 2px;
+    margin-top: -1px;
+    background: #000000;
+    ${props =>
+      props.open &&
+      css`
+        display: none;
+      `};
+  }
+`
 
 const PageNavItem = ({ children, to }) => (
   <li className="page-nav__item">
