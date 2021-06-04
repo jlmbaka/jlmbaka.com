@@ -1,8 +1,13 @@
 import { Link, graphql, useStaticQuery } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import {
+  faGithub,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons"
+import classNames from "classnames"
 
 const Style = styled.div`
   header {
@@ -157,6 +162,25 @@ const Style = styled.div`
     }
   }
 
+  .open {
+    .btn-open-menu {
+      &::before {
+        top: 9px;
+        width: 20px;
+        transform: rotate(45deg);
+      }
+      &::after {
+        bottom: 9px;
+        width: 20px;
+        transform: rotate(-45deg);
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+
   .list {
     padding-left: 0;
     list-style: none;
@@ -265,16 +289,23 @@ export default function Navbar({ fixed }) {
 
   const { title } = data.site.siteMetadata
 
+  const [open, setOpen] = useState(false)
+
+  const handleButtonOpenMenuClick = event => {
+    event.preventDefault()
+    setOpen(!open)
+  }
+
   return (
     <Style>
       <div className="header-wrapper">
         <header>
-          <div className={`header ${fixed && "fixed"}`}>
+          <div className={classNames("header", { fixed, open })}>
             <div className="container-fluid row">
               <div className="col-9 col-md-2 offset-md-1">
                 <Logo title={title} />
               </div>
-              <ButtonOpenMenu />
+              <ButtonOpenMenu onClick={handleButtonOpenMenuClick} />
               <div className="col-md-9">
                 <nav className="nav-2">
                   <PageNav />
@@ -290,8 +321,8 @@ export default function Navbar({ fixed }) {
   )
 }
 
-const ButtonOpenMenu = () => (
-  <button className="btn-open-menu">
+const ButtonOpenMenu = ({ onClick }) => (
+  <button className="btn-open-menu" onClick={onClick}>
     <span></span>
   </button>
 )
@@ -360,16 +391,31 @@ const MobileNav = () => (
 const SocialNavListItem = styled(({ icon, to, className }) => (
   <li className="social-nav__item">
     <Link target="_ blank" to={to} rel="nofollow">
-      <FontAwesomeIcon icon={icon} color="black" className={className} />
+      <FontAwesomeIcon
+        icon={icon}
+        color="black"
+        className={className}
+        size="lg"
+      />
     </Link>
   </li>
 ))`
-  color: red;
+  &:hover {
+    svg,
+    path {
+      color: black;
+      opacity: 1;
+    }
+  }
 `
 
 const SocialNavList = () => (
   <ul className="social-nav list">
-    <SocialNavListItem icon={faTwitter} to="https://twitter.com/jlmbaka" />
     <SocialNavListItem icon={faGithub} to="https://github.com/jlmbaka" />
+    <SocialNavListItem icon={faTwitter} to="https://twitter.com/jlmbaka" />
+    <SocialNavListItem
+      icon={faLinkedin}
+      to="https://www.linkedin.com/in/jlmbaka/"
+    />
   </ul>
 )

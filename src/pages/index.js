@@ -8,7 +8,7 @@ import styled from "styled-components"
 
 const Style = styled.div`
   .hero {
-    padding: 17vh 0;
+    padding: 17vh 0 7vh 0;
   }
 
   .hero--textblock {
