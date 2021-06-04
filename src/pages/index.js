@@ -48,9 +48,12 @@ const Button = styled(Link)`
 
 const Paragraph = styled.p`
   font-size: 24px;
+  color: #b3b3b3;
 
   a {
-    color: #b3b3b3;
+    color: #222020;
+    text-decoration: underline;
+
     &:hover {
       color: #222020;
     }
@@ -79,7 +82,7 @@ export default function Home({ data }) {
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>
           </div>
-          <div className="hero--banner order-1 order-lg-2 col-lg">
+          <div className="hero--banner order-1 order-lg-2 col-lg offset-md-3 offset-lg-0">
             <GatsbyImage
               image={data.file.childImageSharp.gatsbyImageData}
               alt="site banner"
@@ -94,7 +97,7 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query Banner {
-    file(relativePath: { eq: "banner.png" }) {
+    file(relativePath: { eq: "banner2.webp" }) {
       childImageSharp {
         gatsbyImageData
       }
