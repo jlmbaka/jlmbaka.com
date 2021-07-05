@@ -69,11 +69,11 @@ export default function Home({ data }) {
             <h1>Jean-Louis Mbaka</h1>
             <Paragraph>
               I'm a Co-Founder at{" "}
-              <a href="https://kinshasadigital.com" target="__blank">
+              <a href="https://kinshasadigital.com" target="_blank">
                 Kinshasa Digital
               </a>{" "}
               and Managing Director of{" "}
-              <a href="https://kinshasadigital.academy" target="__blank">
+              <a href="https://kinshasadigital.academy" target="_blank">
                 Kinshasa Digital Academy
               </a>
             </Paragraph>
