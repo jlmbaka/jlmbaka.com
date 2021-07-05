@@ -82,7 +82,6 @@ const Footer = () => (
       <footer>
         <div className="footer__container">
           <p>© 2021 Jean-Louis Mbaka</p>
-          <p>hello@jlmbaka.com</p>
           <p>Kinshasa, DRC</p>
         </div>
       </footer>

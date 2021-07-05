@@ -77,7 +77,7 @@ export default function Home({ data }) {
                 Kinshasa Digital Academy
               </a>
             </Paragraph>
-            <Button to="/contacts">
+            <Button to="https://www.linkedin.com/in/jlmbaka/" target="_blank">
               Contact Me
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>

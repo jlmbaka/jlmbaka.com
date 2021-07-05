@@ -313,24 +313,81 @@ const PageNavItem = styled(({ children, to, className }) => (
   }
 `
 
+const SocialPageNavItem = styled(({ children, to, className }) => (
+  <li className={className}>
+    <a className="page-nav__link" href={to} target="_blank">
+      {children}
+    </a>
+  </li>
+))`
+  margin-right: 81px;
+
+  @media (max-width: 1199px) {
+    margin-right: 60px;
+  }
+
+  @media (max-width: 991px) {
+    margin-right: 40px;
+  }
+
+  @media (max-width: 961px) {
+    margin-right: 30px;
+  }
+
+  @media (max-width: 907px) {
+    margin-right: 20px;
+  }
+
+  @media (max-width: 806px) {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 767px) {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 7px;
+    font-size: 24px;
+    line-height: 40px;
+    color: #000000;
+  }
+`
+
 const PageNav = () => (
   <ul className="page-nav list">
-    <PageNavItem to="/">Home</PageNavItem>
-    <PageNavItem to="/blog">Blog</PageNavItem>
-    <PageNavItem to="/projects">Projects</PageNavItem>
-    <PageNavItem to="/about">About</PageNavItem>
-    <PageNavItem to="/contacts">Contacts</PageNavItem>
+    {false && (
+      <>
+        <PageNavItem to="/">Home</PageNavItem>
+        <PageNavItem to="/blog">Blog</PageNavItem>
+        <PageNavItem to="/projects">Projects</PageNavItem>
+        <PageNavItem to="/about">About</PageNavItem>
+        <PageNavItem to="/contacts">Contacts</PageNavItem>
+      </>
+    )}
   </ul>
 )
 
 const MobileNav = styled(({ className }) => (
   <div className={classNames(className)}>
     <ul className="page-nav list page-nav--mobile">
-      <PageNavItem to="/">Home</PageNavItem>
-      <PageNavItem to="/blog">Blog</PageNavItem>
-      <PageNavItem to="/projects">Projects</PageNavItem>
-      <PageNavItem to="/about">About</PageNavItem>
-      <PageNavItem to="/contacts">Contacts</PageNavItem>
+      <SocialPageNavItem to="https://github.com/jlmbaka">
+        Github
+      </SocialPageNavItem>
+      <SocialPageNavItem to="https://twitter.com/jlmbaka">
+        Twitter
+      </SocialPageNavItem>{" "}
+      <SocialPageNavItem to="https://www.linkedin.com/in/jlmbaka/">
+        LinkedIn
+      </SocialPageNavItem>
+      {false && (
+        <>
+          <PageNavItem to="/">Home</PageNavItem>
+          <PageNavItem to="/blog">Blog</PageNavItem>
+          <PageNavItem to="/projects">Projects</PageNavItem>
+          <PageNavItem to="/about">About</PageNavItem>
+          <PageNavItem to="/contacts">Contacts</PageNavItem>
+        </>
+      )}
     </ul>
   </div>
 ))`
@@ -359,7 +416,7 @@ const Logo = ({ title }) => (
 
 const SocialNavListItem = styled(({ icon, to, className }) => (
   <li className="social-nav__item">
-    <a target="_ blank" href={to} rel="nofollow">
+    <a target="_blank" href={to} rel="nofollow">
       <FontAwesomeIcon
         icon={icon}
         color="black"
