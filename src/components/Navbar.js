@@ -359,14 +359,14 @@ const Logo = ({ title }) => (
 
 const SocialNavListItem = styled(({ icon, to, className }) => (
   <li className="social-nav__item">
-    <Link target="_ blank" to={to} rel="nofollow">
+    <a target="_ blank" href={to} rel="nofollow">
       <FontAwesomeIcon
         icon={icon}
         color="black"
         className={className}
         size="lg"
       />
-    </Link>
+    </a>
   </li>
 ))`
   &:hover {
