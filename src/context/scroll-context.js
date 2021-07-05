@@ -5,24 +5,19 @@ const ScrollContext = React.createContext()
 const ScrollProvider = props => {
   const [scrollPosition, setScrollPosition] = useState(0)
 
-  const isSSR = typeof window === "undefined"
+  document.addEventListener("scroll", () => {
+    setScrollPosition(window.scrollY)
+  })
 
-  if (!isSSR) {
-    document.addEventListener("scroll", () => {
-      setScrollPosition(window.scrollY)
-    })
-
-    return (
-      <ScrollContext.Provider
-        value={{
-          scrollPosition,
-        }}
-      >
-        {props.children}
-      </ScrollContext.Provider>
-    )
-  }
-  return <></>
+  return (
+    <ScrollContext.Provider
+      value={{
+        scrollPosition,
+      }}
+    >
+      {props.children}
+    </ScrollContext.Provider>
+  )
 }
 
 function useScroll() {

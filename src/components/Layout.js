@@ -90,33 +90,40 @@ const Footer = () => (
 )
 
 function Layout({ children }) {
-  const { scrollPosition } = useScroll()
-  const fixed = scrollPosition > 1
-
-  return (
-    <>
-      <GlobalStyle />
-      <MainContentWrapper>
-        <div className="row">
-          <div className="col">
-            <Navbar fixed={fixed} />
+  let fixed = false
+  try {
+    const { scrollPosition } = useScroll()
+    fixed = scrollPosition > 1
+  } finally {
+    return (
+      <>
+        <GlobalStyle />
+        <MainContentWrapper>
+          <div className="row">
+            <div className="col">
+              <Navbar fixed={fixed} />
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col">{children}</div>
-        </div>
-      </MainContentWrapper>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
-    </>
-  )
+          <div className="row">
+            <div className="col">{children}</div>
+          </div>
+        </MainContentWrapper>
+        <FooterWrapper>
+          <Footer />
+        </FooterWrapper>
+      </>
+    )
+  }
 }
 
 export default function LayoutWithScrollProvider({ children }) {
-  return (
-    <ScrollProvider>
-      <Layout>{children}</Layout>
-    </ScrollProvider>
-  )
+  const isSSR = typeof window === "undefined"
+  if (!isSSR) {
+    return (
+      <ScrollProvider>
+        <Layout>{children}</Layout>
+      </ScrollProvider>
+    )
+  }
+  return <Layout>{children}</Layout>
 }
