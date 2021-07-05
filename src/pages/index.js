@@ -97,7 +97,7 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query Banner {
-    file(relativePath: { eq: "banner2.webp" }) {
+    file(relativePath: { eq: "banner2_bw.webp" }) {
       childImageSharp {
         gatsbyImageData
       }
