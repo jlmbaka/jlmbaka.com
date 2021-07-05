@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -19,7 +19,7 @@ const Style = styled.div`
   }
 `
 
-const Button = styled(Link)`
+const Button = styled.a`
   display: inline-block;
   padding: 1rem 2rem;
   margin-top: 1.5rem;
@@ -77,7 +77,7 @@ export default function Home({ data }) {
                 Kinshasa Digital Academy
               </a>
             </Paragraph>
-            <Button to="https://www.linkedin.com/in/jlmbaka/" target="_blank">
+            <Button href="https://www.linkedin.com/in/jlmbaka/" target="_blank">
               Contact Me
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>
