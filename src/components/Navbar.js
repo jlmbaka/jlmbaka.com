@@ -359,8 +359,6 @@ const menuItems = [
   { to: "/writing", label: "Writing" },
   { to: "/reading", label: "Reading" },
   { to: "/speaking", label: "Speaking" },
-  { to: "/about", label: "About" },
-  { to: "/contacts", label: "Contacts" },
 ]
 
 const PageNav = () => (
