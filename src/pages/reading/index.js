@@ -1,16 +1,7 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../../components/Layout"
+import InternalPageLayout from "../../components/InternalPageLayout"
 import styled from "styled-components"
-
-const InternalPageLayout = styled(({ className, children }) => (
-  <div className="row">
-    <div className={`${className} col offset-md-3`}>{children}</div>
-  </div>
-))`
-  margin-top: 11rem;
-  margin-bottom: 5rem;
-`
 
 const sampleYears = [2018, 2019, 2020, 2021]
 const sampleReadings = [
@@ -65,19 +56,17 @@ const YearGroup = ({ year, items, baseUrl }) => (
 
 export default function Reading({ data }) {
   return (
-    <Layout>
-      <InternalPageLayout>
-        <h1 className="mb-5">Readings</h1>
-        {sampleYears.map(year => (
-          <YearGroup
-            year={year}
-            key={year}
-            baseUrl="reading"
-            items={sampleReadings}
-          />
-        ))}
-      </InternalPageLayout>
-    </Layout>
+    <InternalPageLayout>
+      <h1 className="mb-5">Readings</h1>
+      {sampleYears.map(year => (
+        <YearGroup
+          year={year}
+          key={year}
+          baseUrl="reading"
+          items={sampleReadings}
+        />
+      ))}
+    </InternalPageLayout>
   )
 }
 
