@@ -367,7 +367,9 @@ const PageNav = () => (
   <ul className="page-nav list">
     <>
       {menuItems.map(({ to, label }) => (
-        <PageNavItem to={to}>{label}</PageNavItem>
+        <PageNavItem to={to} key={to}>
+          {label}
+        </PageNavItem>
       ))}
     </>
   </ul>
@@ -377,7 +379,9 @@ const MobileNav = styled(({ className }) => (
   <div className={classNames(className)}>
     <ul className="page-nav list page-nav--mobile">
       {menuItems.map(({ to, label }) => (
-        <PageNavItem to={to}>{label}</PageNavItem>
+        <PageNavItem to={to} key={to}>
+          {label}
+        </PageNavItem>
       ))}
     </ul>
   </div>
