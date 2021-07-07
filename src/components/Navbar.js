@@ -353,41 +353,32 @@ const SocialPageNavItem = styled(({ children, to, className }) => (
   }
 `
 
+const menuItems = [
+  { to: "/", label: "Home" },
+  { to: "/projects", label: "Projects" },
+  { to: "/writing", label: "Writing" },
+  { to: "/reading", label: "Reading" },
+  { to: "/speaking", label: "Speaking" },
+  { to: "/about", label: "About" },
+  { to: "/contacts", label: "Contacts" },
+]
+
 const PageNav = () => (
   <ul className="page-nav list">
-    {false && (
-      <>
-        <PageNavItem to="/">Home</PageNavItem>
-        <PageNavItem to="/blog">Blog</PageNavItem>
-        <PageNavItem to="/projects">Projects</PageNavItem>
-        <PageNavItem to="/about">About</PageNavItem>
-        <PageNavItem to="/contacts">Contacts</PageNavItem>
-      </>
-    )}
+    <>
+      {menuItems.map(({ to, label }) => (
+        <PageNavItem to={to}>{label}</PageNavItem>
+      ))}
+    </>
   </ul>
 )
 
 const MobileNav = styled(({ className }) => (
   <div className={classNames(className)}>
     <ul className="page-nav list page-nav--mobile">
-      <SocialPageNavItem to="https://github.com/jlmbaka">
-        Github
-      </SocialPageNavItem>
-      <SocialPageNavItem to="https://twitter.com/jlmbaka">
-        Twitter
-      </SocialPageNavItem>{" "}
-      <SocialPageNavItem to="https://www.linkedin.com/in/jlmbaka/">
-        LinkedIn
-      </SocialPageNavItem>
-      {false && (
-        <>
-          <PageNavItem to="/">Home</PageNavItem>
-          <PageNavItem to="/blog">Blog</PageNavItem>
-          <PageNavItem to="/projects">Projects</PageNavItem>
-          <PageNavItem to="/about">About</PageNavItem>
-          <PageNavItem to="/contacts">Contacts</PageNavItem>
-        </>
-      )}
+      {menuItems.map(({ to, label }) => (
+        <PageNavItem to={to}>{label}</PageNavItem>
+      ))}
     </ul>
   </div>
 ))`
