@@ -57,12 +57,12 @@ export default function Speaking({ data }) {
     <InternalPageLayout>
       <h1 className="mb-5">I like to share.</h1>
       <p>
-        I regularly give talks on product design, strategy, accessibility,
-        inclusivity, and mathematical curiosities.
+        I am often a speaker on talks regarding products, technology, education,
+        and african development.
       </p>
       <h2>Upcoming events</h2>
       <p>No events scheduled!</p>
-      <h2>Past events</h2>
+      <h2 className="mb-3">Past events</h2>
       {speakings.map(speaking => (
         <div className="row mb-1" key={speaking.date}>
           <div className="col-3 col-md-1 text-end">{speaking.date}</div>
