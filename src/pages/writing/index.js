@@ -1,35 +1,154 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
+import ContentList from "../../components/ContentList"
 
-const writing = [
+const sampleWritings = [
   {
-    date: "06/06/19",
-    title: "Front Utah: Designing Change",
-    slides: { url: "true" },
-    video: { url: "true" },
-  },
-  { date: "10/15/18", title: "Tech Inclusion" },
-  { date: "09/18/18", title: "Design Driven NYC", video: { url: "true" } },
-  { date: "05/27/18", title: "Tech Inclusion NYC" },
-  { date: "08/15/17", title: "Data Storytelling NY" },
-  {
-    date: "11/02/16",
-    title: "Graphical Web 2016: Tiny Data Visualizations",
-    slides: { url: "true" },
+    date: "2018-01-01",
+    title: "Journey to the Edge of Reason",
+    author: "Stephen Budiansky",
+    frontmatter: { slug: "" },
+    id: 1,
   },
   {
-    date: "10/09/16",
-    title: "OpenCamp 2016: Datum Ipsum",
-    slides: { url: "true" },
+    date: "2018-01-01",
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    frontmatter: { slug: "" },
+    id: 2,
   },
-  { date: "07/21/16", title: "Brooklyn.JS: WebVR with aframe.js" },
-  { date: "01/25/16", title: "D3.js NYC: Tiny Data visualizations" },
   {
-    date: "04/18/13",
-    title: "Pecha Kucha: The Creatives Must Be Crazy",
-    video: { url: "true" },
+    date: "2018-01-01",
+    title: "Guns, Germs, and Steel",
+    author: "Jared Diamond",
+    frontmatter: { slug: "" },
+    id: 3,
   },
+  {
+    date: "2018-01-01",
+    title: "Creative Selection ",
+    author: "Ken Kocienda",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2019-01-01",
+    title: "Journey to the Edge of Reason",
+    author: "Stephen Budiansky",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2019-01-01",
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2019-01-01",
+    title: "Guns, Germs, and Steel",
+    author: "Jared Diamond",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2019-01-01",
+    title: "Creative Selection ",
+    author: "Ken Kocienda",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2020-01-01",
+    title: "Journey to the Edge of Reason",
+    author: "Stephen Budiansky",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2020-01-01",
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2020-01-01",
+    title: "Guns, Germs, and Steel",
+    author: "Jared Diamond",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2020-01-01",
+    title: "Creative Selection ",
+    author: "Ken Kocienda",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2021-01-01",
+    title: "Journey to the Edge of Reason",
+    author: "Stephen Budiansky",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2021-01-01",
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2021-01-01",
+    title: "Guns, Germs, and Steel",
+    author: "Jared Diamond",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2021-01-01",
+    title: "Creative Selection ",
+    author: "Ken Kocienda",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2016-01-01",
+    title: "Journey to the Edge of Reason",
+    author: "Stephen Budiansky",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2016-01-01",
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2016-01-01",
+    title: "Guns, Germs, and Steel",
+    author: "Jared Diamond",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2016-01-01",
+    title: "Creative Selection ",
+    author: "Ken Kocienda",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
 ]
 
 const SupportMaterial = ({ writings }) => {
@@ -53,13 +172,27 @@ const SupportMaterial = ({ writings }) => {
 }
 
 export default function Writing({ data }) {
+  const years = Array.from(
+    new Set(
+      sampleWritings.map(reading => {
+        const date = new Date(reading.date)
+        return date.getFullYear()
+      })
+    )
+  )
   return (
     <InternalPageLayout>
-      {writing.map(writing => (
-        <div className="row mb-1" key={writing.date}>
-          <div className="col-3 col-md-1 text-justify">{writing.date}</div>
-          <div className="col-9 col-md-11">{writing.title}</div>
-        </div>
+      <h1 className="mb-5">Writings</h1>
+      {years.map(year => (
+        <ContentList
+          year={year}
+          key={year}
+          baseUrl="reading"
+          showDate
+          items={sampleWritings.filter(reading =>
+            reading.date.startsWith(year)
+          )}
+        />
       ))}
     </InternalPageLayout>
   )

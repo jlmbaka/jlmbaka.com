@@ -1,6 +1,6 @@
 import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
-import YearGroup from "../../components/YearGroup"
+import ContentList from "../../components/ContentList"
 import { graphql, Link } from "gatsby"
 
 const sampleReadings = [
@@ -164,7 +164,7 @@ export default function Reading({ data }) {
     <InternalPageLayout>
       <h1 className="mb-5">Readings</h1>
       {years.map(year => (
-        <YearGroup
+        <ContentList
           year={year}
           key={year}
           baseUrl="reading"

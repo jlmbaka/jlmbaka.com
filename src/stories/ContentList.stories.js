@@ -1,37 +1,44 @@
 import React from "react"
-import YearGroup from "../components/YearGroup.js"
+import ContentList from "../components/ContentList.js"
 
 const items = [
   {
+    date: "2018-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
     frontmatter: { slug: "" },
-    id: "dfqdf",
+    id: 1,
   },
   {
+    date: "2018-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
     frontmatter: { slug: "" },
-    id: "dqfdq",
+    id: 2,
   },
   {
+    date: "2018-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
     frontmatter: { slug: "" },
-    id: "fqdfdq",
+    id: 3,
   },
   {
+    date: "2018-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
     frontmatter: { slug: "" },
-    id: "dqfqdq",
+    id: 4,
   },
 ]
 
 export default {
-  title: "YearGroup",
-  component: YearGroup,
+  title: "ContentList",
+  component: ContentList,
 }
-const Template = args => <YearGroup {...args} />
+const Template = args => <ContentList {...args} />
 export const Default = Template.bind({})
 Default.args = { year: 2021, items, baseUrl: "" }
+
+export const WithDate = Template.bind({})
+WithDate.args = { year: 2020, items, baseUrl: "", showDate: true }
