@@ -176,8 +176,13 @@ const SupportMaterial = ({ speaking }) => {
 }
 
 export default function Speaking({ data = sampleSpeakings }) {
-  const upcoming = data.filter(({ date }) => new Date(date) > new Date())
-  const past = data.filter(({ date }) => new Date(date) <= new Date())
+  const speakings = data.speakings.nodes.map(speaking => ({
+    ...speaking.frontmatter,
+    id: speaking.id,
+  }))
+  const upcoming = speakings.filter(({ date }) => new Date(date) > new Date())
+  const past = speakings.filter(({ date }) => new Date(date) <= new Date())
+
   return (
     <InternalPageLayout>
       <h1 className="mb-5">I like to share.</h1>
@@ -206,3 +211,21 @@ export default function Speaking({ data = sampleSpeakings }) {
     </InternalPageLayout>
   )
 }
+
+export const query = graphql`
+  query SpeakingPage {
+    speakings: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: ASC }
+      filter: { fileAbsolutePath: { regex: "//speakings//" } }
+    ) {
+      nodes {
+        frontmatter {
+          slug
+          title
+          date
+        }
+        id
+      }
+    }
+  }
+`

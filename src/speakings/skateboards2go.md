@@ -1,9 +1,7 @@
 ---
-title: Skateboards2Go
-stack: Vue & Firebase
+title: Rocket Launch Apparatus
 slug: skateboards-to-go
-date: 2021-02-01T00:00:00+00:00
-thumb: ../images/thumbs/skate.png
+date: 2021-09-01T00:00:00+00:00
 featuredImg: ../images/featured/skate-banner.png
 ---
 
