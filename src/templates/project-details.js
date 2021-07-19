@@ -1,26 +1,40 @@
 import React from "react"
-import Layout from "../components/Layout"
+import InternalPageLayout from "../components/InternalPageLayout"
 import { GatsbyImage } from "gatsby-plugin-image"
-import * as styles from "../styles/project-details.module.scss"
 import { graphql } from "gatsby"
+import styled from "styled-components"
+
+const Style = styled.div`
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-bottom: 40px;
+  }
+
+  .html {
+    margin-top: 40px;
+  }
+
+  .featured {
+    margin-bottom: 40px;
+  }
+`
 
 export default function ProjectsDetails({ data }) {
   const { html } = data.markdownRemark
   const { title, stack, featuredImg } = data.markdownRemark.frontmatter
   return (
-    <Layout>
-      <div className={styles.details}>
-        <h2>{title}</h2>
-        <h3>{stack}</h3>
-        <div className={styles.featured}>
+    <InternalPageLayout>
+      <Style>
+        <h1>{title}</h1>
+        <h2>{stack}</h2>
+        <div className="featured">
           <GatsbyImage image={featuredImg.childImageSharp.gatsbyImageData} />
         </div>
-        <div
-          className={styles.html}
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div>
-    </Layout>
+        <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
+      </Style>
+    </InternalPageLayout>
   )
 }
 

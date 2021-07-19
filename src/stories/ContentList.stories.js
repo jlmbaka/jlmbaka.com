@@ -6,28 +6,28 @@ const items = [
     date: "2018-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
-    frontmatter: { slug: "awesome-slug" },
+    slug: "awesome-slug",
     id: 1,
   },
   {
     date: "2018-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
-    frontmatter: { slug: "awesome-slug" },
+    slug: "awesome-slug",
     id: 2,
   },
   {
     date: "2018-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
-    frontmatter: { slug: "awesome-slug" },
+    slug: "awesome-slug",
     id: 3,
   },
   {
     date: "2018-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
-    frontmatter: { slug: "awesome-slug" },
+    slug: "awesome-slug",
     id: 4,
   },
 ]
@@ -56,6 +56,14 @@ export const WithoutSlug = Template.bind({})
 WithoutSlug.args = {
   year: 2020,
   showYear: true,
-  items: items.map(item => ({ ...item, frontmatter: { slug: "" } })),
+  items: items.map(item => ({ ...item, slug: "" })),
+  baseUrl: "",
+}
+
+export const WithoutAuthor = Template.bind({})
+WithoutAuthor.args = {
+  year: 2020,
+  showYear: true,
+  items: items.map(item => ({ ...item, author: "" })),
   baseUrl: "",
 }

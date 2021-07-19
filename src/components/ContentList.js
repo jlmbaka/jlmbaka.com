@@ -33,18 +33,17 @@ const ContentList = ({
     )}
     <div className="col-12 col-md-11">
       {items.map(item => {
-        const url =
-          item?.frontmatter?.slug && `/${baseUrl}/${item.frontmatter.slug}`
+        const url = item.slug && `/${baseUrl}/${item.slug}`
 
         return (
-          <div class="row">
+          <div class="row" key={item.id}>
             {showDate && (
               <div className="col-5 col-sm-2 col-md-auto text-justify">
                 <TextItem>{item.date}</TextItem>
               </div>
             )}
             <div className="col">
-              <div className="mb-1" key={item.id}>
+              <div className="mb-1">
                 <Resource to={url}>{item.title}</Resource>
                 {item.author && (
                   <>

@@ -1,19 +1,15 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../../components/Layout"
+import InternalPageLayout from "../../components/InternalPageLayout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 const Style = styled.div`
-  .portfolio {
-    text-align: center;
-    padding: 29vh 0 7vh 0;
-  }
-  .portfolio > h2 {
-    font-size: 3em;
-  }
-  .portfolio > h3 {
+  h2 {
     font-size: 2em;
+  }
+  h3 {
+    font-size: 1em;
     font-weight: 400;
   }
   .projects {
@@ -21,27 +17,28 @@ const Style = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 80px;
     margin: 80px 20px;
-  }
-  .projects h3 {
-    text-align: center;
-    margin: 20px auto 0px;
-    font-weight: 500;
-  }
-  .projects p {
-    color: #ccc;
-    margin-top: 4px;
+    h3 {
+      margin: 20px auto 0px;
+      font-weight: 500;
+    }
+    p {
+      color: #ccc;
+      margin-top: 4px;
+    }
   }
 `
 
 export default function Projects({ data }) {
   const projects = data.projects.nodes
-  const contact = data.contact.siteMetadata.contact
   return (
-    <Layout>
+    <InternalPageLayout>
       <Style>
-        <div className="portfolio">
-          <h2>Portfolio</h2>
-          <h3>Projects & Websites I've Created</h3>
+        <div>
+          <h1 className="mb-5">Portfolio</h1>
+          <p>
+            Side Projects I'm currently working on. For professional work, visit
+            Kinshasa Digital and Kinshasa Digital Academy.
+          </p>
           <div className="projects">
             {projects.map(project => (
               <Link
@@ -60,10 +57,9 @@ export default function Projects({ data }) {
               </Link>
             ))}
           </div>
-          <p>Like what you see ? Email me at {contact}</p>
         </div>
       </Style>
-    </Layout>
+    </InternalPageLayout>
   )
 }
 
@@ -71,6 +67,7 @@ export const query = graphql`
   query ProjectsPage {
     projects: allMarkdownRemark(
       sort: { fields: frontmatter___date, order: ASC }
+      filter: { fileAbsolutePath: { regex: "//projects//" } }
     ) {
       nodes {
         frontmatter {
