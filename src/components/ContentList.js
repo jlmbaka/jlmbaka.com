@@ -39,7 +39,9 @@ const ContentList = ({
           <div class="row" key={item.id}>
             {showDate && (
               <div className="col-5 col-sm-2 col-md-auto text-justify">
-                <TextItem>{item.date}</TextItem>
+                <TextItem>
+                  {new Intl.DateTimeFormat("en-GB").format(new Date(item.date))}
+                </TextItem>
               </div>
             )}
             <div className="col">
