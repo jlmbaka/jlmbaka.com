@@ -65,7 +65,7 @@ export default function Speaking({ data }) {
       <h2 className="mb-3">Past events</h2>
       {speakings.map(speaking => (
         <div className="row mb-1" key={speaking.date}>
-          <div className="col-3 col-md-1 text-end">{speaking.date}</div>
+          <div className="col-3 col-md-1 text-justify">{speaking.date}</div>
           <div className="col-9 col-md-11">{speaking.title}</div>
         </div>
       ))}
