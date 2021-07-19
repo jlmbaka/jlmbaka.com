@@ -152,14 +152,22 @@ const sampleReadings = [
 ]
 
 export default function Reading({ data = sampleReadings }) {
+  const readings = data.readings.nodes.map(reading => ({
+    ...reading.frontmatter,
+    id: reading.id,
+  }))
+
+  console.log(readings)
+
   const years = Array.from(
     new Set(
-      data.map(reading => {
+      readings.map(reading => {
         const date = new Date(reading.date)
         return date.getFullYear()
       })
     )
   )
+
   return (
     <InternalPageLayout>
       <h1 className="mb-5">Readings</h1>
@@ -168,36 +176,28 @@ export default function Reading({ data = sampleReadings }) {
           year={year}
           key={year}
           baseUrl="reading"
-          items={data.filter(reading => reading.date.startsWith(year))}
+          items={readings.filter(reading => reading.date.startsWith(year))}
         />
       ))}
     </InternalPageLayout>
   )
 }
 
-// export const query = graphql`
-//   query ProjectsPage {
-//     projects: allMarkdownRemark(
-//       sort: { fields: frontmatter___date, order: ASC }
-//     ) {
-//       nodes {
-//         frontmatter {
-//           slug
-//           stack
-//           title
-//           thumb {
-//             childImageSharp {
-//               gatsbyImageData
-//             }
-//           }
-//         }
-//         id
-//       }
-//     }
-//     contact: site {
-//       siteMetadata {
-//         contact
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query ReadingPage {
+    readings: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: ASC }
+      filter: { fileAbsolutePath: { regex: "//readings//" } }
+    ) {
+      nodes {
+        frontmatter {
+          slug
+          title
+          date
+          author
+        }
+        id
+      }
+    }
+  }
+`

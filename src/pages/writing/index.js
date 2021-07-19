@@ -8,7 +8,6 @@ export default function Writing({ data }) {
     ...writing.frontmatter,
     id: writing.id,
   }))
-  console.log(writings)
   const years = Array.from(
     new Set(
       writings.map(writing => {
@@ -17,6 +16,7 @@ export default function Writing({ data }) {
       })
     )
   )
+
   return (
     <InternalPageLayout>
       <h1 className="mb-5">Writings</h1>

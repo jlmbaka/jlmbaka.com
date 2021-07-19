@@ -1,9 +1,8 @@
 ---
 title: Skateboards2Go
-stack: Vue & Firebase
 slug: skateboards-to-go
 date: 2021-02-01T00:00:00+00:00
-thumb: ../images/thumbs/skate.png
+author: Zamenga Batukezanga
 featuredImg: ../images/featured/skate-banner.png
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: Retro Gaming Zone
-stack: Svelte & Firebase
 slug: retro-gaming-zone
 date: 2021-01-03T00:00:00+00:00
-thumb: ../images/thumbs/gaming.png
+author: Antoine Batukezanga
 featuredImg: ../images/featured/gaming-banner.png
 ---
 
