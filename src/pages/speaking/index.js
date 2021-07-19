@@ -1,35 +1,158 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
+import ContentList from "../../components/ContentList"
 
-const speakings = [
+const sampleSpeakings = [
   {
-    date: "06/06/19",
-    title: "Front Utah: Designing Change",
-    slides: { url: "true" },
-    video: { url: "true" },
-  },
-  { date: "10/15/18", title: "Tech Inclusion" },
-  { date: "09/18/18", title: "Design Driven NYC", video: { url: "true" } },
-  { date: "05/27/18", title: "Tech Inclusion NYC" },
-  { date: "08/15/17", title: "Data Storytelling NY" },
-  {
-    date: "11/02/16",
-    title: "Graphical Web 2016: Tiny Data Visualizations",
-    slides: { url: "true" },
+    date: "2022-01-01",
+    title: "Journey to the Edge of Reason",
+    frontmatter: { slug: "", url: "true", slides: "", video: "" },
+    id: 1,
   },
   {
-    date: "10/09/16",
-    title: "OpenCamp 2016: Datum Ipsum",
-    slides: { url: "true" },
+    date: "2022-01-01",
+    title: "Project Hail Mary",
+    frontmatter: { slug: "", slides: "", video: "" },
   },
-  { date: "07/21/16", title: "Brooklyn.JS: WebVR with aframe.js" },
-  { date: "01/25/16", title: "D3.js NYC: Tiny Data visualizations" },
   {
-    date: "04/18/13",
-    title: "Pecha Kucha: The Creatives Must Be Crazy",
-    video: { url: "true" },
+    date: "2022-01-01",
+    title: "Guns, Germs, and Steel",
+    frontmatter: { slug: "" },
+    id: 3,
   },
+  {
+    date: "2022-01-01",
+    title: "Creative Selection ",
+    frontmatter: { slug: "", url: "true", video: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2018-01-01",
+    title: "Journey to the Edge of Reason",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2018-01-01",
+    title: "Project Hail Mary",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2018-01-01",
+    title: "Guns, Germs, and Steel",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2018-01-01",
+    title: "Creative Selection ",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2019-01-01",
+    title: "Journey to the Edge of Reason",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2019-01-01",
+    title: "Project Hail Mary",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2019-01-01",
+    title: "Guns, Germs, and Steel",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2019-01-01",
+    title: "Creative Selection ",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2020-01-01",
+    title: "Journey to the Edge of Reason",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2020-01-01",
+    title: "Project Hail Mary",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2020-01-01",
+    title: "Guns, Germs, and Steel",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2020-01-01",
+    title: "Creative Selection ",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2021-01-01",
+    title: "Journey to the Edge of Reason",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2021-01-01",
+    title: "Project Hail Mary",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2021-01-01",
+    title: "Guns, Germs, and Steel",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2021-01-01",
+    title: "Creative Selection ",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
+  {
+    date: "2016-01-01",
+    title: "Journey to the Edge of Reason",
+    frontmatter: { slug: "" },
+    id: 1,
+  },
+  {
+    date: "2016-01-01",
+    title: "Project Hail Mary",
+    frontmatter: { slug: "" },
+    id: 2,
+  },
+  {
+    date: "2016-01-01",
+    title: "Guns, Germs, and Steel",
+    frontmatter: { slug: "" },
+    id: 3,
+  },
+  {
+    date: "2016-01-01",
+    title: "Creative Selection ",
+    frontmatter: { slug: "" },
+    id: 4,
+  },
+  //
 ]
 
 const SupportMaterial = ({ speaking }) => {
@@ -52,23 +175,34 @@ const SupportMaterial = ({ speaking }) => {
   }
 }
 
-export default function Speaking({ data }) {
+export default function Speaking({ data = sampleSpeakings }) {
+  const upcoming = data.filter(({ date }) => new Date(date) > new Date())
+  const past = data.filter(({ date }) => new Date(date) <= new Date())
   return (
     <InternalPageLayout>
       <h1 className="mb-5">I like to share.</h1>
       <p>
-        I am often a speaker on talks regarding products, technology, education,
-        and african development.
+        I am often a speaker on talks regarding technology, education, and DRC's
+        economical and societal development.
+        <br />
+        If you'd be interested in a workshop or lecture,{" "}
+        <a target="_blank" href="https://linkedin.com/jlmbaka">
+          let's talk
+        </a>
+        !
       </p>
       <h2>Upcoming events</h2>
-      <p>No events scheduled!</p>
+      {upcoming.length > 0 ? (
+        <ContentList items={upcoming} showYear={false} showDate={true} />
+      ) : (
+        <p>No events scheduled!</p>
+      )}
       <h2 className="mb-3">Past events</h2>
-      {speakings.map(speaking => (
-        <div className="row mb-1" key={speaking.date}>
-          <div className="col-3 col-md-1 text-justify">{speaking.date}</div>
-          <div className="col-9 col-md-11">{speaking.title}</div>
-        </div>
-      ))}
+      {past.length > 0 ? (
+        <ContentList items={past} showYear={false} showDate={true} />
+      ) : (
+        <p>No past event!</p>
+      )}
     </InternalPageLayout>
   )
 }

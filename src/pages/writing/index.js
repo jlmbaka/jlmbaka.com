@@ -8,28 +8,28 @@ const sampleWritings = [
     date: "2018-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 1,
   },
   {
     date: "2018-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 2,
   },
   {
     date: "2018-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 3,
   },
   {
     date: "2018-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 4,
   },
   //
@@ -37,28 +37,28 @@ const sampleWritings = [
     date: "2019-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 1,
   },
   {
     date: "2019-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 2,
   },
   {
     date: "2019-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 3,
   },
   {
     date: "2019-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 4,
   },
   //
@@ -66,28 +66,28 @@ const sampleWritings = [
     date: "2020-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 1,
   },
   {
     date: "2020-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 2,
   },
   {
     date: "2020-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 3,
   },
   {
     date: "2020-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 4,
   },
   //
@@ -95,28 +95,28 @@ const sampleWritings = [
     date: "2021-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 1,
   },
   {
     date: "2021-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 2,
   },
   {
     date: "2021-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 3,
   },
   {
     date: "2021-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 4,
   },
   //
@@ -124,57 +124,37 @@ const sampleWritings = [
     date: "2016-01-01",
     title: "Journey to the Edge of Reason",
     author: "Stephen Budiansky",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 1,
   },
   {
     date: "2016-01-01",
     title: "Project Hail Mary",
     author: "Andy Weir",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 2,
   },
   {
     date: "2016-01-01",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 3,
   },
   {
     date: "2016-01-01",
     title: "Creative Selection ",
     author: "Ken Kocienda",
-    frontmatter: { slug: "" },
+    frontmatter: { slug: "awesome-slug" },
     id: 4,
   },
   //
 ]
 
-const SupportMaterial = ({ writings }) => {
-  const video = writings?.video?.url
-  const slides = writings?.slides?.url
-  if (video && slides) {
-    return (
-      <span>
-        <a href={video.url}>Video</a>
-        &nbsp;&amp;&nbsp;
-        <a href={slides.url}>Slides</a>
-      </span>
-    )
-  }
-  if (video) {
-    return <a href={video.url}>Video</a>
-  }
-  if (slides) {
-    return <a href={slides.url}>Slides</a>
-  }
-}
-
-export default function Writing({ data }) {
+export default function Writing({ data = sampleWritings }) {
   const years = Array.from(
     new Set(
-      sampleWritings.map(reading => {
+      data.map(reading => {
         const date = new Date(reading.date)
         return date.getFullYear()
       })
@@ -189,9 +169,7 @@ export default function Writing({ data }) {
           key={year}
           baseUrl="reading"
           showDate
-          items={sampleWritings.filter(reading =>
-            reading.date.startsWith(year)
-          )}
+          items={data.filter(reading => reading.date.startsWith(year))}
         />
       ))}
     </InternalPageLayout>
