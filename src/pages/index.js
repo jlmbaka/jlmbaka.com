@@ -65,7 +65,7 @@ export default function Home({ data }) {
     <Layout>
       <Style>
         <section className="hero row">
-          <div className="hero--textblock order-2 order-lg-1 col-lg-4 offset-md-3">
+          <div className="hero--textblock order-2 order-lg-1 col-lg-4 col-md-9 offset-md-3">
             <h1>Jean-Louis Mbaka</h1>
             <Paragraph>
               I'm a Co-Founder at{" "}
@@ -82,7 +82,7 @@ export default function Home({ data }) {
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>
           </div>
-          <div className="hero--banner order-1 order-lg-2 col-lg-4 offset-md-3 offset-lg-0">
+          <div className="hero--banner order-1 order-lg-2 col-lg-4 col-md-9 offset-md-3 offset-lg-0">
             <GatsbyImage
               image={data.file.childImageSharp.gatsbyImageData}
               alt="site banner"

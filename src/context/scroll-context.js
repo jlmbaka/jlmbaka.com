@@ -22,9 +22,9 @@ const ScrollProvider = props => {
 
 function useScroll() {
   const context = React.useContext(ScrollContext)
-  if (context === undefined) {
-    throw new Error("useScroll must be used within a ScrollProvider")
-  }
+  // if (context === undefined) {
+  //   throw new Error("useScroll must be used within a ScrollProvider")
+  // }
   return context
 }
 
