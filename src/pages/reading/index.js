@@ -27,7 +27,7 @@ export default function Reading({ data }) {
         <ContentList
           year={year}
           key={year}
-          baseUrl="reading"
+          baseUrl="readings"
           items={readings.filter(reading => reading.date.startsWith(year))}
         />
       ))}

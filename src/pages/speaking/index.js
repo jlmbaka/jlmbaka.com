@@ -3,158 +3,6 @@ import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
 import ContentList from "../../components/ContentList"
 
-const sampleSpeakings = [
-  {
-    date: "2022-01-01",
-    title: "Journey to the Edge of Reason",
-    frontmatter: { slug: "", url: "true", slides: "", video: "" },
-    id: 1,
-  },
-  {
-    date: "2022-01-01",
-    title: "Project Hail Mary",
-    frontmatter: { slug: "", slides: "", video: "" },
-  },
-  {
-    date: "2022-01-01",
-    title: "Guns, Germs, and Steel",
-    frontmatter: { slug: "" },
-    id: 3,
-  },
-  {
-    date: "2022-01-01",
-    title: "Creative Selection ",
-    frontmatter: { slug: "", url: "true", video: "" },
-    id: 4,
-  },
-  //
-  {
-    date: "2018-01-01",
-    title: "Journey to the Edge of Reason",
-    frontmatter: { slug: "" },
-    id: 1,
-  },
-  {
-    date: "2018-01-01",
-    title: "Project Hail Mary",
-    frontmatter: { slug: "" },
-    id: 2,
-  },
-  {
-    date: "2018-01-01",
-    title: "Guns, Germs, and Steel",
-    frontmatter: { slug: "" },
-    id: 3,
-  },
-  {
-    date: "2018-01-01",
-    title: "Creative Selection ",
-    frontmatter: { slug: "" },
-    id: 4,
-  },
-  //
-  {
-    date: "2019-01-01",
-    title: "Journey to the Edge of Reason",
-    frontmatter: { slug: "" },
-    id: 1,
-  },
-  {
-    date: "2019-01-01",
-    title: "Project Hail Mary",
-    frontmatter: { slug: "" },
-    id: 2,
-  },
-  {
-    date: "2019-01-01",
-    title: "Guns, Germs, and Steel",
-    frontmatter: { slug: "" },
-    id: 3,
-  },
-  {
-    date: "2019-01-01",
-    title: "Creative Selection ",
-    frontmatter: { slug: "" },
-    id: 4,
-  },
-  //
-  {
-    date: "2020-01-01",
-    title: "Journey to the Edge of Reason",
-    frontmatter: { slug: "" },
-    id: 1,
-  },
-  {
-    date: "2020-01-01",
-    title: "Project Hail Mary",
-    frontmatter: { slug: "" },
-    id: 2,
-  },
-  {
-    date: "2020-01-01",
-    title: "Guns, Germs, and Steel",
-    frontmatter: { slug: "" },
-    id: 3,
-  },
-  {
-    date: "2020-01-01",
-    title: "Creative Selection ",
-    frontmatter: { slug: "" },
-    id: 4,
-  },
-  //
-  {
-    date: "2021-01-01",
-    title: "Journey to the Edge of Reason",
-    frontmatter: { slug: "" },
-    id: 1,
-  },
-  {
-    date: "2021-01-01",
-    title: "Project Hail Mary",
-    frontmatter: { slug: "" },
-    id: 2,
-  },
-  {
-    date: "2021-01-01",
-    title: "Guns, Germs, and Steel",
-    frontmatter: { slug: "" },
-    id: 3,
-  },
-  {
-    date: "2021-01-01",
-    title: "Creative Selection ",
-    frontmatter: { slug: "" },
-    id: 4,
-  },
-  //
-  {
-    date: "2016-01-01",
-    title: "Journey to the Edge of Reason",
-    frontmatter: { slug: "" },
-    id: 1,
-  },
-  {
-    date: "2016-01-01",
-    title: "Project Hail Mary",
-    frontmatter: { slug: "" },
-    id: 2,
-  },
-  {
-    date: "2016-01-01",
-    title: "Guns, Germs, and Steel",
-    frontmatter: { slug: "" },
-    id: 3,
-  },
-  {
-    date: "2016-01-01",
-    title: "Creative Selection ",
-    frontmatter: { slug: "" },
-    id: 4,
-  },
-  //
-]
-
 const SupportMaterial = ({ speaking }) => {
   const video = speaking?.video?.url
   const slides = speaking?.slides?.url
@@ -175,7 +23,7 @@ const SupportMaterial = ({ speaking }) => {
   }
 }
 
-export default function Speaking({ data = sampleSpeakings }) {
+export default function Speaking({ data }) {
   const speakings = data.speakings.nodes.map(speaking => ({
     ...speaking.frontmatter,
     id: speaking.id,
@@ -191,20 +39,30 @@ export default function Speaking({ data = sampleSpeakings }) {
         economical and societal development.
         <br />
         If you'd be interested in a workshop or lecture,{" "}
-        <a target="_blank" href="https://linkedin.com/jlmbaka">
+        <a target="_blank" href="https://www.linkedin.com/in/jlmbaka/">
           let's talk
         </a>
         !
       </p>
       <h2>Upcoming events</h2>
       {upcoming.length > 0 ? (
-        <ContentList items={upcoming} showYear={false} showDate={true} />
+        <ContentList
+          items={upcoming}
+          showYear={false}
+          showDate={true}
+          baseUrl="speakings"
+        />
       ) : (
         <p>No events scheduled!</p>
       )}
       <h2 className="mb-3">Past events</h2>
       {past.length > 0 ? (
-        <ContentList items={past} showYear={false} showDate={true} />
+        <ContentList
+          items={past}
+          showYear={false}
+          showDate={true}
+          baseUrl="speakings"
+        />
       ) : (
         <p>No past event!</p>
       )}
