@@ -36,9 +36,9 @@ export default function Reading({ data }) {
 }
 
 export const query = graphql`
-  query ReadingPage {
+  query ReadingsPage {
     readings: allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: ASC }
+      sort: { fields: frontmatter___date, order: DESC }
       filter: { fileAbsolutePath: { regex: "//readings//" } }
     ) {
       nodes {

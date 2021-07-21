@@ -66,7 +66,7 @@ export default function Projects({ data }) {
 export const query = graphql`
   query ProjectsPage {
     projects: allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: ASC }
+      sort: { fields: frontmatter___date, order: DESC }
       filter: { fileAbsolutePath: { regex: "//projects//" } }
     ) {
       nodes {

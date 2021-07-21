@@ -22,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     actions.createPage({
       path: `/readings/${node.frontmatter.slug}`,
-      component: path.resolve("./src/templates/project-details.js"),
+      component: path.resolve("./src/templates/reading-details.js"),
       context: { slug: node.frontmatter.slug },
     })
 
