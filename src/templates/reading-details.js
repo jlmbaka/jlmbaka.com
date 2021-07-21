@@ -35,7 +35,7 @@ export default function ReadingDetails({ data }) {
           </Featured>
         </div>
         <div className="col-12 col-lg-8">
-          <div className="d-none d-lg-block">
+          <div className="d-none d-lg-block mt-5">
             <h1>{title}</h1>
             <BookAuthor>by {author}</BookAuthor>
           </div>
