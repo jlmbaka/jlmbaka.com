@@ -158,7 +158,21 @@ const Header = styled.header`
     `}
 `
 
-export default function Navbar({ fixed }) {
+const ToggleTheme = ({ toggleTheme, isDarkTheme }) => (
+  <i onClick={toggleTheme}>
+    {isDarkTheme ? (
+      <span aria-label="Light mode" role="img">
+        🌞
+      </span>
+    ) : (
+      <span aria-label="Dark mode" role="img">
+        🌜
+      </span>
+    )}
+  </i>
+)
+
+export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
   const data = useStaticQuery(graphql`
     query SiteInfo {
       site {
@@ -190,6 +204,10 @@ export default function Navbar({ fixed }) {
             <nav className="nav-2">
               <PageNav />
               <SocialNavList />
+              <ToggleTheme
+                isDarkTheme={isDarkTheme}
+                toggleTheme={onToggleTheme}
+              />
             </nav>
           </div>
         </div>
@@ -422,7 +440,7 @@ const SocialNavListItem = styled(({ icon, to, className }) => (
   &:hover {
     svg,
     path {
-      color: black;
+      color: #000000;
       opacity: 1;
     }
   }

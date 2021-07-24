@@ -31,7 +31,10 @@ export default function ReadingDetails({ data }) {
         </div>
         <div className="col-12 order-lg-0 col-lg-4">
           <Featured>
-            <GatsbyImage image={bookCover.childImageSharp.gatsbyImageData} />
+            <GatsbyImage
+              image={bookCover.childImageSharp.gatsbyImageData}
+              alt={title}
+            />
           </Featured>
         </div>
         <div className="col-12 col-lg-8">

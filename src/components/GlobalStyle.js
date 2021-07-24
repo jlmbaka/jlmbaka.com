@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import { screen, color } from "../lib/utils"
+import { screen } from "../lib/utils"
 
 const GlobalStyle = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
@@ -8,12 +8,14 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   font-family: "Rubik", sans-serif;
-  color: ${color.primary};
 }
 
 html,
 body {
   min-height: 100%;
+  background: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.primary};
+  transition: background 0.2s ease-in, color 0.2s ease-in;
 }
 
 p {
@@ -25,12 +27,12 @@ a {
   display: inline-block;
   text-decoration: none;
   background-color: transparent;
-  color: ${color.primary};
+  color: ${({ theme }) => theme.primary};
   opacity: 0.7;
   transition: background 0.35s, border 0.35s, opacity 0.35s;
   &:hover {
     opacity: 1;
-    color: ${color.primary};
+    color: ${({ theme }) => theme.primary};
   }
 }
 

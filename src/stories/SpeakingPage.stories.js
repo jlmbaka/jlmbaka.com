@@ -1,5 +1,5 @@
 import React from "react"
-import Speaking from "../pages/speaking"
+import Speaking from "../pages/speaking/view"
 
 export default {
   title: "Speaking Page",

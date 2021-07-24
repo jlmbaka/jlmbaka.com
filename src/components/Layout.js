@@ -1,57 +1,45 @@
-import React from "react"
+import React, { useState } from "react"
 import Navbar from "./Navbar"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import { useScroll, ScrollProvider } from "../context/scroll-context.js"
 import GlobalStyle from "./GlobalStyle.js"
-import { color } from "../lib/utils"
+import { darkTheme, lightTheme } from "../lib/themes"
 
-const BaseWrapper = ({ children, className }) => (
-  <div className={`container-fluid ${className}`}>{children}</div>
-)
+import Footer from "./Footer"
+import BaseWrapper from "./BaseWrapper"
 
 const MainContentWrapper = styled(BaseWrapper)`
   min-height: 81vh;
 `
 
-const FooterWrapper = styled(BaseWrapper)`
-  min-height: 19vh;
-  background-color: ${color.primary};
-`
-
-const Footer = () => (
-  <div className="row">
-    <div className="col offset-md-1">
-      <footer>
-        <div className="footer__container">
-          <p>© 2021 Jean-Louis Mbaka</p>
-          <p>Kinshasa, DRC</p>
-        </div>
-      </footer>
-    </div>
-  </div>
-)
-
 function Layout({ children }) {
+  const [theme, setTheme] = useState("light")
+  const isDarkTheme = theme === "dark"
+  const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark")
+
   let fixed = false
   const scroll = useScroll()
   fixed = scroll?.scrollPosition > 1
+
   return (
-    <>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyle />
       <MainContentWrapper>
         <div className="row">
           <div className="col">
-            <Navbar fixed={fixed} />
+            <Navbar
+              fixed={fixed}
+              onToggleTheme={toggleTheme}
+              isDarkTheme={isDarkTheme}
+            />
           </div>
         </div>
         <div className="row">
           <div className="col">{children}</div>
         </div>
       </MainContentWrapper>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
-    </>
+      <Footer />
+    </ThemeProvider>
   )
 }
 

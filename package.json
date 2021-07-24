@@ -13,6 +13,7 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
+    "storybook-prod": "NODE_ENV=production start-storybook -p 6006 -s static",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -42,14 +43,17 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@storybook/addon-actions": "^6.3.4",
-    "@storybook/addon-essentials": "^6.3.4",
-    "@storybook/addon-links": "^6.3.4",
-    "@storybook/builder-webpack5": "^6.3.4",
-    "@storybook/manager-webpack5": "^6.3.4",
-    "@storybook/react": "^6.3.4",
+    "@storybook/addon-actions": "^6.3.5",
+    "@storybook/addon-essentials": "^6.3.5",
+    "@storybook/addon-links": "^6.3.5",
+    "@storybook/builder-webpack5": "^6.3.5",
+    "@storybook/manager-webpack5": "^6.3.5",
+    "@storybook/react": "^6.3.5",
     "babel-loader": "^8.2.2",
     "prettier": "2.2.1"
+  },
+  "resolutions": {
+    "babel-plugin-remove-graphql-queries": "2.9.14"
   },
   "repository": {
     "type": "git",

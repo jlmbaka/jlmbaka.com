@@ -7,7 +7,7 @@ const ResourceLink = styled(Link)`
 `
 
 const TextItem = styled.span`
-  color: #222020;
+  ${({ theme }) => theme.primary}
   opacity: 0.7;
 `
 
