@@ -25,11 +25,11 @@ const Paragraph = styled.p`
   color: ${({ theme }) => theme.gray};
 
   a {
-    ${({ theme }) => theme.primary}
+    ${({ theme }) => theme.primary};
     text-decoration: underline;
 
     &:hover {
-      ${({ theme }) => theme.primary}
+      ${({ theme }) => theme.primary};
     }
   }
 `
