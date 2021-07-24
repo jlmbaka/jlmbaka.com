@@ -8,6 +8,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
 import classNames from "classnames"
+import ThemeToggler from "../ThemeToggler"
 
 const Style = styled.div`
   .nav-2 {
@@ -158,20 +159,6 @@ const Header = styled.header`
     `}
 `
 
-const ToggleTheme = ({ toggleTheme, isDarkTheme }) => (
-  <i onClick={toggleTheme}>
-    {isDarkTheme ? (
-      <span aria-label="Light mode" role="img">
-        🌞
-      </span>
-    ) : (
-      <span aria-label="Dark mode" role="img">
-        🌜
-      </span>
-    )}
-  </i>
-)
-
 export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
   const data = useStaticQuery(graphql`
     query SiteInfo {
@@ -204,7 +191,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
             <nav className="nav-2">
               <PageNav />
               <SocialNavList />
-              <ToggleTheme
+              <ThemeToggler
                 isDarkTheme={isDarkTheme}
                 toggleTheme={onToggleTheme}
               />
