@@ -22,7 +22,7 @@ const Style = styled.div`
 
 const Paragraph = styled.p`
   font-size: 24px;
-  color: #b3b3b3;
+  color: ${({ theme }) => theme.gray};
 
   a {
     ${({ theme }) => theme.primary}

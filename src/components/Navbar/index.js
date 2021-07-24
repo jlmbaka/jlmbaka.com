@@ -70,7 +70,7 @@ const Style = styled.div`
     @media (max-width: 767px) {
       width: 100%;
       padding: 30px 5.555555%;
-      background: #ffffff;
+      background: ${({ theme }) => theme.secondary};
     }
 
     &__link {
@@ -246,7 +246,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
     left: 0;
     width: 22px;
     height: 2px;
-    background: #000000;
+    background: ${({ theme }) => theme.primary};
     transition: 0.35s;
     ${props =>
       props.open &&
@@ -264,7 +264,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
     left: 0;
     width: 22px;
     height: 2px;
-    background: #000000;
+    background: ${({ theme }) => theme.primary};
     transition: 0.35s;
     ${props =>
       props.open &&
@@ -282,7 +282,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
     width: 14px;
     height: 2px;
     margin-top: -1px;
-    background: #000000;
+    background: ${({ theme }) => theme.primary};
     ${props =>
       props.open &&
       css`
@@ -327,7 +327,7 @@ const PageNavItem = styled(({ children, to, className }) => (
     margin-bottom: 7px;
     font-size: 24px;
     line-height: 40px;
-    color: #000000;
+    color: ${({ theme }) => theme.primary};
   }
 `
 
@@ -367,7 +367,7 @@ const SocialPageNavItem = styled(({ children, to, className }) => (
     margin-bottom: 7px;
     font-size: 24px;
     line-height: 40px;
-    color: #000000;
+    color: ${({ theme }) => theme.primary};
   }
 `
 
@@ -440,7 +440,7 @@ const SocialNavListItem = styled(({ icon, to, className }) => (
   &:hover {
     svg,
     path {
-      color: #000000;
+      color: ${({ theme }) => theme.primary};
       opacity: 1;
     }
   }

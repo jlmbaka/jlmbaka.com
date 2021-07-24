@@ -22,7 +22,7 @@ const Style = styled.div`
       font-weight: 500;
     }
     p {
-      color: #ccc;
+      color: ${({ theme }) => theme.gray};
       margin-top: 4px;
     }
   }

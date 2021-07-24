@@ -41,7 +41,7 @@ footer {
   padding: 24px 0;
   display: block;
   p {
-    color: #bbb;
+    color: ${({ theme }) => theme.gray};
   }
 }
 
