@@ -2,11 +2,11 @@ import React from "react"
 import BaseWrapper from "./BaseWrapper"
 import styled from "styled-components"
 
-import { color } from "../lib/utils"
+import { lightTheme } from "../lib/themes"
 
 const FooterWrapper = styled(BaseWrapper)`
   min-height: 19vh;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${lightTheme.primary};
 `
 
 const Footer = () => (

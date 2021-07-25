@@ -1,14 +1,12 @@
 import { Link, graphql, useStaticQuery } from "gatsby"
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faGithub,
-  faTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons"
-import classNames from "classnames"
 import ThemeToggler from "../ThemeToggler"
+import SocialNavList from "./SocialNavList"
+import ButtonOpenMenu from "./ButtonOpenMenu"
+import PageNav from "./PageNav"
+import MobileNav from "./MobileNav"
+import Logo from "./Logo"
 
 const Style = styled.div`
   .nav-2 {
@@ -103,7 +101,7 @@ const Style = styled.div`
     &__item {
       margin-left: 49px;
       transition: opacity 0.35s;
-      opacity: 0.3;
+      opacity: 0.7;
       &:first-of-type {
         margin-left: 0;
       }
@@ -127,7 +125,7 @@ const Header = styled.header`
   margin-bottom: auto;
   padding-top: 56px;
   padding-bottom: 27px;
-  background: white;
+  background: ${({ theme }) => theme.secondary};
   line-height: 1;
 
   @media (max-width: 767px) {
@@ -187,15 +185,17 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
             <Logo title={title} />
           </div>
           <ButtonOpenMenu onClick={handleButtonOpenMenuClick} open={open} />
-          <div className="col-md-9">
+          <div className="col-md-8">
             <nav className="nav-2">
               <PageNav />
               <SocialNavList />
-              <ThemeToggler
-                isDarkTheme={isDarkTheme}
-                toggleTheme={onToggleTheme}
-              />
             </nav>
+          </div>
+          <div className="col-md-1">
+            <ThemeToggler
+              isDarkTheme={isDarkTheme}
+              toggleTheme={onToggleTheme}
+            />
           </div>
         </div>
         <MobileNav open={open} />
@@ -203,243 +203,3 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
     </Style>
   )
 }
-
-const ButtonOpenMenu = styled(({ onClick, className }) => (
-  <button className={className} onClick={onClick}>
-    <span />
-  </button>
-))`
-  position: relative;
-  z-index: 10;
-  display: none;
-  width: 22px;
-  height: 20px;
-  margin-left: auto;
-  margin-right: 5.555555%;
-  border: 0;
-  background: none;
-  transition: 0.35s;
-
-  @media (max-width: 767px) {
-    margin-right: 0;
-    display: block;
-    margin-right: 0;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 22px;
-    height: 2px;
-    background: ${({ theme }) => theme.primary};
-    transition: 0.35s;
-    ${props =>
-      props.open &&
-      css`
-        top: 9px;
-        width: 20px;
-        transform: rotate(45deg);
-      `}
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 22px;
-    height: 2px;
-    background: ${({ theme }) => theme.primary};
-    transition: 0.35s;
-    ${props =>
-      props.open &&
-      css`
-        bottom: 9px;
-        width: 20px;
-        transform: rotate(-45deg);
-      `}
-  }
-
-  span {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 14px;
-    height: 2px;
-    margin-top: -1px;
-    background: ${({ theme }) => theme.primary};
-    ${props =>
-      props.open &&
-      css`
-        display: none;
-      `};
-  }
-`
-
-const PageNavItem = styled(({ children, to, className }) => (
-  <li className={className}>
-    <Link className="page-nav__link" activeClassName="active" to={to}>
-      {children}
-    </Link>
-  </li>
-))`
-  margin-right: 81px;
-
-  @media (max-width: 1199px) {
-    margin-right: 60px;
-  }
-
-  @media (max-width: 991px) {
-    margin-right: 40px;
-  }
-
-  @media (max-width: 961px) {
-    margin-right: 30px;
-  }
-
-  @media (max-width: 907px) {
-    margin-right: 20px;
-  }
-
-  @media (max-width: 806px) {
-    margin-right: 10px;
-  }
-
-  @media (max-width: 767px) {
-    display: block;
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 7px;
-    font-size: 24px;
-    line-height: 40px;
-    color: ${({ theme }) => theme.primary};
-  }
-`
-
-const SocialPageNavItem = styled(({ children, to, className }) => (
-  <li className={className}>
-    <a className="page-nav__link" href={to} target="_blank">
-      {children}
-    </a>
-  </li>
-))`
-  margin-right: 81px;
-
-  @media (max-width: 1199px) {
-    margin-right: 60px;
-  }
-
-  @media (max-width: 991px) {
-    margin-right: 40px;
-  }
-
-  @media (max-width: 961px) {
-    margin-right: 30px;
-  }
-
-  @media (max-width: 907px) {
-    margin-right: 20px;
-  }
-
-  @media (max-width: 806px) {
-    margin-right: 10px;
-  }
-
-  @media (max-width: 767px) {
-    display: block;
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 7px;
-    font-size: 24px;
-    line-height: 40px;
-    color: ${({ theme }) => theme.primary};
-  }
-`
-
-const menuItems = [
-  { to: "/", label: "Home" },
-  { to: "/projects", label: "Projects" },
-  { to: "/writing", label: "Writing" },
-  { to: "/reading", label: "Reading" },
-  { to: "/speaking", label: "Speaking" },
-]
-
-const PageNav = () => (
-  <ul className="page-nav list">
-    <>
-      {menuItems.map(({ to, label }) => (
-        <PageNavItem to={to} key={to}>
-          {label}
-        </PageNavItem>
-      ))}
-    </>
-  </ul>
-)
-
-const MobileNav = styled(({ className }) => (
-  <div className={classNames(className)}>
-    <ul className="page-nav list page-nav--mobile">
-      {menuItems.map(({ to, label }) => (
-        <PageNavItem to={to} key={to}>
-          {label}
-        </PageNavItem>
-      ))}
-    </ul>
-  </div>
-))`
-  display: none;
-  @media (max-width: 767px) {
-    position: fixed;
-    top: ${props => (props.open ? "77px" : "-800px")};
-    left: 0;
-    z-index: 9;
-    display: block;
-    width: 100%;
-    overflow: ${props => (props.open ? "visible" : "hidden")};
-    transition: 0.6s;
-    ${props => props.open && "height: auto"};
-  }
-  .page-nav--mobile {
-    flex-wrap: wrap;
-  }
-`
-
-const Logo = ({ title }) => (
-  <div className="logo">
-    <Link to="/">{title}</Link>
-  </div>
-)
-
-const SocialNavListItem = styled(({ icon, to, className }) => (
-  <li className="social-nav__item">
-    <a target="_blank" href={to} rel="nofollow">
-      <FontAwesomeIcon
-        icon={icon}
-        color="black"
-        className={className}
-        size="lg"
-      />
-    </a>
-  </li>
-))`
-  &:hover {
-    svg,
-    path {
-      color: ${({ theme }) => theme.primary};
-      opacity: 1;
-    }
-  }
-`
-
-const SocialNavList = () => (
-  <ul className="social-nav list">
-    <SocialNavListItem icon={faGithub} to="https://github.com/jlmbaka" />
-    <SocialNavListItem icon={faTwitter} to="https://twitter.com/jlmbaka" />
-    <SocialNavListItem
-      icon={faLinkedin}
-      to="https://www.linkedin.com/in/jlmbaka/"
-    />
-  </ul>
-)

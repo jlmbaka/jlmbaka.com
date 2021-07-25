@@ -2,18 +2,29 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { useContext } from "react"
-import { ThemeContext } from "styled-components"
+import styled, { ThemeContext } from "styled-components"
 
-const ThemeToggler = ({ toggleTheme, isDarkTheme }) => {
+const ThemeToggler = styled(({ toggleTheme, isDarkTheme, className }) => {
   const theme = useContext(ThemeContext)
   return (
     <FontAwesomeIcon
-      icon={isDarkTheme ? faMoon : faSun}
+      icon={isDarkTheme ? faSun : faMoon}
       color={theme.primary}
       size="lg"
       onClick={toggleTheme}
+      className={className}
     />
   )
-}
+})`
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    svg,
+    path {
+      color: ${({ theme }) => theme.primary};
+      opacity: 1;
+    }
+  }
+`
 
 export default ThemeToggler
