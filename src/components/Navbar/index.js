@@ -88,30 +88,6 @@ const Style = styled.div`
       justify-content: space-around;
     }
   }
-
-  .social-nav {
-    position: relative;
-    top: -5px;
-    flex: 0 0 30%;
-    width: 30%;
-    justify-content: flex-end;
-    @media (max-width: 1024px) {
-      display: none;
-    }
-    &__item {
-      margin-left: 49px;
-      transition: opacity 0.35s;
-      opacity: 0.7;
-      &:first-of-type {
-        margin-left: 0;
-      }
-    }
-    @media (max-width: 1199px) {
-      &__item {
-        margin-left: 22px;
-      }
-    }
-  }
 `
 
 const Header = styled.header`

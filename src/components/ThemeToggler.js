@@ -18,12 +18,10 @@ const ThemeToggler = styled(({ toggleTheme, isDarkTheme, className }) => {
 })`
   cursor: pointer;
   opacity: 0.5;
+  transition: opacity 0.35s, border 0.35s, opacity 0.35s;
   &:hover {
-    svg,
-    path {
-      color: ${({ theme }) => theme.primary};
-      opacity: 1;
-    }
+    color: ${({ theme }) => theme.primary};
+    opacity: 1;
   }
 `
 

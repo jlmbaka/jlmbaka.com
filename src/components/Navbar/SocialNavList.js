@@ -8,39 +8,57 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import { ThemeContext } from "styled-components"
 
-const SocialNavListItem = styled(({ icon, to, className }) => {
-  const theme = useContext(ThemeContext)
-  return (
-    <li className="social-nav__item">
-      <a target="_blank" href={to} rel="nofollow">
-        <FontAwesomeIcon
-          icon={icon}
-          color={theme.primary}
-          className={className}
-          size="lg"
-        />
-      </a>
-    </li>
-  )
-})`
-  &:hover {
-    svg,
-    path {
-      color: ${({ theme }) => theme.primary};
-      opacity: 1;
-    }
+const ListItem = styled.li`
+  margin-left: 49px;
+  transition: opacity 0.35s;
+  opacity: 0.7;
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  @media (max-width: 1199px) {
+    margin-left: 22px;
   }
 `
 
-const SocialNavList = () => (
-  <ul className="social-nav list">
+const SocialIcon = styled(FontAwesomeIcon)`
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+    opacity: 1;
+  }
+`
+
+const SocialNavListItem = ({ icon, to }) => {
+  const theme = useContext(ThemeContext)
+  return (
+    <ListItem>
+      <a target="_blank" href={to} rel="nofollow">
+        <SocialIcon icon={icon} color={theme.primary} size="lg" />
+      </a>
+    </ListItem>
+  )
+}
+
+const SocialNavList = styled.ul`
+  position: relative;
+  top: -5px;
+  flex: 0 0 30%;
+  width: 30%;
+  justify-content: flex-end;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`
+
+const SocialNav = () => (
+  <SocialNavList className="list">
     <SocialNavListItem icon={faGithub} to="https://github.com/jlmbaka" />
     <SocialNavListItem icon={faTwitter} to="https://twitter.com/jlmbaka" />
     <SocialNavListItem
       icon={faLinkedin}
       to="https://www.linkedin.com/in/jlmbaka/"
     />
-  </ul>
+  </SocialNavList>
 )
 
-export default SocialNavList
+export default SocialNav
