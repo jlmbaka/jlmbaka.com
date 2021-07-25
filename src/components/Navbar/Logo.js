@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Logo = ({ title }) => (
-  <div className="logo">
+  <i className="logo">
     <Link to="/">{title}</Link>
-  </div>
+  </i>
 )
 
 export default Logo

@@ -183,6 +183,15 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
         <div className="container-fluid row">
           <div className="col-9 col-md-2 offset-md-1">
             <Logo title={title} />
+            <div
+              className="d-inline d-sm-none ml-3"
+              style={{ marginLeft: "1rem" }}
+            >
+              <ThemeToggler
+                isDarkTheme={isDarkTheme}
+                toggleTheme={onToggleTheme}
+              />
+            </div>
           </div>
           <ButtonOpenMenu onClick={handleButtonOpenMenuClick} open={open} />
           <div className="col-md-8">
@@ -191,7 +200,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
               <SocialNavList />
             </nav>
           </div>
-          <div className="col-md-1">
+          <div className="col-md-1 d-none d-sm-block">
             <ThemeToggler
               isDarkTheme={isDarkTheme}
               toggleTheme={onToggleTheme}
