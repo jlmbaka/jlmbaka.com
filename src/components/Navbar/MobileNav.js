@@ -2,18 +2,20 @@ import React from "react"
 import styled from "styled-components"
 import classNames from "classnames"
 
+import PageNavList from "./PageNavList"
+
 import menuItems from "../../lib/menu-Items"
 import NavItem from "./NavItem"
 
 const MobileNav = styled(({ className }) => (
   <div className={classNames(className)}>
-    <ul className="page-nav list page-nav--mobile">
+    <PageNavList className="list page-nav--mobile">
       {menuItems.map(({ to, label }) => (
         <NavItem to={to} key={to}>
           {label}
         </NavItem>
       ))}
-    </ul>
+    </PageNavList>
   </div>
 ))`
   display: none;

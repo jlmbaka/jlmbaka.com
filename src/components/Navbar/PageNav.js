@@ -1,16 +1,17 @@
 import React from "react"
 import NavItem from "./NavItem"
 
+import PageNavList from "./PageNavList"
 import menuItems from "../../lib/menu-Items"
 
 const PageNav = () => (
-  <ul className="page-nav list">
+  <PageNavList className="list">
     {menuItems.map(({ to, label }) => (
       <NavItem to={to} key={to}>
         {label}
       </NavItem>
     ))}
-  </ul>
+  </PageNavList>
 )
 
 export default PageNav

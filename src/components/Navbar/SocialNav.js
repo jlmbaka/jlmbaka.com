@@ -1,12 +1,9 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faGithub,
-  faTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons"
 import { ThemeContext } from "styled-components"
+
+import socialItems from "../../lib/social-items"
 
 const ListItem = styled.li`
   margin-left: 49px;
@@ -52,12 +49,9 @@ const SocialNavList = styled.ul`
 
 const SocialNav = () => (
   <SocialNavList className="list">
-    <SocialNavListItem icon={faGithub} to="https://github.com/jlmbaka" />
-    <SocialNavListItem icon={faTwitter} to="https://twitter.com/jlmbaka" />
-    <SocialNavListItem
-      icon={faLinkedin}
-      to="https://www.linkedin.com/in/jlmbaka/"
-    />
+    {socialItems.map(({ icon, url }) => (
+      <SocialNavListItem icon={icon} to={url} />
+    ))}
   </SocialNavList>
 )
 
