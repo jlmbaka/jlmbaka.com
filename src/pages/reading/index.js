@@ -1,7 +1,7 @@
 import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
 import ContentList from "../../components/ContentList"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 export default function Reading({ data }) {
   const readings = data.readings.nodes.map(reading => ({

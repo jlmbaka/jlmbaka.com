@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Navbar from "./Navbar"
 import styled, { ThemeProvider } from "styled-components"
 import { useScroll, ScrollProvider } from "../context/scroll-context.js"

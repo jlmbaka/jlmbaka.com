@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
 import ContentList from "../../components/ContentList"

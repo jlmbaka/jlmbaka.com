@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
 html,
 body {
-  min-height: 100%;
+  /* min-height: 100%; */
   background: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.primary};
   transition: background 0.2s ease-in, color 0.2s ease-in;
