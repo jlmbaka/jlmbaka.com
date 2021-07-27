@@ -6,8 +6,8 @@ import menuItems from "../../lib/menu-Items"
 
 const PageNav = () => (
   <PageNavList className="list">
-    {menuItems.map(({ to, label }) => (
-      <NavItem to={to} key={to}>
+    {menuItems.map(({ to, label, className }) => (
+      <NavItem to={to} key={to} className={className}>
         {label}
       </NavItem>
     ))}

@@ -1,5 +1,5 @@
 const menuItems = [
-  { to: "/", label: "Home" },
+  { to: "/", label: "Home", className: "d-none d-lg-block" },
   { to: "/projects", label: "Projects" },
   { to: "/writing", label: "Writing" },
   { to: "/reading", label: "Reading" },
