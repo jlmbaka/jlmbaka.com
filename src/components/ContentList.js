@@ -27,18 +27,18 @@ const ContentList = ({
 }) => (
   <div className="row mb-4">
     {showYear && (
-      <div className="col-12 col-md-1">
+      <div className="col-12 col-md-2">
         <h2>{year}</h2>
       </div>
     )}
-    <div className="col-12 col-md-11">
+    <div className="col-12 col-md-10">
       {items.map(item => {
         const url = item.slug && `/${baseUrl}/${item.slug}`
 
         return (
           <div class="row" key={item.id}>
             {showDate && (
-              <div className="col-5 col-sm-2 col-md-auto text-justify">
+              <div className="col-5 col-sm-3 col-md-auto text-justify">
                 <TextItem>
                   {new Intl.DateTimeFormat("en-GB").format(new Date(item.date))}
                 </TextItem>

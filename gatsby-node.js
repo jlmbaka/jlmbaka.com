@@ -1,5 +1,11 @@
 const path = require("path")
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: "eval-source-map",
+  })
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query Projects {

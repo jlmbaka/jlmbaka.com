@@ -50,7 +50,7 @@ const SocialNavList = styled.ul`
 const SocialNav = () => (
   <SocialNavList className="list">
     {socialItems.map(({ icon, url }) => (
-      <SocialNavListItem icon={icon} to={url} />
+      <SocialNavListItem icon={icon} to={url} key={url} />
     ))}
   </SocialNavList>
 )

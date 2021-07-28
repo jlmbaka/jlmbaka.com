@@ -122,7 +122,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
           <div className="col-9 col-md-2 offset-md-1">
             <Logo title={title} />
             <div
-              className="d-inline d-sm-none ml-3"
+              className="d-inline d-md-none ml-3"
               style={{ marginLeft: "1rem" }}
             >
               <ThemeToggler
@@ -138,7 +138,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
               <SocialNav />
             </nav>
           </div>
-          <div className="col-md-1 d-none d-sm-block">
+          <div className="col-md-1 d-none d-md-block">
             <ThemeToggler
               isDarkTheme={isDarkTheme}
               toggleTheme={onToggleTheme}
