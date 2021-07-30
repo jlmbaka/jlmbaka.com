@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 const PageNavList = styled.ul`
+  padding-left: 0;
   flex: 0 0 70%;
   width: 70%;
 
@@ -19,14 +20,6 @@ const PageNavList = styled.ul`
     width: 100%;
     padding: 30px 5.555555%;
     background: ${({ theme }) => theme.secondary};
-  }
-
-  &__link {
-    opacity: 0.3;
-    &:hover,
-    &.active {
-      opacity: 1;
-    }
   }
 
   @media (max-width: 1024px) {

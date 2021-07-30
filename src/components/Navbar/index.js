@@ -46,7 +46,7 @@ const Style = styled.div`
   }
 
   .list {
-    padding-left: 0;
+    /* padding-left: 0; */
     list-style: none;
     display: flex;
   }

@@ -15,8 +15,10 @@ const MainContentWrapper = styled(BaseWrapper)`
 
 function Layout({ children }) {
   const [theme, themeToggler] = useDarkMode()
-  const themeMode = theme === "light" ? lightTheme : darkTheme
-  const isDarkTheme = theme === "dark"
+  // const themeMode = theme === "light" ? lightTheme : darkTheme
+  // const isDarkTheme = theme === "dark"
+  const themeMode = lightTheme
+  const isDarkTheme = "light"
 
   let fixed = false
   const scroll = useScroll()

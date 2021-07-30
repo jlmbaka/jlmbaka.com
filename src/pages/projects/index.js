@@ -34,15 +34,13 @@ export default function Projects({ data }) {
         </p>
         <div className="row">
           {projects.map(project => (
-            <Project className="col-12 col-sm-6 col-lg-4">
-              <Link
-                to={`/projects/${project.frontmatter.slug}`}
-                key={project.id}
-              >
+            <Project className="col-12 col-sm-6 col-lg-4" key={project.id}>
+              <Link to={`/projects/${project.frontmatter.slug}`}>
                 <GatsbyImage
                   image={
                     project.frontmatter.thumb.childImageSharp.gatsbyImageData
                   }
+                  alt={project.frontmatter.title}
                 />
                 <Title>{project.frontmatter.title}</Title>
                 <Stack>{project.frontmatter.stack}</Stack>

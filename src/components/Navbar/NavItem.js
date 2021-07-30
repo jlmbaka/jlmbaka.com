@@ -9,7 +9,7 @@ const NavItem = styled(({ children, to, className }) => (
     </Link>
   </li>
 ))`
-  margin-right: 81px;
+  margin-right: 3rem;
 
   @media (max-width: 1199px) {
     margin-right: 60px;
