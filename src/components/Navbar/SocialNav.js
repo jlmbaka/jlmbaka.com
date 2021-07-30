@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { ThemeContext } from "styled-components"
 
+import SocialIcon from "./SocialIcon"
 import socialItems from "../../lib/social-items"
 
 const ListItem = styled.li`
@@ -15,13 +15,6 @@ const ListItem = styled.li`
 
   @media (max-width: 1199px) {
     margin-left: 22px;
-  }
-`
-
-const SocialIcon = styled(FontAwesomeIcon)`
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-    opacity: 1;
   }
 `
 
