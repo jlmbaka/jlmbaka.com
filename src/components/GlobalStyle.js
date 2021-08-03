@@ -30,7 +30,7 @@ a {
   color: ${({ theme }) => theme.primary};
   opacity: 0.7;
   transition: background 0.35s, border 0.35s, opacity 0.35s;
-  &:hover {
+  &:hover, &:active, &.active {
     opacity: 1;
     color: ${({ theme }) => theme.primary};
   }
