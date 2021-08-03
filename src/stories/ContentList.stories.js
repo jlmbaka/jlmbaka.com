@@ -36,6 +36,7 @@ export default {
   title: "ContentList",
   component: ContentList,
 }
+
 const Template = args => <ContentList {...args} />
 export const Default = Template.bind({})
 Default.args = { year: 2021, items, baseUrl: "" }

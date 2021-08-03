@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import GlobalStyle from "../src/components/GlobalStyle"
 import { action } from "@storybook/addon-actions"
 import { ThemeProvider } from "styled-components"
-import { darkTheme, lightTheme } from "../lib/themes"
+import { darkTheme, lightTheme } from "../src/lib/themes"
 
 function configStoryBookForGatsby() {}
 
