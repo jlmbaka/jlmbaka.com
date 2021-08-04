@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, StaticQuery } from "gatsby"
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import ThemeToggler from "../ThemeToggler"
