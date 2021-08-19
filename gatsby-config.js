@@ -62,6 +62,15 @@ module.exports = {
         icon: `src/images/favicons/favicon-32x32.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Rubik:300,400,500,700`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
   ],
   siteMetadata: {
     title: "jlmbaka",
