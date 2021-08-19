@@ -36,7 +36,7 @@ const ContentList = ({
         const url = item.slug && `/${baseUrl}/${item.slug}`
 
         return (
-          <div class="row" key={item.id}>
+          <div className="row" key={item.id}>
             {showDate && (
               <div className="col-5 col-sm-3 col-md-auto text-justify">
                 <TextItem>
