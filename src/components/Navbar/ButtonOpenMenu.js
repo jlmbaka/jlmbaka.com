@@ -62,7 +62,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
   span {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 2px;
     width: 14px;
     height: 2px;
     margin-top: -1px;

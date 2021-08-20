@@ -32,6 +32,7 @@ const LogoStyle = styled.div`
 const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
+  text-transform: uppercase;
   svg {
     fill: transparent;
     stroke-width: 4px;
