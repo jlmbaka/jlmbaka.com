@@ -31,7 +31,6 @@ const SocialNavListItem = ({ icon, to }) => {
 
 const SocialNavList = styled.ul`
   position: relative;
-  top: -5px;
   flex: 0 0 30%;
   width: 30%;
   justify-content: flex-end;

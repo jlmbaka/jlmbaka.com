@@ -11,8 +11,8 @@ import Logo from "./Logo"
 const Style = styled.div`
   .nav-2 {
     display: flex;
+    align-items: center;
     position: relative;
-    top: 4px;
     margin-right: 5.555555%;
     flex-basis: 72.2222%;
     flex-grow: 0;
@@ -21,6 +21,10 @@ const Style = styled.div`
 
     @media (max-width: 767px) {
       display: none;
+    }
+
+    ul {
+      margin-bottom: 0;
     }
   }
 
@@ -46,7 +50,6 @@ const Style = styled.div`
   }
 
   .list {
-    /* padding-left: 0; */
     list-style: none;
     display: flex;
   }
@@ -120,7 +123,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
   return (
     <Style>
       <Header fixed={fixed}>
-        <div className="container-fluid row">
+        <div className="container-fluid row align-items-center">
           <div className="col-9 col-md-2 offset-md-1">
             <Logo title={title} />
             <div

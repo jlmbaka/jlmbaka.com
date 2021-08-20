@@ -18,10 +18,10 @@ const LogoStyle = styled.div`
     text-transform: uppercase;
   }
 
-  .triangle {
-    font-size: 1.5rem;
-    vertical-align: middle;
-    margin-right: 0.5rem;
+  svg {
+    fill: transparent;
+    stroke-width: 4px;
+    stroke: currentColor;
   }
 
   .title {
@@ -29,13 +29,36 @@ const LogoStyle = styled.div`
   }
 `
 
+const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  svg {
+    fill: transparent;
+    stroke-width: 4px;
+    stroke: currentColor;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+  }
+`
+
+const Triangle = () => (
+  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="25,0 50,50 0,50"></polygon>
+  </svg>
+)
+
+const Circle = () => (
+  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="20"></circle>
+  </svg>
+)
+
 const Logo = ({ title }) => (
-  <LogoStyle>
-    <Link to="/">
-      <span className="triangle">&#9651;</span>
-      <span className="title">{title}</span>
-    </Link>
-  </LogoStyle>
+  <LogoLink to="/">
+    <Circle />
+    <span className="title">{title}</span>
+  </LogoLink>
 )
 
 export default Logo
