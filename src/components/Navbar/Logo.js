@@ -43,20 +43,14 @@ const LogoLink = styled(Link)`
 `
 
 const Triangle = () => (
-  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="25,0 50,50 0,50"></polygon>
-  </svg>
-)
-
-const Circle = () => (
-  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="25" cy="25" r="20"></circle>
-  </svg>
+  <span style={{ fontSize: "2.7rem", fontWeight: 500, marginRight: ".5rem" }}>
+    &#9651;
+  </span>
 )
 
 const Logo = ({ title }) => (
   <LogoLink to="/">
-    <Circle />
+    <Triangle />
     <span className="title">{title}</span>
   </LogoLink>
 )
