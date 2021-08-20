@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-const LogoStyle = styled.span`
+const LogoStyle = styled.div`
   position: relative;
   z-index: 10;
   padding-top: 5px;
@@ -12,7 +12,7 @@ const LogoStyle = styled.span`
 
   a {
     opacity: 1;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 1rem;
     font-size: 1rem;
     text-transform: uppercase;
@@ -20,11 +20,12 @@ const LogoStyle = styled.span`
 
   .triangle {
     font-size: 2rem;
-    vertical-align: sub;
+    vertical-align: middle;
     margin-right: 0.5rem;
   }
 
   .title {
+    vertical-align: top;
   }
 `
 
