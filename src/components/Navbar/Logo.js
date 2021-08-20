@@ -19,7 +19,7 @@ const LogoStyle = styled.div`
   }
 
   .triangle {
-    font-size: 2rem;
+    font-size: 1.5rem;
     vertical-align: middle;
     margin-right: 0.5rem;
   }
