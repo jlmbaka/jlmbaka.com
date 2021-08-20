@@ -118,24 +118,26 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
     setOpen(!open)
   }
 
-  const hideThemeToggler = true
+  const hideThemeToggler = false
 
   return (
     <Style>
       <Header fixed={fixed}>
         <div className="container-fluid row align-items-center">
-          <div className="col-9 col-md-2 offset-md-1">
-            <Logo title={title} />
-            <div
-              className={
-                hideThemeToggler ? "d-none" : "d-inline d-md-none ml-3"
-              }
-              style={{ marginLeft: "1rem" }}
-            >
-              <ThemeToggler
-                isDarkTheme={isDarkTheme}
-                toggleTheme={onToggleTheme}
-              />
+          <div className="col-9 col-md-2 offset-md-1 p-1">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Logo title={title} />
+              <div
+                className={
+                  hideThemeToggler ? "d-none" : "d-inline d-md-none ml-3"
+                }
+                style={{ marginLeft: "1rem" }}
+              >
+                <ThemeToggler
+                  isDarkTheme={isDarkTheme}
+                  toggleTheme={onToggleTheme}
+                />
+              </div>
             </div>
           </div>
           <ButtonOpenMenu onClick={handleButtonOpenMenuClick} open={open} />
