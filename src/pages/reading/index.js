@@ -9,8 +9,6 @@ export default function Reading({ data }) {
     id: reading.id,
   }))
 
-  console.log(readings)
-
   const years = Array.from(
     new Set(
       readings.map(reading => {

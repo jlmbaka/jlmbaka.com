@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
 import Button from "../components/Button"
@@ -62,6 +62,18 @@ export default function Home({ data }) {
               alt="site banner"
               style={{ maxWidth: "100%" }}
             />
+          </div>
+        </section>
+        <section className="row offset-md-3">
+          <div className="col col-md-3 col-lg-4">
+            <h2>Latest essay</h2>
+            <p></p>
+            <Link to="">All writing &rarr;</Link>
+          </div>
+          <div className="col col-md-3 col-lg-4">
+            <h2>Latest talk</h2>
+            <p></p>
+            <Link to="">All speaking &rarr;</Link>
           </div>
         </section>
       </Style>

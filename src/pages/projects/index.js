@@ -29,8 +29,15 @@ export default function Projects({ data }) {
         <h1 className="mb-5">Portfolio</h1>
         <p>
           Side Projects I'm currently working on. <br />
-          For professional work, kindly visit Kinshasa Digital and Kinshasa
-          Digital Academy.
+          For professional work, kindly visit{" "}
+          <a href="https://kinshasadigital.com" target="_blank">
+            Kinshasa Digital
+          </a>{" "}
+          and{" "}
+          <a href="https://kinshasadigital.academy" target="_blank">
+            Kinshasa Digital Academy
+          </a>
+          .
         </p>
         <div className="row">
           {projects.map(project => (

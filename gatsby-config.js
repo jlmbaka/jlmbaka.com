@@ -17,6 +17,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `projects`,
         path: `${__dirname}/src/projects/`,
       },
@@ -42,14 +49,6 @@ module.exports = {
         path: `${__dirname}/src/speakings/`,
       },
     },
-    "gatsby-transformer-remark",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -66,7 +65,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Rubik:300,400,500,700`, // you can also specify font weights and styles
+          `Rubik\:300,400,500,700`, // you can also specify font weights and styles
         ],
         display: "swap",
       },
