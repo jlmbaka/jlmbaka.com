@@ -30,7 +30,10 @@ export default function ProjectsDetails({ data }) {
         <h1>{title}</h1>
         <h2>{stack}</h2>
         <div className="featured">
-          <GatsbyImage image={featuredImg.childImageSharp.gatsbyImageData} />
+          <GatsbyImage
+            image={featuredImg.childImageSharp.gatsbyImageData}
+            alt={title}
+          />
         </div>
         <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
       </Style>

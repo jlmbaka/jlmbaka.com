@@ -1,7 +1,7 @@
 import React from "react"
 import InternalPageLayout from "../components/InternalPageLayout"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 const BookAuthor = styled.h2`
@@ -26,6 +26,7 @@ export default function ReadingDetails({ data }) {
     <InternalPageLayout>
       <div className="row">
         <div className="col-12 order-lg-1 d-lg-none">
+          <Link to="/reading">&#8592; All books</Link>
           <h1>{title}</h1>
           <BookAuthor>by {author}</BookAuthor>
         </div>
@@ -39,6 +40,7 @@ export default function ReadingDetails({ data }) {
         </div>
         <div className="col-12 col-lg-8">
           <div className="d-none d-lg-block mt-5">
+            <Link to="/reading">&#8592; All books</Link>
             <h1>{title}</h1>
             <BookAuthor>by {author}</BookAuthor>
           </div>
