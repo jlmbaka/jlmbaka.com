@@ -6,6 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
+import Card from "../components/Card"
 
 const Style = styled.div`
   .hero {

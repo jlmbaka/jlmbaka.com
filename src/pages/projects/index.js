@@ -1,21 +1,8 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import InternalPageLayout from "../../components/InternalPageLayout"
-import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-
-const Title = styled.h2`
-  margin: 20px auto 0px;
-  font-weight: 500;
-  font-size: 1.5em;
-  opacity: 1;
-`
-
-const Stack = styled.p`
-  color: ${({ theme }) => theme.gray};
-  margin-top: 4px;
-  opacity: 1 !important;
-`
+import Card from "../../components/Card"
 
 const Project = styled.div`
   padding: 20px 20px;
@@ -42,16 +29,14 @@ export default function Projects({ data }) {
         <div className="row">
           {projects.map(project => (
             <Project className="col-12 col-sm-6 col-lg-4" key={project.id}>
-              <Link to={`/projects/${project.frontmatter.slug}`}>
-                <GatsbyImage
-                  image={
-                    project.frontmatter.thumb.childImageSharp.gatsbyImageData
-                  }
-                  alt={project.frontmatter.title}
-                />
-                <Title>{project.frontmatter.title}</Title>
-                <Stack>{project.frontmatter.stack}</Stack>
-              </Link>
+              <Card
+                to={`/projects/${project.frontmatter.slug}`}
+                image={
+                  project.frontmatter.thumb.childImageSharp.gatsbyImageData
+                }
+                title={project.frontmatter.title}
+                subtitle={project.frontmatter.stac}
+              />
             </Project>
           ))}
         </div>
