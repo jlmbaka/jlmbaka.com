@@ -15,7 +15,8 @@ const MainContentWrapper = styled(BaseWrapper)`
 
 function Layout({ children }) {
   const [theme, themeToggler] = useDarkMode()
-  const themeMode = theme === "light" ? lightTheme : darkTheme
+  // const themeMode = theme === "light" ? lightTheme : darkTheme
+  const themeMode = lightTheme
   const isDarkTheme = theme === "dark"
 
   let fixed = false

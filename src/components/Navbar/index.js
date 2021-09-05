@@ -118,7 +118,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
     setOpen(!open)
   }
 
-  const hideThemeToggler = false
+  const hideThemeToggler = true
 
   return (
     <Style>

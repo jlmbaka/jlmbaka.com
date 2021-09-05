@@ -68,12 +68,12 @@ export default function Home({ data }) {
           <div className="col col-md-3 col-lg-4">
             <h2>Latest essay</h2>
             <p></p>
-            <Link to="">All writing &rarr;</Link>
+            <Link to="/writing">All writing &rarr;</Link>
           </div>
           <div className="col col-md-3 col-lg-4">
             <h2>Latest talk</h2>
             <p></p>
-            <Link to="">All speaking &rarr;</Link>
+            <Link to="/speaking">All speaking &rarr;</Link>
           </div>
         </section>
       </Style>
