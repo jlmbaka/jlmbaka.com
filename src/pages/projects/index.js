@@ -35,7 +35,7 @@ export default function Projects({ data }) {
                   project.frontmatter.thumb.childImageSharp.gatsbyImageData
                 }
                 title={project.frontmatter.title}
-                subtitle={project.frontmatter.stac}
+                subtitle={project.frontmatter.stack}
               />
             </Project>
           ))}

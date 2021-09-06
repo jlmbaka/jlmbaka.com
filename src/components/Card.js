@@ -20,7 +20,7 @@ const Card = ({ to, image, title, subtitle }) => (
   <Link to={to}>
     <GatsbyImage image={image} alt={title} />
     <Title>{title}</Title>
-    <Stack>{subtitle}</Stack>
+    {subtitle && <Stack>{subtitle}</Stack>}
   </Link>
 )
 
