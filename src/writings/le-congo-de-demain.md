@@ -1,6 +1,6 @@
 ---
 title: Le sens du sacrifice pour l'emmergence du Congo de demain
-slug: conditions-etude-rdc
+slug: le-congo-de-demain
 date: 2021-02-15T00:00:00+00:00
 featuredImg: ../images/writings/ptntic.jpeg
 ---

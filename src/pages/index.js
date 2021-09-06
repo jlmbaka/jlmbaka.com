@@ -79,26 +79,26 @@ export default function Home({ data }) {
             />
           </div>
         </section>
-        <section className="row offset-md-3">
-          <div className="col-12 col-md-3 col-lg-4">
-            <h2>Latest essay</h2>
-            {latestWritings.length > 0 && (
-              <div className="col-12 col-md-3 col-lg-4">
-                <h2>Latest Essay</h2>
-                <Card
-                  to={`/writings/${latestWritings[0].frontmatter.slug}`}
-                  image={
-                    latestWritings[0].frontmatter.featuredImg.childImageSharp
-                      .gatsbyImageData
-                  }
-                  title={latestWritings[0].frontmatter.title}
-                />
-                <div>
-                  <Link to="/reading">All speakings &rarr;</Link>
-                </div>
+        <section
+          className="row offset-md-3"
+          style={{ marginTop: "7vh", marginBottom: "14vh" }}
+        >
+          {latestWritings.length > 0 && (
+            <div className="col-12 col-md-3 col-lg-4">
+              <h2>Latest Essay</h2>
+              <Card
+                to={`/writings/${latestWritings[0].frontmatter.slug}`}
+                image={
+                  latestWritings[0].frontmatter.featuredImg.childImageSharp
+                    .gatsbyImageData
+                }
+                title={latestWritings[0].frontmatter.title}
+              />
+              <div>
+                <Link to="/reading">All speakings &rarr;</Link>
               </div>
-            )}
-          </div>
+            </div>
+          )}
           {latestReadings.length > 0 && (
             <div className="col-12 col-md-3 col-lg-4">
               <h2>Latest read</h2>

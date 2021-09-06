@@ -18,7 +18,7 @@ const Stack = styled.p`
 
 const Card = ({ to, image, title, subtitle }) => (
   <Link to={to}>
-    <GatsbyImage image={image} alt={title} />
+    <GatsbyImage image={image} alt={title} aspectRatio={16 / 9} />
     <Title>{title}</Title>
     {subtitle && <Stack>{subtitle}</Stack>}
   </Link>
