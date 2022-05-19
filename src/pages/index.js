@@ -79,11 +79,11 @@ export default function Home({ data }) {
             />
           </div>
         </section>
-        <section
+        {/* <section
           className="row offset-md-3"
           style={{ marginTop: "7vh", marginBottom: "14vh" }}
         >
-          {/* {latestWritings.length > 0 && (
+          {latestWritings.length > 0 && (
             <div className="col-12 col-md-3 col-lg-4">
               <h2>Latest Essay</h2>
               <Card
@@ -98,7 +98,7 @@ export default function Home({ data }) {
                 <Link to="/reading">All speakings &rarr;</Link>
               </div>
             </div>
-          )} */}
+          )}
           {latestReadings.length > 0 && (
             <div className="col-12 col-md-3 col-lg-4">
               <h2>Latest read</h2>
@@ -115,7 +115,7 @@ export default function Home({ data }) {
               </div>
             </div>
           )}
-        </section>
+        </section> */}
       </Style>
     </Layout>
   )

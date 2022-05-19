@@ -178,6 +178,7 @@ const Template = args => <Speaking {...args} />
 // Default
 export const Default = Template.bind({})
 Default.args = { data: { speakings: { nodes: speakings } } }
+
 // Empty
 export const Empty = Template.bind({})
 Empty.args = { data: { speakings: { nodes: [] } } }
