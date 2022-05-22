@@ -1,28 +1,30 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
-import { useContext } from "react"
-import styled, { ThemeContext } from "styled-components"
+// import styled, { ThemeContext } from "styled-components"
+import { useDarkMode } from "../hooks/useDarkMode"
 
-const ThemeToggler = styled(({ toggleTheme, isDarkTheme, className }) => {
-  const theme = useContext(ThemeContext)
+const modes = {
+  light: [`Light Mode`, faSun, `dark`],
+  dark: [`Dark Mode`, faMoon, `light`],
+}
+
+const ThemeToggler = (props) => {
+  const [colorMode, setColorMode] = useDarkMode()
+  if (colorMode && ![`light`, `dark`].includes(colorMode)) {
+    console.error(`Invalid color mode: ${colorMode}`)
+  }
+
+  const [title, Icon, nextMode] = modes[colorMode]
+
   return (
     <FontAwesomeIcon
-      icon={isDarkTheme ? faSun : faMoon}
-      color={theme.primary}
+      icon={Icon}
+      // color={theme.primary}
       size="lg"
-      onClick={toggleTheme}
-      className={className}
+      onClick={() => setColorMode(nextMode)}
     />
   )
-})`
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.35s, border 0.35s, opacity 0.35s;
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-    opacity: 1;
-  }
-`
+}
 
 export default ThemeToggler

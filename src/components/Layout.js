@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components"
 import { useScroll, ScrollProvider } from "../context/scroll-context.js"
 import GlobalStyle from "./GlobalStyle.js"
 import { darkTheme, lightTheme } from "../lib/themes"
-import { useDarkMode } from "../components/useDarkMode"
+import { useDarkMode } from "../hooks/useDarkMode"
 
 import Footer from "./Footer"
 import BaseWrapper from "./BaseWrapper"
