@@ -1,8 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../components/Layout"
 import Button from "../components/Button"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
@@ -61,22 +59,15 @@ export default function Home({ data }) {
               <a href="https://kinshasadigital.com" target="_blank">
                 Kinshasa Digital
               </a>{" "}
-              and Managing Director of{" "}
+              and Managing Director of our {" "}
               <a href="https://kinshasadigital.academy" target="_blank">
-                Kinshasa Digital Academy
+                Digital Academy
               </a>
             </Paragraph>
             <Button href="https://www.linkedin.com/in/jlmbaka/" target="_blank">
               Contact Me
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>
-          </div>
-          <div className="hero--banner order-1 order-lg-2 col-lg-4 offset-md-3 offset-lg-0">
-            <GatsbyImage
-              image={data.banner.childImageSharp.gatsbyImageData}
-              alt="site banner"
-              style={{ maxWidth: "100%" }}
-            />
           </div>
         </section>
         {/* <section
