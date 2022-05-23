@@ -28,8 +28,8 @@ const ThemeToggler = () => {
   if (!colorMode) return null;
   
   const modes = {
-    dark: [faMoon, "light"],
-    light: [faSun, "dark"],
+    dark: [faSun, "light"],
+    light: [faMoon, "dark"],
   }
 
   const [ icon, nextTheme] = modes[colorMode]
