@@ -16,6 +16,7 @@ const ToggleButton = styled(({className, onClick, icon }) => (
 color: black;
 cursor: pointer;
 opacity: 0.5;
+color: var(--color-primary);
 transition: opacity 0.35s, border 0.35s, opacity 0.35s;
 &:hover {
   color: var(--color-primary);
