@@ -1,10 +1,9 @@
 import React from "react"
 import Navbar from "./Navbar"
-import styled, { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 import { useScroll, ScrollProvider } from "../context/scroll-context.js"
+import { ThemeProvider } from '../context/ThemeContext';
 import GlobalStyle from "./GlobalStyle.js"
-import { darkTheme, lightTheme } from "../lib/themes"
-import { useDarkMode } from "../hooks/useDarkMode"
 
 import Footer from "./Footer"
 import BaseWrapper from "./BaseWrapper"
@@ -14,26 +13,17 @@ const MainContentWrapper = styled(BaseWrapper)`
 `
 
 function Layout({ children }) {
-  const [theme, themeToggler] = useDarkMode()
-  // const themeMode = theme === "light" ? lightTheme : darkTheme
-  const themeMode = lightTheme
-  const isDarkTheme = theme === "dark"
-
   let fixed = false
   const scroll = useScroll()
   fixed = scroll?.scrollPosition > 1
 
   return (
-    <ThemeProvider theme={themeMode}>
+    <ThemeProvider>
       <GlobalStyle />
       <MainContentWrapper>
         <div className="row">
           <div className="col">
-            <Navbar
-              fixed={fixed}
-              onToggleTheme={themeToggler}
-              isDarkTheme={isDarkTheme}
-            />
+            <Navbar fixed={fixed} />
           </div>
         </div>
         <div className="row">

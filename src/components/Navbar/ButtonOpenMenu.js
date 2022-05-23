@@ -30,7 +30,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
     left: 0;
     width: 22px;
     height: 2px;
-    background: ${({ theme }) => theme.primary};
+    background: var(--color-primary);
     transition: 0.35s;
     ${props =>
       props.open &&
@@ -48,7 +48,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
     left: 0;
     width: 22px;
     height: 2px;
-    background: ${({ theme }) => theme.primary};
+    background: var(--color-primary);
     transition: 0.35s;
     ${props =>
       props.open &&
@@ -66,7 +66,7 @@ const ButtonOpenMenu = styled(({ onClick, className }) => (
     width: 14px;
     height: 2px;
     margin-top: -1px;
-    background: ${({ theme }) => theme.primary};
+    background: var(--color-primary);
     ${props =>
       props.open &&
       css`

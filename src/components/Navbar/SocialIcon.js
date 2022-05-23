@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const SocialIcon = styled(FontAwesomeIcon)`
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    color: var(--color-primary);
     opacity: 1;
   }
 `

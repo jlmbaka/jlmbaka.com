@@ -4,9 +4,9 @@ const Button = styled.a`
   display: inline-block;
   padding: 1rem 2rem;
   margin-top: 1.5rem;
-  color: ${({ theme }) => theme.secondary};
-  background-color: ${({ theme }) => theme.primary};
-  border: 2px solid ${({ theme }) => theme.primary};
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
   border-radius: 0;
   opacity: 1;
   
@@ -15,15 +15,15 @@ const Button = styled.a`
   }
 
   path {
-    color: ${({ theme }) => theme.secondary};
+    color: var(--color-secondary);
   }
 
   &:hover {
-    color: ${({ theme }) => theme.primary};
-    background-color: ${({ theme }) => theme.secondary};
-    border: 2px solid ${({ theme }) => theme.primary};
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-primary);
     path {
-      color: ${({ theme }) => theme.primary};
+      color: var(--color-primary);
     }
   }
 `

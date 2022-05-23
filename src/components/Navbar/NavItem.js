@@ -38,7 +38,7 @@ const NavItem = styled(({ children, to, className }) => (
     margin-bottom: 7px;
     font-size: 24px;
     line-height: 40px;
-    color: ${({ theme }) => theme.primary};
+    color: var(--color-primary);
   }
 `
 

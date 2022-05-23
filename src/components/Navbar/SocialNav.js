@@ -1,7 +1,5 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { ThemeContext } from "styled-components"
-
 import SocialIcon from "./SocialIcon"
 import socialItems from "../../lib/social-items"
 
@@ -19,11 +17,13 @@ const ListItem = styled.li`
 `
 
 const SocialNavListItem = ({ icon, to }) => {
-  const theme = useContext(ThemeContext)
   return (
     <ListItem>
       <a target="_blank" href={to} rel="nofollow">
-        <SocialIcon icon={icon} color={theme.primary} size="lg" />
+        <SocialIcon
+          icon={icon}
+          // color={theme.primary}
+          size="lg" />
       </a>
     </ListItem>
   )

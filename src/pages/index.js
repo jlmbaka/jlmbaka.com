@@ -23,14 +23,14 @@ const Style = styled.div`
 
 const Paragraph = styled.p`
   font-size: 24px;
-  color: ${({ theme }) => theme.gray};
+  color: var(--color-gray);
 
   a {
-    ${({ theme }) => theme.primary};
+    var(--color-primary);
     text-decoration: underline;
 
     &:hover {
-      ${({ theme }) => theme.primary};
+      var(--color-primary);
     }
   }
 `
@@ -51,7 +51,7 @@ export default function Home({ data }) {
   const latestWritings = data.latestWritings.nodes
   const latestReadings = data.latestReadings.nodes
   return (
-    <Layout>
+    <>
       <Style>
         <section className="hero row">
           <div className="hero--textblock order-2 order-lg-1 col-lg-4 offset-md-3">
@@ -117,7 +117,7 @@ export default function Home({ data }) {
           )}
         </section> */}
       </Style>
-    </Layout>
+    </>
   )
 }
 

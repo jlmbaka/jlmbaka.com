@@ -66,7 +66,7 @@ const Header = styled.header`
   margin-bottom: auto;
   padding-top: 56px;
   padding-bottom: 27px;
-  background: ${({ theme }) => theme.secondary};
+  background: var(--color-secondary);
   line-height: 1;
 
   @media (max-width: 767px) {
@@ -118,7 +118,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
     setOpen(!open)
   }
 
-  const hideThemeToggler = true
+  const hideThemeToggler = false
 
   return (
     <Style>
@@ -133,10 +133,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
                 }
                 style={{ marginLeft: "1rem" }}
               >
-                <ThemeToggler
-                  isDarkTheme={isDarkTheme}
-                  toggleTheme={onToggleTheme}
-                />
+                <ThemeToggler />
               </div>
             </div>
           </div>

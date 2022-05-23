@@ -11,7 +11,7 @@ const Title = styled.h2`
 `
 
 const Stack = styled.p`
-  color: ${({ theme }) => theme.gray};
+  color: var(--color-gray);
   margin-top: 4px;
   opacity: 1 !important;
 `

@@ -1,7 +1,6 @@
-import React, { useContext } from "react"
-import styled, { ThemeContext } from "styled-components"
+import React from "react"
+import styled from "styled-components"
 import classNames from "classnames"
-
 import PageNavList from "./PageNavList"
 import menuItems from "../../lib/menu-Items"
 import NavItem from "./NavItem"
@@ -12,11 +11,10 @@ const MobileSocialContainer = styled.div`
   width: 100%;
   padding-top: 1rem;
   margin-top: 0.5rem;
-  border-top: ${({ theme }) => theme.gray} 1px solid;
+  border-top: var(--color-gray) 1px solid;
 `
 
 const MobileNav = styled(({ className }) => {
-  const theme = useContext(ThemeContext)
   return (
     <div className={classNames(className)}>
       <PageNavList className="list page-nav--mobile">
@@ -29,7 +27,7 @@ const MobileNav = styled(({ className }) => {
           <MobileSocialContainer className="d-flex justify-content-between">
             {socialItems.map(({ url, icon }) => (
               <a target="_blank" href={url} rel="nofollow" key={url}>
-                <SocialIcon icon={icon} color={theme.primary} size="lg" />
+                <SocialIcon icon={icon} size="lg" />
               </a>
             ))}
           </MobileSocialContainer>

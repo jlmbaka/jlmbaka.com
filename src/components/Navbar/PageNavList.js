@@ -19,7 +19,7 @@ const PageNavList = styled.ul`
   @media (max-width: 767px) {
     width: 100%;
     padding: 30px 5.555555%;
-    background: ${({ theme }) => theme.secondary};
+    background: var(--color-secondary);
   }
 
   @media (max-width: 1024px) {

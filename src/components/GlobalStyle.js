@@ -13,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
 
 html,
 body {
-  background: ${({ theme }) => theme.secondary};
-  color: ${({ theme }) => theme.primary};
+  background: var(--color-secondary);
+  color: var(--color-primary);
   transition: background 0.2s ease-in, color 0.2s ease-in;
 }
 
@@ -27,12 +27,12 @@ a {
   display: inline-block;
   text-decoration: none;
   background-color: transparent;
-  color: ${({ theme }) => theme.primary};
+  color: var(--color-primary);
   opacity: 0.7;
   transition: background 0.35s, border 0.35s, opacity 0.35s;
   &:hover, &:active, &.active {
     opacity: 1;
-    color: ${({ theme }) => theme.primary};
+    color: var(--color-primary);
   }
 }
 
@@ -41,7 +41,7 @@ footer {
   padding: 24px 0;
   display: block;
   p {
-    color: ${({ theme }) => theme.gray};
+    color: var(--color-gray);
   }
 }
 
