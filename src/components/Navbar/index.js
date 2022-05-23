@@ -129,7 +129,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
               <Logo title={title} />
               <div
                 className={
-                  hideThemeToggler ? "d-none" : "d-inline d-md-none ml-3"
+                  hideThemeToggler ? "d-none" : "d-inline d-md-none ml-3 text-center"
                 }
                 style={{ marginLeft: "1rem" }}
               >

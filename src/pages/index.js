@@ -13,7 +13,7 @@ const Style = styled.div`
 
   .hero--textblock {
     h1 {
-      font-size: 50px;
+      font-size: 58px;
       font-weight: 400;
     }
   }
@@ -52,7 +52,8 @@ export default function Home({ data }) {
     <>
       <Style>
         <section className="hero row">
-          <div className="hero--textblock order-2 order-lg-1 col-lg-4 offset-md-3">
+          {/* <div className="hero--textblock col col-lg-4 offset-md-1 offset-lg-1 offset-xl-3"> */}
+          <div className="hero--textblock col offset-md-1 offset-xl-3 col-xl-5">
             <h1>Jean-Louis Mbaka</h1>
             <Paragraph>
               I'm a Co-Founder at{" "}
