@@ -13,10 +13,8 @@ const ContentLayout = styled(({ className, children }) => (
   margin-bottom: 5rem;
 `
 
-const InternalPageLayout = ({ children, ...rest }) => (
-  <Layout {...rest}>
+const InternalPageLayout = ({ children }) => (
     <ContentLayout>{children}</ContentLayout>
-  </Layout>
 )
 
 export default InternalPageLayout
