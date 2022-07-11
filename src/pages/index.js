@@ -1,10 +1,10 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../components/Layout"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Button from "../components/Button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
+import Card from "../components/Card"
 
 const Style = styled.div`
   .hero {
@@ -13,68 +13,55 @@ const Style = styled.div`
 
   .hero--textblock {
     h1 {
-      font-size: 50px;
+      font-size: 58px;
       font-weight: 400;
-    }
-  }
-`
-
-const Button = styled.a`
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin-top: 1.5rem;
-  color: white;
-  background-color: #222020;
-  border: 2px solid #222020;
-  border-radius: 0;
-  opacity: 1;
-  svg {
-    margin-left: 1rem;
-  }
-
-  path {
-    color: white;
-  }
-
-  &:hover {
-    color: #222020;
-    background-color: white;
-    border: 2px solid #222020;
-    path {
-      color: #222020;
     }
   }
 `
 
 const Paragraph = styled.p`
   font-size: 24px;
-  color: #b3b3b3;
+  color: var(--color-gray);
 
   a {
-    color: #222020;
+    var(--color-primary);
     text-decoration: underline;
 
     &:hover {
-      color: #222020;
+      var(--color-primary);
     }
   }
 `
 
+const LatestCard = ({ item, to, image, title }) => (
+  <div className="col-12 col-md-3 col-lg-4">
+    <h2>Latest read</h2>
+    <Card
+      to={`/reading/${item.frontmatter.slug}`}
+      image={item.frontmatter.bookCover.childImageSharp.gatsbyImageData}
+      title={item.frontmatter.title}
+    />
+    <Link to="/reading">All speaking &rarr;</Link>
+  </div>
+)
+
 export default function Home({ data }) {
+  const latestWritings = data.latestWritings.nodes
+  const latestReadings = data.latestReadings.nodes
   return (
-    <Layout>
+    <>
       <Style>
         <section className="hero row">
-          <div className="hero--textblock order-2 order-lg-1 col-lg-4 col-md-9 offset-md-3">
+          <div className="hero--textblock col offset-md-1 offset-xl-3 col-xl-5">
             <h1>Jean-Louis Mbaka</h1>
             <Paragraph>
               I'm a Co-Founder at{" "}
               <a href="https://kinshasadigital.com" target="_blank">
                 Kinshasa Digital
               </a>{" "}
-              and Managing Director of{" "}
+              and Managing Director of our {" "}
               <a href="https://kinshasadigital.academy" target="_blank">
-                Kinshasa Digital Academy
+                Digital Academy
               </a>
             </Paragraph>
             <Button href="https://www.linkedin.com/in/jlmbaka/" target="_blank">
@@ -82,24 +69,90 @@ export default function Home({ data }) {
               <FontAwesomeIcon icon={faChevronRight} color="white" />
             </Button>
           </div>
-          <div className="hero--banner order-1 order-lg-2 col-lg-4 col-md-9 offset-md-3 offset-lg-0">
-            <GatsbyImage
-              image={data.file.childImageSharp.gatsbyImageData}
-              alt="site banner"
-              style={{ maxWidth: "100%" }}
-            />
-          </div>
         </section>
+        {/* <section
+          className="row offset-md-3"
+          style={{ marginTop: "7vh", marginBottom: "14vh" }}
+        >
+          {latestWritings.length > 0 && (
+            <div className="col-12 col-md-3 col-lg-4">
+              <h2>Latest Essay</h2>
+              <Card
+                to={`/writings/${latestWritings[0].frontmatter.slug}`}
+                image={
+                  latestWritings[0].frontmatter.featuredImg.childImageSharp
+                    .gatsbyImageData
+                }
+                title={latestWritings[0].frontmatter.title}
+              />
+              <div>
+                <Link to="/reading">All speakings &rarr;</Link>
+              </div>
+            </div>
+          )}
+          {latestReadings.length > 0 && (
+            <div className="col-12 col-md-3 col-lg-4">
+              <h2>Latest read</h2>
+              <Card
+                to={`/readings/${latestReadings[0].frontmatter.slug}`}
+                image={
+                  latestReadings[0].frontmatter.bookCover.childImageSharp
+                    .gatsbyImageData
+                }
+                title={latestReadings[0].frontmatter.title}
+              />
+              <div>
+                <Link to="/reading">All readings &rarr;</Link>
+              </div>
+            </div>
+          )}
+        </section> */}
       </Style>
-    </Layout>
+    </>
   )
 }
 
 export const query = graphql`
-  query Banner {
-    file(relativePath: { eq: "banner2_bw.webp" }) {
+  query IndexPage {
+    banner: file(relativePath: { eq: "banner2_bw.webp" }) {
       childImageSharp {
         gatsbyImageData
+      }
+    }
+    latestWritings: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "//writings//" } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        frontmatter {
+          slug
+          title
+          featuredImg {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        id
+      }
+    }
+    latestReadings: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "//readings//" } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        frontmatter {
+          slug
+          title
+          bookCover {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        id
       }
     }
   }

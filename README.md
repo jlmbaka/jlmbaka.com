@@ -97,3 +97,19 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## Reference
+
+### Storybook
+
+Follow the instruction at [Setup Story book for Gatsby](https://www.gatsbyjs.com/docs/how-to/testing/visual-testing-with-storybook/) to configure Storybook for Gatsby
+If you encouter error during dependencies installation, run the following command and relaunch storybook
+
+```
+npx ci
+gatsby clean
+```
+
+Follow the instruction on this page to configure styled components for storybook:
+https://storybook.js.org/tutorials/design-systems-for-developers/react/en/build/
+https://scottspence.com/2018/04/03/styled-components/

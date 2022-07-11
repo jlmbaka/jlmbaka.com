@@ -17,16 +17,36 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `projects`,
         path: `${__dirname}/src/projects/`,
       },
     },
-    "gatsby-transformer-remark",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
+        name: `readings`,
+        path: `${__dirname}/src/readings/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `writings`,
+        path: `${__dirname}/src/writings/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `speakings`,
+        path: `${__dirname}/src/speakings/`,
       },
     },
     {
@@ -39,6 +59,15 @@ module.exports = {
         theme_color: `#0000`,
         display: `standalone`,
         icon: `src/images/favicons/favicon-32x32.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Rubik\:300,400,500,700`, // you can also specify font weights and styles
+        ],
+        display: "swap",
       },
     },
   ],

@@ -1,23 +1,54 @@
 const path = require("path")
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: "eval-source-map",
+  })
+}
+
 exports.createPages = async ({ graphql, actions }) => {
+  // Query data
   const { data } = await graphql(`
-    query Projects {
+    query DetailPageData {
       allMarkdownRemark {
         nodes {
           frontmatter {
             slug
           }
+          fileAbsolutePath
         }
       }
     }
   `)
 
-  data.allMarkdownRemark.nodes.forEach(node => {
-    actions.createPage({
-      path: `/projects/${node.frontmatter.slug}`,
-      component: path.resolve("./src/templates/project-details.js"),
-      context: { slug: node.frontmatter.slug },
-    })
+  const pages = [
+    {
+      basePath: "projects",
+      componentPath: "./src/templates/details.js",
+    },
+    {
+      basePath: "readings",
+      componentPath: "./src/templates/reading-details.js",
+    },
+    {
+      basePath: "writings",
+      componentPath: "./src/templates/details.js",
+    },
+    {
+      basePath: "speakings",
+      componentPath: "./src/templates/details.js",
+    },
+  ]
+
+  pages.forEach(({ basePath, componentPath }) => {
+    data.allMarkdownRemark.nodes
+      .filter(node => node.fileAbsolutePath.includes(`src/${basePath}`))
+      .forEach(node => {
+        actions.createPage({
+          path: `/${basePath}/${node.frontmatter.slug}`,
+          component: path.resolve(componentPath),
+          context: { slug: node.frontmatter.slug },
+        })
+      })
   })
 }
