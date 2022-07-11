@@ -4,7 +4,7 @@ stack: Python
 slug: kindle-2-notion
 date: 2021-05-01
 thumb: ../images/projects/thumbs/kindle-2-notion.png
-featuredImg: ../images/projects/kindle-2-notion.png
+featuredImg: ../images/projects/featured/kindle-2-notion.png
 ---
 
 A Python package to export all the clippings from your Kindle device to a page in Notion. Run this script whenever you plug in your Kindle device to your PC.
