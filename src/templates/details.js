@@ -21,7 +21,7 @@ const Style = styled.div`
   }
 `
 
-export default function ProjectsDetails({ data }) {
+export default function Details({ data }) {
   const { html } = data.markdownRemark
   const { title, stack, featuredImg } = data.markdownRemark.frontmatter
   return (
@@ -42,7 +42,7 @@ export default function ProjectsDetails({ data }) {
 }
 
 export const query = graphql`
-  query ProjectPage($slug: String) {
+  query DetailsPage($slug: String) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {

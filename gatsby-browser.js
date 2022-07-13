@@ -1,7 +1,17 @@
-import React from 'react';
-import Layout from './src/components/Layout';
 import "bootstrap/dist/css/bootstrap.min.css"
+import React from "react"
+import Layout from "./src/components/Layout"
+import { ThemeProvider } from "./src/context/ThemeContext"
+import { ScrollProvider } from "./src/context/scroll-context"
 
 export const wrapRootElement = ({ element }) => {
-    return <Layout>{element}</Layout>;
-};
+  return (
+    <ScrollProvider>
+      <ThemeProvider>{element}</ThemeProvider>
+    </ScrollProvider>
+  )
+}
+
+export const wrapPageElement = ({ element }) => {
+  return <Layout>{element}</Layout>
+}

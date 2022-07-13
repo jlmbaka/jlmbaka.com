@@ -1,7 +1,7 @@
 import React from "react"
-import InternalPageLayout from "../../components/InternalPageLayout"
+import InternalPageLayout from "../InternalPageLayout"
 import styled from "styled-components"
-import Card from "../../components/Card"
+import Card from "../Card"
 
 const Project = styled.div`
   padding: 20px 20px;

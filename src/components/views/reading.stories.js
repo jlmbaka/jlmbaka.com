@@ -1,5 +1,5 @@
 import React from "react"
-import Reading from "./view"
+import Reading from "./reading"
 
 export default {
   title: "Reading Page",

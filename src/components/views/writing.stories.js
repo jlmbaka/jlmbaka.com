@@ -1,5 +1,5 @@
 import React from "react"
-import Writing from "./view"
+import Writing from "./writing"
 
 export default {
   title: "Writing Page",

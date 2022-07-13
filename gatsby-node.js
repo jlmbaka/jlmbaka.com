@@ -34,10 +34,6 @@ exports.createPages = async ({ graphql, actions }) => {
       basePath: "writings",
       componentPath: "./src/templates/details.js",
     },
-    {
-      basePath: "speakings",
-      componentPath: "./src/templates/details.js",
-    },
   ]
 
   pages.forEach(({ basePath, componentPath }) => {

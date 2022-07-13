@@ -1,12 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import React from "react"
+import Layout from "./src/components/Layout"
+import { ThemeProvider } from "./src/context/ThemeContext"
+import { ScrollProvider } from "./src/context/scroll-context"
+
 import Terser from "terser"
 import {
   COLOR_MODE_KEY,
   COLORS,
   INITIAL_COLOR_MODE_CSS_PROP,
 } from "./src/lib/themes"
-import Layout from "./src/components/Layout"
 
 function setColorsByTheme() {
   const colors = "🌈"
@@ -79,6 +82,10 @@ const FallbackStyles = () => {
 export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
   setHeadComponents(<FallbackStyles />)
   setPreBodyComponents(<MagicScriptTag />)
+}
+
+export const wrapRootElement = ({ element }) => {
+  return <ThemeProvider>{element}</ThemeProvider>
 }
 
 export const wrapPageElement = ({ element }) => {

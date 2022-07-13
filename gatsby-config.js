@@ -12,8 +12,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`, // Needed for dynamic images
-    "gatsby-transformer-remark",
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,13 +42,13 @@ module.exports = {
         path: `${__dirname}/src/writings/`,
       },
     },
-    {
+    /*     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `speakings`,
         path: `${__dirname}/src/speakings/`,
       },
-    },
+    }, */
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

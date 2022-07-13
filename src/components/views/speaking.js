@@ -1,6 +1,6 @@
 import React from "react"
-import InternalPageLayout from "../../components/InternalPageLayout"
-import ContentList from "../../components/ContentList"
+import InternalPageLayout from "../InternalPageLayout"
+import ContentList from "../ContentList"
 
 export default function Speaking({ data }) {
   const speakings = data.speakings.nodes.map(speaking => ({

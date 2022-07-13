@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
-import Speaking from "./view"
 
+import Speaking from "../components/views/speaking"
 export default Speaking
 
 export const query = graphql`

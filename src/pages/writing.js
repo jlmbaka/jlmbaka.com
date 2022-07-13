@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
-import Writing from "./view"
 
+import { Writing } from "../components/views/writing"
 export default Writing
 
 export const query = graphql`

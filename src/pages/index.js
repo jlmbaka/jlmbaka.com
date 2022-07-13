@@ -1,10 +1,10 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import Button from "../components/Button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
-import Card from "../components/Card"
+// import Card from "../components/Card"
 
 const Style = styled.div`
   .hero {
@@ -32,7 +32,7 @@ const Paragraph = styled.p`
     }
   }
 `
-
+/* 
 const LatestCard = ({ item, to, image, title }) => (
   <div className="col-12 col-md-3 col-lg-4">
     <h2>Latest read</h2>
@@ -44,10 +44,10 @@ const LatestCard = ({ item, to, image, title }) => (
     <Link to="/reading">All speaking &rarr;</Link>
   </div>
 )
-
+ */
 export default function Home({ data }) {
-  const latestWritings = data.latestWritings.nodes
-  const latestReadings = data.latestReadings.nodes
+  // const latestWritings = data.latestWritings.nodes
+  // const latestReadings = data.latestReadings.nodes
   return (
     <>
       <Style>
@@ -59,7 +59,7 @@ export default function Home({ data }) {
               <a href="https://kinshasadigital.com" target="_blank">
                 Kinshasa Digital
               </a>{" "}
-              and Managing Director of our {" "}
+              and Managing Director of our{" "}
               <a href="https://kinshasadigital.academy" target="_blank">
                 Digital Academy
               </a>

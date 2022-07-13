@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from "./Layout"
 import styled from "styled-components"
 
 const ContentLayout = styled(({ className, children }) => (
@@ -14,7 +13,7 @@ const ContentLayout = styled(({ className, children }) => (
 `
 
 const InternalPageLayout = ({ children }) => (
-    <ContentLayout>{children}</ContentLayout>
+  <ContentLayout>{children}</ContentLayout>
 )
 
 export default InternalPageLayout
