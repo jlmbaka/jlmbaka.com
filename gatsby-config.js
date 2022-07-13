@@ -12,8 +12,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`, // Needed for dynamic images
-    "gatsby-transformer-remark",
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -69,10 +69,6 @@ module.exports = {
         ],
         display: "swap",
       },
-    },
-    {
-      resolve: "gatsby-plugin-exclude",
-      options: { paths: ["../src/**/*.stories.@(js|jsx|ts|tsx)"] },
     },
   ],
   siteMetadata: {
