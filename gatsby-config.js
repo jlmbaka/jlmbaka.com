@@ -42,13 +42,13 @@ module.exports = {
         path: `${__dirname}/src/writings/`,
       },
     },
-    {
+    /*     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `speakings`,
         path: `${__dirname}/src/speakings/`,
       },
-    },
+    }, */
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
