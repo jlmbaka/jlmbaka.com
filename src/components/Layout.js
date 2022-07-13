@@ -1,8 +1,7 @@
 import React from "react"
 import Navbar from "./Navbar"
 import styled from "styled-components"
-import { useScroll, ScrollProvider } from "../context/scroll-context.js"
-import { ThemeProvider } from '../context/ThemeContext';
+import { useScroll } from "../context/scroll-context.js"
 import GlobalStyle from "./GlobalStyle.js"
 
 import Footer from "./Footer"
@@ -18,7 +17,7 @@ function Layout({ children }) {
   fixed = scroll?.scrollPosition > 1
 
   return (
-    <ThemeProvider>
+    <>
       <GlobalStyle />
       <MainContentWrapper>
         <div className="row">
@@ -31,18 +30,18 @@ function Layout({ children }) {
         </div>
       </MainContentWrapper>
       <Footer />
-    </ThemeProvider>
+    </>
   )
 }
 
 export default function LayoutWithScrollProvider({ children }) {
-  const isSSR = typeof window === "undefined"
+  /*   const isSSR = typeof window === "undefined"
   if (!isSSR) {
     return (
       <ScrollProvider>
         <Layout>{children}</Layout>
       </ScrollProvider>
     )
-  }
+  } */
   return <Layout>{children}</Layout>
 }
