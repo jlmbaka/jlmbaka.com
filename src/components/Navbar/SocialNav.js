@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import SocialIcon from "./SocialIcon"
 import socialItems from "../../lib/social-items"
@@ -23,7 +23,8 @@ const SocialNavListItem = ({ icon, to }) => {
         <SocialIcon
           icon={icon}
           // color={theme.primary}
-          size="lg" />
+          size="lg"
+        />
       </a>
     </ListItem>
   )

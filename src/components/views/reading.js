@@ -1,7 +1,6 @@
 import React from "react"
-import InternalPageLayout from "../../components/InternalPageLayout"
-import ContentList from "../../components/ContentList"
-import { graphql } from "gatsby"
+import InternalPageLayout from "../InternalPageLayout"
+import ContentList from "../ContentList"
 
 export default function Reading({ data }) {
   const readings = data.readings.nodes.map(reading => ({
@@ -21,14 +20,16 @@ export default function Reading({ data }) {
   return (
     <InternalPageLayout>
       <h1 className="mb-5">Readings</h1>
-      {readings.length > 0 ? years.map(year => (
-        <ContentList
-          year={year}
-          key={year}
-          baseUrl="readings"
-          items={readings.filter(reading => reading.date.startsWith(year))}
-        />
-      )) : "My readings will appear hear. Comeback soon!"}
+      {readings.length > 0
+        ? years.map(year => (
+            <ContentList
+              year={year}
+              key={year}
+              baseUrl="readings"
+              items={readings.filter(reading => reading.date.startsWith(year))}
+            />
+          ))
+        : "My readings will appear hear. Comeback soon!"}
     </InternalPageLayout>
   )
 }

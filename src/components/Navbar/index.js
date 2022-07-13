@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import ThemeToggler from "../ThemeToggler"
@@ -129,7 +129,9 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
               <Logo title={title} />
               <div
                 className={
-                  hideThemeToggler ? "d-none" : "d-inline d-md-none ml-3 text-center"
+                  hideThemeToggler
+                    ? "d-none"
+                    : "d-inline d-md-none ml-3 text-center"
                 }
                 style={{ marginLeft: "1rem" }}
               >

@@ -1,5 +1,5 @@
 import React from "react"
-import Project from "./view"
+import Project from "./project"
 
 export default {
   title: "Project Page",

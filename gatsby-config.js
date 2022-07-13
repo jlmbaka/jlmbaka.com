@@ -70,6 +70,10 @@ module.exports = {
         display: "swap",
       },
     },
+    {
+      resolve: "gatsby-plugin-exclude",
+      options: { paths: ["../src/**/*.stories.@(js|jsx|ts|tsx)"] },
+    },
   ],
   siteMetadata: {
     title: "jlmbaka",

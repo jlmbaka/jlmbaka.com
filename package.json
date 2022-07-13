@@ -26,6 +26,7 @@
     "classnames": "^2.3.1",
     "gatsby": "^4.15.2",
     "gatsby-cli": "^4.15.1",
+    "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-fontawesome-css": "^1.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.15.1",
