@@ -98,7 +98,7 @@ const Header = styled.header`
     `}
 `
 
-export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
+export default function Navbar({ fixed }) {
   const data = useStaticQuery(graphql`
     query SiteInfo {
       site {
@@ -151,10 +151,7 @@ export default function Navbar({ fixed, onToggleTheme, isDarkTheme }) {
               hideThemeToggler ? "d-none" : "col-md-1 d-none d-md-block"
             }
           >
-            <ThemeToggler
-              isDarkTheme={isDarkTheme}
-              toggleTheme={onToggleTheme}
-            />
+            <ThemeToggler />
           </div>
         </div>
         <MobileNav open={open} />

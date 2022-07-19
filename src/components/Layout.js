@@ -11,10 +11,9 @@ const MainContentWrapper = styled(BaseWrapper)`
   min-height: 81vh;
 `
 
-function Layout({ children }) {
-  let fixed = false
+export default function Layout({ children }) {
   const scroll = useScroll()
-  fixed = scroll?.scrollPosition > 1
+  const fixed = scroll?.scrollPosition > 1
 
   return (
     <>
@@ -32,16 +31,4 @@ function Layout({ children }) {
       <Footer />
     </>
   )
-}
-
-export default function LayoutWithScrollProvider({ children }) {
-  /*   const isSSR = typeof window === "undefined"
-  if (!isSSR) {
-    return (
-      <ScrollProvider>
-        <Layout>{children}</Layout>
-      </ScrollProvider>
-    )
-  } */
-  return <Layout>{children}</Layout>
 }

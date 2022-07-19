@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import React from "react"
 import Layout from "./src/components/Layout"
 import { ThemeProvider } from "./src/context/ThemeContext"
-import { ScrollProvider } from "./src/context/scroll-context"
 
 import Terser from "terser"
 import {
@@ -11,28 +10,30 @@ import {
   INITIAL_COLOR_MODE_CSS_PROP,
 } from "./src/lib/themes"
 
-function setColorsByTheme() {
-  const colors = "🌈"
+function setColorsByTheme(
+  preferedColorKey = "dark",
+  secondaryColorKey = "light"
+) {
+  const colors = `🌈`
   const colorModeKey = "🔑"
   const colorModeCssProp = "⚡️"
 
-  const mql = window.matchMedia("(prefers-color-scheme: dark)")
+  const mql = window.matchMedia(`(prefers-color-scheme: ${preferedColorKey})`)
   const prefersDarkFromMQ = mql.matches
   const persistedPreference = localStorage.getItem(colorModeKey)
 
-  let colorMode = "light"
-
+  let colorMode = preferedColorKey
   const hasUsedToggle = typeof persistedPreference === "string"
 
   if (hasUsedToggle) {
     colorMode = persistedPreference
   } else {
-    colorMode = prefersDarkFromMQ ? "dark" : "light"
+    colorMode = prefersDarkFromMQ ? preferedColorKey : secondaryColorKey
   }
 
   const root = document.documentElement
   root.style.setProperty(colorModeCssProp, colorMode)
-  Object.entries(colors).forEach(([name, colorByTheme]) => {
+  Object.entries(JSON.parse(colors)).forEach(([name, colorByTheme]) => {
     const cssVarName = `--color-${name}`
     root.style.setProperty(cssVarName, colorByTheme[colorMode])
   })
@@ -40,12 +41,11 @@ function setColorsByTheme() {
 
 const MagicScriptTag = () => {
   const boundFn = String(setColorsByTheme)
-    .replace("'🌈'", JSON.stringify(COLORS))
+    .replace("🌈", JSON.stringify(COLORS))
     .replace("🔑", COLOR_MODE_KEY)
     .replace("⚡️", INITIAL_COLOR_MODE_CSS_PROP)
 
   let calledFunction = `(${boundFn})()`
-
   calledFunction = Terser.minify(calledFunction).code
 
   // eslint-disable-next-line react/no-danger
@@ -60,16 +60,15 @@ const MagicScriptTag = () => {
  * document, which sets default values for all of our colors.
  * Only light mode will be available for users with JS disabled.
  */
-const FallbackStyles = () => {
+const FallbackStyles = ({ preferedColorKey = "dark" }) => {
   // Create a string holding each CSS variable:
   /*
     `--color-text: black;
     --color-background: white;`
   */
-
   const cssVariableString = Object.entries(COLORS).reduce(
     (acc, [name, colorByTheme]) => {
-      return `${acc}\n--color-${name}: ${colorByTheme.light};`
+      return `${acc}\n--color-${name}: ${colorByTheme[preferedColorKey]};`
     },
     ""
   )
