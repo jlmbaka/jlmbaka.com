@@ -1,7 +1,12 @@
 import { graphql } from "gatsby"
-
+// import SEO from "../components/SEO"
 import Reading from "../components/views/reading"
-export default Reading
+// import React from "react"
+
+/* export const Head = ({}) => {
+  // const { title } = data.markdownRemark.frontmatter
+  return <SEO title="foo" />
+} */
 
 export const query = graphql`
   query ReadingsPage {
@@ -21,3 +26,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Reading

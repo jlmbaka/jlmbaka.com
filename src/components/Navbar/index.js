@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import styled, { css } from "styled-components"
 import ThemeToggler from "../ThemeToggler"
 import SocialNav from "./SocialNav"
@@ -7,6 +7,7 @@ import ButtonOpenMenu from "./ButtonOpenMenu"
 import PageNav from "./PageNav"
 import MobileNav from "./MobileNav"
 import Logo from "./Logo"
+import { useLocation } from "@reach/router"
 
 const Style = styled.div`
   .nav-2 {
@@ -98,6 +99,14 @@ const Header = styled.header`
     `}
 `
 
+const usePrevious = value => {
+  const ref = useRef()
+  useEffect(() => {
+    ref.current = value
+  })
+  return ref.current
+}
+
 export default function Navbar({ fixed }) {
   const data = useStaticQuery(graphql`
     query SiteInfo {
@@ -113,12 +122,18 @@ export default function Navbar({ fixed }) {
 
   const [open, setOpen] = useState(false)
 
+  const location = useLocation()
+  const prevLocation = usePrevious(location)
+  useEffect(() => {
+    if (location !== prevLocation) {
+      setOpen(false)
+    }
+  }, [location, prevLocation, setOpen])
+
   const handleButtonOpenMenuClick = event => {
     event.preventDefault()
     setOpen(!open)
   }
-
-  const hideThemeToggler = false
 
   return (
     <Style>
@@ -128,11 +143,7 @@ export default function Navbar({ fixed }) {
             <div style={{ display: "flex", alignItems: "center" }}>
               <Logo title={title} />
               <div
-                className={
-                  hideThemeToggler
-                    ? "d-none"
-                    : "d-inline d-md-none ml-3 text-center"
-                }
+                className="d-inline d-md-none ml-3 text-center"
                 style={{ marginLeft: "1rem" }}
               >
                 <ThemeToggler />
@@ -146,11 +157,7 @@ export default function Navbar({ fixed }) {
               <SocialNav />
             </nav>
           </div>
-          <div
-            className={
-              hideThemeToggler ? "d-none" : "col-md-1 d-none d-md-block"
-            }
-          >
+          <div className={"col-md-1 d-none d-md-block"}>
             <ThemeToggler />
           </div>
         </div>

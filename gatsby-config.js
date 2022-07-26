@@ -75,7 +75,11 @@ module.exports = {
   siteMetadata: {
     title: "jlmbaka",
     description: "Jean-Louis Mbaka's personal website",
-    copyright: "Copyright 2021 Jean-Louis Mbaka",
+    twitterUsername: "@jlmbaka",
+    image: "/banner2_bw.webp",
+    copyright: "© 2022 Jean-Louis Mbaka",
+    location: "Kinshasa, DRC",
     contact: "me@jlmbaka.com",
+    siteUrl: "https://jlmbaka.com",
   },
 }
