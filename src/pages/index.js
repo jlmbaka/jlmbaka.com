@@ -1,10 +1,10 @@
-import { graphql } from "gatsby"
 import React from "react"
+import { SEO } from "../components/SEO"
+// import { graphql } from "gatsby"
 import Button from "../components/Button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
-// import Card from "../components/Card"
 
 const Style = styled.div`
   .hero {
@@ -32,7 +32,9 @@ const Paragraph = styled.p`
     }
   }
 `
+
 /* 
+import Card from "../components/Card"
 const LatestCard = ({ item, to, image, title }) => (
   <div className="col-12 col-md-3 col-lg-4">
     <h2>Latest read</h2>
@@ -45,6 +47,7 @@ const LatestCard = ({ item, to, image, title }) => (
   </div>
 )
  */
+
 export default function Home({ data }) {
   // const latestWritings = data.latestWritings.nodes
   // const latestReadings = data.latestReadings.nodes
@@ -112,48 +115,50 @@ export default function Home({ data }) {
   )
 }
 
-export const query = graphql`
-  query IndexPage {
-    banner: file(relativePath: { eq: "banner2_bw.webp" }) {
-      childImageSharp {
-        gatsbyImageData
-      }
-    }
-    latestWritings: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//writings//" } }
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 1
-    ) {
-      nodes {
-        frontmatter {
-          slug
-          title
-          featuredImg {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        id
-      }
-    }
-    latestReadings: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//readings//" } }
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 1
-    ) {
-      nodes {
-        frontmatter {
-          slug
-          title
-          bookCover {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        id
-      }
-    }
-  }
-`
+export const Head = () => <SEO />
+
+// export const query = graphql`
+//   query IndexPage {
+//     banner: file(relativePath: { eq: "banner2_bw.webp" }) {
+//       childImageSharp {
+//         gatsbyImageData
+//       }
+//     }
+//     latestWritings: allMarkdownRemark(
+//       filter: { fileAbsolutePath: { regex: "//writings//" } }
+//       sort: { fields: frontmatter___date, order: DESC }
+//       limit: 1
+//     ) {
+//       nodes {
+//         frontmatter {
+//           slug
+//           title
+//           featuredImg {
+//             childImageSharp {
+//               gatsbyImageData
+//             }
+//           }
+//         }
+//         id
+//       }
+//     }
+//     latestReadings: allMarkdownRemark(
+//       filter: { fileAbsolutePath: { regex: "//readings//" } }
+//       sort: { fields: frontmatter___date, order: DESC }
+//       limit: 1
+//     ) {
+//       nodes {
+//         frontmatter {
+//           slug
+//           title
+//           bookCover {
+//             childImageSharp {
+//               gatsbyImageData
+//             }
+//           }
+//         }
+//         id
+//       }
+//     }
+//   }
+// `

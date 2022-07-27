@@ -2,7 +2,7 @@ import React from "react"
 import InternalPageLayout from "../InternalPageLayout"
 import ContentList from "../ContentList"
 
-function Writing({ data }) {
+export default function Writing({ data }) {
   const writings = data.writings.nodes.map(writing => ({
     ...writing.frontmatter,
     id: writing.id,
@@ -33,5 +33,3 @@ function Writing({ data }) {
     </InternalPageLayout>
   )
 }
-
-export { Writing }
