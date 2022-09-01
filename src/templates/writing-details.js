@@ -5,6 +5,8 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 
 const Style = styled.div`
+  margin-top: 11rem;
+  margin-bottom: 5rem;
   h2 {
     font-size: 1.5rem;
     font-weight: 400;
@@ -28,30 +30,35 @@ export default function WritingDetails({ data }) {
   const readingTimeText = fields.readingTime.text
 
   return (
-    <InternalPageLayout>
-      <Style>
-        <h1 className="text-center">{title}</h1>
-        <p
-          className="text-center"
-          style={{
-            color: "#6d676d",
-            fontWeight: 400,
-            marginTop: "1.75rem",
-            fontSize: "18px",
-          }}
-        >
-          {dateStr} · {readingTimeText}
-        </p>
-        <h2>{stack}</h2>
-        <div className="featured">
+    <Style>
+      <div className="col">
+        <div className="text-center" style={{ marginBottom: "5rem" }}>
+          <h1>{title}</h1>
+          <p
+            style={{
+              color: "#6d676d",
+              fontWeight: 400,
+              fontSize: "18px",
+            }}
+          >
+            {dateStr} · {readingTimeText}
+          </p>
+        </div>
+        <div className="featured text-center col col-md-10 offset-md-1">
           <GatsbyImage
             image={featuredImg?.childImageSharp?.gatsbyImageData}
             alt={title}
           />
         </div>
-        <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
-      </Style>
-    </InternalPageLayout>
+        <div className="row">
+          <div
+            className={`col col-sm-8 col-lg-8 col-xl-6 offset-md-2 offset-xl-3`}
+          >
+            <div className="html" dangerouslySetInnerHTML={{ __html: html }} />
+          </div>
+        </div>
+      </div>
+    </Style>
   )
 }
 

@@ -1,11 +1,11 @@
 ---
-title: La Matière Noire Existe-t-elle ?
+title: La Matière Noire existe-t-elle ?
 slug: does-dark-matter-really-exists
 date: 2022-09-01T00:00:00+00:00
-featuredImg: ../images/writings/main_image_star-forming_region_carina_nircam_final-5mb.jpeg
+featuredImg: ../images/writings/andromeda.jpeg
 ---
 
-Grace aux **[Lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton)**, énoncées dans son ouvrage _[Philosophiae naturalis principia mathematica](https://fr.wikipedia.org/wiki/Philosophiae_naturalis_principia_mathematica)_ en 1687, nous pouvons modeler le mouvement des planètes dans notre système solaire avec haute précision. Selon la _Loi de la gravitation universelle de Newton_, la vitesse de rotation des étoiles d’une galaxie devrait décroitre proportionnellement au carré du rayon de la galaxie telle que définie par la formule ci-dessous :
+Grace aux **[Lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton)**, énoncées dans son ouvrage _Philosophiae naturalis principia mathematica_ en 1687, nous pouvons modeler le mouvement des planètes dans notre système solaire avec haute précision. Selon la **Loi de la gravitation universelle de Newton**, la vitesse de rotation des étoiles d’une galaxie décroit proportionnellement au carré du rayon de la galaxie telle que définie par la formule ci-dessous :
 
 $$
 F = G\frac{m_1m_2}{r^2}
