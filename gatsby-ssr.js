@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css"
+import "katex/dist/katex.min.css"
 import React from "react"
 import Layout from "./src/components/Layout"
 import { ThemeProvider } from "./src/context/ThemeContext"
