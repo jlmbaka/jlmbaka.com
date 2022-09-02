@@ -81,7 +81,7 @@ const Header = styled.header`
     props.fixed &&
     css`
       padding-top: 35px;
-      border-bottom: ${rgba(cssVar("--color-gray"), 0.15)} 1px solid;
+      border-bottom: ${rgba(cssVar("--color-gray", "#000000"), 0.15)} 1px solid;
       transition: 0.35s;
 
       .logo a {
