@@ -34,7 +34,6 @@ const ContentList = ({
     <div className="col-12 col-md-10">
       {items.map(item => {
         const url = item.slug && `/${baseUrl}/${item.slug}`
-
         return (
           <div className="row" key={item.id}>
             {showDate && (

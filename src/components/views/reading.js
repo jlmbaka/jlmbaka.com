@@ -2,11 +2,18 @@ import React from "react"
 import InternalPageLayout from "../InternalPageLayout"
 import ContentList from "../ContentList"
 
-export default function Reading({ data }) {
-  const readings = data.readings.nodes.map(reading => ({
-    ...reading.frontmatter,
-    id: reading.id,
-  }))
+export default function Reading({
+  data: { currentlyReading, recentlyFinished },
+}) {
+  const readings = recentlyFinished.books.map(
+    ({ isbn, title, author, finished }) => ({
+      id: isbn,
+      date: finished,
+      title,
+      author,
+      slug: "", // TODO
+    })
+  )
 
   const years = Array.from(
     new Set(
@@ -26,7 +33,9 @@ export default function Reading({ data }) {
               year={year}
               key={year}
               baseUrl="readings"
-              items={readings.filter(reading => reading.date.startsWith(year))}
+              items={readings.filter(
+                ({ date }) => new Date(date).getFullYear() === year
+              )}
             />
           ))
         : "My readings will appear hear. Comeback soon!"}

@@ -14,6 +14,13 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: "@eligundry/gatsby-source-goodreads",
+      options: {
+        userID: "17801759-jean-louis-mbaka",
+        shelves: ["read", "currently-reading"],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
