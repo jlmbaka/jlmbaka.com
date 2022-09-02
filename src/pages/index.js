@@ -9,7 +9,7 @@ import styled from "styled-components"
 
 const Style = styled.div`
   .hero {
-    padding: 29vh 0 7vh 0;
+    padding: 24vh 0 7vh 0;
   }
 
   .hero--textblock {
@@ -46,10 +46,15 @@ export default function Home({ data }) {
             <a href="https://kinshasadigital.com" target="_blank">
               Kinshasa Digital
             </a>{" "}
-            and Managing Director of our{" "}
+            and currently lead our{" "}
             <a href="https://kinshasadigital.academy" target="_blank">
-              Digital Academy
+              Digital Academies
             </a>
+            .
+          </Paragraph>
+          <Paragraph style={{ fontSize: "22px" }}>
+            My passions are Computer Science, Deep Learning, Education, Science
+            &amp; Technology, and Social and Economical Development.
           </Paragraph>
           <Button href="https://www.linkedin.com/in/jlmbaka/" target="_blank">
             Contact Me
