@@ -8,6 +8,7 @@ import PageNav from "./PageNav"
 import MobileNav from "./MobileNav"
 import Logo from "./Logo"
 import { useLocation } from "@reach/router"
+import { rgba, cssVar } from "polished"
 
 const Style = styled.div`
   .nav-2 {
@@ -80,7 +81,7 @@ const Header = styled.header`
     props.fixed &&
     css`
       padding-top: 35px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: ${rgba(cssVar("--color-gray"), 0.15)} 1px solid;
       transition: 0.35s;
 
       .logo a {

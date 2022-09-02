@@ -6,12 +6,13 @@ import menuItems from "../../lib/menu-Items"
 import NavItem from "./NavItem"
 import socialItems from "../../lib/social-items"
 import SocialIcon from "./SocialIcon"
+import { rgba, cssVar } from "polished"
 
 const MobileSocialContainer = styled.div`
   width: 100%;
   padding-top: 1rem;
   margin-top: 0.5rem;
-  border-top: var(--color-gray) 1px solid;
+  border-top: ${rgba(cssVar("--color-gray"), 0.2)} 1px solid;
 `
 
 const MobileNav = styled(({ className }) => {
@@ -50,7 +51,11 @@ const MobileNav = styled(({ className }) => {
   }
   .page-nav--mobile {
     flex-wrap: wrap;
+    margin-bottom: 0px;
   }
+
+  border-bottom: ${rgba(cssVar("--color-gray"), 0.2)} 1px solid;
+  background-color: var(--color-background);
 `
 
 export default MobileNav
