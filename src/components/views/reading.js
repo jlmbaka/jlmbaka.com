@@ -1,6 +1,7 @@
 import React from "react"
 import InternalPageLayout from "../InternalPageLayout"
 import ContentList from "../ContentList"
+import slugify from "slugify"
 
 export default function Reading({
   data: { currentlyReading, recentlyFinished },
@@ -11,7 +12,7 @@ export default function Reading({
       date: finished,
       title,
       author,
-      slug: "", // TODO
+      slug: slugify(title),
     })
   )
 

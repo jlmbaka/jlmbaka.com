@@ -21,8 +21,7 @@ const Featured = styled.div`
 `
 
 export default function ReadingDetails({ data }) {
-  const { html } = data.markdownRemark
-  const { title, author, bookCover } = data.markdownRemark.frontmatter
+  const { title, author, coverImage } = data.goodreadsBook
   return (
     <InternalPageLayout>
       <div className="row">
@@ -34,7 +33,7 @@ export default function ReadingDetails({ data }) {
         <div className="col-12 order-lg-0 col-lg-4">
           <Featured>
             <GatsbyImage
-              image={bookCover.childImageSharp.gatsbyImageData}
+              image={coverImage.childImageSharp.gatsbyImageData}
               alt={title}
             />
           </Featured>
@@ -45,7 +44,6 @@ export default function ReadingDetails({ data }) {
             <h1>{title}</h1>
             <BookAuthor>by {author}</BookAuthor>
           </div>
-          <HTML dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </InternalPageLayout>
@@ -53,25 +51,19 @@ export default function ReadingDetails({ data }) {
 }
 
 export const query = graphql`
-  query ReadingPage($slug: String) {
-    markdownRemark(
-      fileAbsolutePath: { regex: "//readings//" }
-      frontmatter: { slug: { eq: $slug } }
-    ) {
-      html
-      frontmatter {
-        title
-        author
-        bookCover {
-          childImageSharp {
-            gatsbyImageData
-          }
+  query ReadingPage($id: String) {
+    goodreadsBook(id: { eq: $id }) {
+      id
+      title
+      author
+      coverImage {
+        id
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
   }
 `
 
-export const Head = ({ data }) => (
-  <SEO title={data?.markdownRemark?.frontmatter?.title} />
-)
+export const Head = ({ data }) => <SEO title={data?.goodreadsBook?.title} />

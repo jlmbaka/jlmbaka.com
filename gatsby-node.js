@@ -1,4 +1,5 @@
 const path = require("path")
+const slugify = require("slugify")
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -18,25 +19,26 @@ exports.createPages = async ({ graphql, actions }) => {
           fileAbsolutePath
         }
       }
+      allGoodreadsBook {
+        books: nodes {
+          title
+          id
+        }
+      }
     }
   `)
 
-  const pages = [
+  const markDownPages = [
     {
       basePath: "projects",
       componentPath: "./src/templates/details.js",
-    },
-    {
-      basePath: "readings",
-      componentPath: "./src/templates/reading-details.js",
     },
     {
       basePath: "writings",
       componentPath: "./src/templates/writing-details.js",
     },
   ]
-
-  pages.forEach(({ basePath, componentPath }) => {
+  markDownPages.forEach(({ basePath, componentPath }) => {
     data.allMarkdownRemark.nodes
       .filter(node => node.fileAbsolutePath.includes(`src/${basePath}`))
       .forEach(node => {
@@ -46,5 +48,13 @@ exports.createPages = async ({ graphql, actions }) => {
           context: { slug: node.frontmatter.slug },
         })
       })
+  })
+
+  data.allGoodreadsBook.books.forEach(book => {
+    actions.createPage({
+      path: `/readings/${slugify(book.title)}`,
+      component: path.resolve("./src/templates/reading-details.js"),
+      context: { id: book.id },
+    })
   })
 }
