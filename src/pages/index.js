@@ -1,7 +1,8 @@
 import React from "react"
 import { SEO } from "../components/SEO"
-// import { graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Button from "../components/Button"
+import LatestSection from "../components/LatestSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
@@ -24,141 +25,71 @@ const Paragraph = styled.p`
   color: var(--color-gray);
 
   a {
-    var(--color-primary);
+    color: var(--color-primary);
     text-decoration: underline;
 
     &:hover {
-      var(--color-primary);
+      color: var(--color-primary);
     }
   }
 `
 
-/* 
-import Card from "../components/Card"
-const LatestCard = ({ item, to, image, title }) => (
-  <div className="col-12 col-md-3 col-lg-4">
-    <h2>Latest read</h2>
-    <Card
-      to={`/reading/${item.frontmatter.slug}`}
-      image={item.frontmatter.bookCover.childImageSharp.gatsbyImageData}
-      title={item.frontmatter.title}
-    />
-    <Link to="/reading">All speaking &rarr;</Link>
-  </div>
-)
- */
-
 export default function Home({ data }) {
-  // const latestWritings = data.latestWritings.nodes
-  // const latestReadings = data.latestReadings.nodes
+  const latestWritings = data.latestWritings.nodes
   return (
-    <>
-      <Style>
-        <section className="hero row">
-          <div className="hero--textblock col offset-md-1 offset-xl-3 col-xl-5">
-            <h1>Jean-Louis Mbaka</h1>
-            <Paragraph>
-              I'm a Co-Founder at{" "}
-              <a href="https://kinshasadigital.com" target="_blank">
-                Kinshasa Digital
-              </a>{" "}
-              and Managing Director of our{" "}
-              <a href="https://kinshasadigital.academy" target="_blank">
-                Digital Academy
-              </a>
-            </Paragraph>
-            <Button href="https://www.linkedin.com/in/jlmbaka/" target="_blank">
-              Contact Me
-              <FontAwesomeIcon icon={faChevronRight} color="white" />
-            </Button>
-          </div>
-        </section>
-        {/* <section
-          className="row offset-md-3"
-          style={{ marginTop: "7vh", marginBottom: "14vh" }}
-        >
-          {latestWritings.length > 0 && (
-            <div className="col-12 col-md-3 col-lg-4">
-              <h2>Latest Essay</h2>
-              <Card
-                to={`/writings/${latestWritings[0].frontmatter.slug}`}
-                image={
-                  latestWritings[0].frontmatter.featuredImg.childImageSharp
-                    .gatsbyImageData
-                }
-                title={latestWritings[0].frontmatter.title}
-              />
-              <div>
-                <Link to="/reading">All speakings &rarr;</Link>
-              </div>
-            </div>
+    <Style>
+      <section className="hero row">
+        <div className="hero--textblock col offset-md-1 offset-xl-3 col-xl-6">
+          <h1>Jean-Louis Mbaka</h1>
+          <Paragraph>
+            I'm a Co-Founder at{" "}
+            <a href="https://kinshasadigital.com" target="_blank">
+              Kinshasa Digital
+            </a>{" "}
+            and Managing Director of our{" "}
+            <a href="https://kinshasadigital.academy" target="_blank">
+              Digital Academy
+            </a>
+          </Paragraph>
+          <Button href="https://www.linkedin.com/in/jlmbaka/" target="_blank">
+            Contact Me
+            <FontAwesomeIcon icon={faChevronRight} color="white" />
+          </Button>
+        </div>
+      </section>
+      <section className="col offset-md-1 offset-xl-3 col-xl-6 mt-5">
+        <LatestSection
+          items={latestWritings.map(
+            ({ frontmatter: { slug, title, date } }) => ({
+              to: `writings/${slug}`,
+              title,
+              date,
+            })
           )}
-          {latestReadings.length > 0 && (
-            <div className="col-12 col-md-3 col-lg-4">
-              <h2>Latest read</h2>
-              <Card
-                to={`/readings/${latestReadings[0].frontmatter.slug}`}
-                image={
-                  latestReadings[0].frontmatter.bookCover.childImageSharp
-                    .gatsbyImageData
-                }
-                title={latestReadings[0].frontmatter.title}
-              />
-              <div>
-                <Link to="/reading">All readings &rarr;</Link>
-              </div>
-            </div>
-          )}
-        </section> */}
-      </Style>
-    </>
+          to="/writing"
+          title="Latest Writing"
+        />
+      </section>
+    </Style>
   )
 }
 
 export const Head = () => <SEO />
 
-// export const query = graphql`
-//   query IndexPage {
-//     banner: file(relativePath: { eq: "banner2_bw.webp" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//     latestWritings: allMarkdownRemark(
-//       filter: { fileAbsolutePath: { regex: "//writings//" } }
-//       sort: { fields: frontmatter___date, order: DESC }
-//       limit: 1
-//     ) {
-//       nodes {
-//         frontmatter {
-//           slug
-//           title
-//           featuredImg {
-//             childImageSharp {
-//               gatsbyImageData
-//             }
-//           }
-//         }
-//         id
-//       }
-//     }
-//     latestReadings: allMarkdownRemark(
-//       filter: { fileAbsolutePath: { regex: "//readings//" } }
-//       sort: { fields: frontmatter___date, order: DESC }
-//       limit: 1
-//     ) {
-//       nodes {
-//         frontmatter {
-//           slug
-//           title
-//           bookCover {
-//             childImageSharp {
-//               gatsbyImageData
-//             }
-//           }
-//         }
-//         id
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query IndexPage {
+    latestWritings: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "//writings//" } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        frontmatter {
+          slug
+          title
+          date
+        }
+      }
+    }
+  }
+`

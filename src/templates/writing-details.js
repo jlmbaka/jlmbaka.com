@@ -23,9 +23,30 @@ const Style = styled.div`
   }
 `
 
+const CategoryPill = styled.div`
+  display: inline-block;
+  color: var(--color-gray2);
+  background-color: var(--color-gray1);
+  border-radius: 3px;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  padding: 0.25rem 0.5rem;
+  margin: 2rem 1rem;
+`
+
+const ImageCaption = styled.small`
+  size: 0.5rem;
+  color: var(--color-gray);
+`
+
 export default function WritingDetails({ data }) {
   const { html, frontmatter, fields } = data.markdownRemark
-  const { title, stack, featuredImg, date } = frontmatter
+  const {
+    title,
+    categories,
+    featuredImg,
+    featuredImgCaption,
+    date,
+  } = frontmatter
   const dateStr = new Date(date).toDateString()
   const readingTimeText = fields.readingTime.text
 
@@ -33,6 +54,9 @@ export default function WritingDetails({ data }) {
     <Style>
       <div className="col">
         <div className="text-center" style={{ marginBottom: "5rem" }}>
+          {categories?.length > 0 && (
+            <CategoryPill>{categories[0]}</CategoryPill>
+          )}
           <h1>{title}</h1>
           <p
             style={{
@@ -49,6 +73,7 @@ export default function WritingDetails({ data }) {
             image={featuredImg?.childImageSharp?.gatsbyImageData}
             alt={title}
           />
+          <ImageCaption>{featuredImgCaption}</ImageCaption>
         </div>
         <div className="row">
           <div
@@ -70,11 +95,13 @@ export const query = graphql`
         stack
         title
         date
+        categories
         featuredImg {
           childImageSharp {
             gatsbyImageData
           }
         }
+        featuredImgCaption
       }
       fields {
         readingTime {

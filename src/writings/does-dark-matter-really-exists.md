@@ -3,9 +3,11 @@ title: La Matière Noire existe-t-elle ?
 slug: does-dark-matter-really-exists
 date: 2022-09-01T00:00:00+00:00
 featuredImg: ../images/writings/andromeda.jpeg
+featuredImgCaption: Une section de la galaxie d'Andromède M31, tirée de l'image la plus grande et la plus détaillée jamais prise par le télescope Hubble. L'image complète montre plus de 100 millions d'étoiles s'étendant sur plus de 40 000 années-lumière. Avec l'aimable autorisation de la NASA, de l'ESA, de J Dalcanton, de B F Williams, de L C Johnson (Université de Washington), de l'équipe PHAT et de R Gendler.
+categories: [Physique]
 ---
 
-Grace aux **[Lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton)**, énoncées dans son ouvrage _Philosophiae naturalis principia mathematica_ en 1687, nous pouvons modeler le mouvement des planètes dans notre système solaire avec haute précision. Selon la **Loi de la gravitation universelle de Newton**, la vitesse de rotation des étoiles d’une galaxie décroit proportionnellement au carré du rayon de la galaxie telle que définie par la formule ci-dessous :
+Grace aux **[Lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton)**, énoncées dans son ouvrage _Philosophiae naturalis principia mathematica_ en 1687, nous pouvons modeler le mouvement des planètes dans notre système solaire avec haute précision. Selon la **Loi de la gravitation universelle**, la vitesse de rotation des étoiles d’une galaxie décroit proportionnellement au carré du rayon de la galaxie telle que définie par la formule ci-dessous :
 
 $$
 F = G\frac{m_1m_2}{r^2}
@@ -15,13 +17,13 @@ Où $F$ est la force gravitationnelle agissant entre deux objets, $m_1$ et $m_2$
 
 ## Le problème
 
-Or, ces lois cessent de fonctionner lorsque nous considérons les galaxies à disque : les étoiles localisées aux bords externes, loin des forces gravitationnelles provenant du centre de leur galaxie, se meuvent plus rapidement que prédit par les lois de Newton. Ce fait a été observé en 1969 by Vera Rubin.
+Or, les lois de Newton cessent de fonctionner lorsque nous considérons les galaxies à disque : les étoiles localisées aux bords externes, loin des forces gravitationnelles provenant du centre de leur galaxie, se meuvent plus rapidement que prédit par ces lois. Ce fait a été observé en 1969 par Vera Rubin.
 
 Cette observation a conduit à un dilemme important: soit les galaxies sont constituées de plus de matières qu’observées ou soit la gravité se comporte différemment lorsque les distances sont très vastes.
 
 ## La Matière Noire
 
-À la suite de cela, les scientifiques ont proposé dans les années 1970 l’existence d’une substance mystérieuse, la **Matière Noire**, qui fournirait la masse gravitationnelle supplémentaire nécessaire, expliquant ainsi la vitesse de rotation accrue des étoiles se trouvant au bord des galaxies à disque. Pour ce faire, cette matière formerait autour des galaxies des halos de particules noires autour des galaxies. Cette théorie est aujourd’hui largement acceptée par la communauté scientifique et constitue la majorité des domaines de recherche en physique.
+À la suite de cela, les scientifiques ont proposé dans les années 1970 l’existence d’une substance mystérieuse, la **Matière Noire**, qui fournirait la masse gravitationnelle supplémentaire nécessaire, expliquant ainsi la vitesse de rotation accrue des étoiles se trouvant au bord des galaxies à disque. Pour ce faire, cette matière formerait autour des galaxies des halos de particules noires. Cette théorie est aujourd’hui largement acceptée par la communauté scientifique et constitue la majorité des domaines de recherche en physique.
 
 Néanmoins, lors d’un récent vagabondage sur [Hacker News](https://news.ycombinator.com/item?id=32414870) suivi de différentes explorations sur le sujet, j’ai découvert que cette théorie ne fait pas l'unanimité dans le monde de la physique et qu’une frange de la communauté scientifique soutient la poursuite de théories alternatives qui expliqueraient mieux notre Univers, et ce sans faire appel à une matière mystérieuse. En effet, jusqu’à ce jour, la matière noire n’a jamais été détectée malgré le fait qu’elle constituerait [approximativement 25 % de la masse de l’univers](https://iai.tv/articles/dark-matter-doesnt-exist-auid-2180).
 
@@ -41,7 +43,7 @@ Les astronomes ont découvert que l’univers local s’étend à une vitesse su
 
 ## Une théorie alternative
 
-Il serait temps alors d’explorer des théories favorisant l’autre coté du dilemme découvert par Vera Rubin. Il s’agit notamment de la théorie **\*Modified Newtonian Dynamique (ou Milgromian gravitation)** abrégée en\* **MOND,** \*\*qui en français veut dire en la théorie de la dynamique newtonienne modifiée, théorisée en 1982 par [Modehai Milgrom](https://fr.wikipedia.org/wiki/Mordehai_Milgrom).
+Il serait temps alors d’explorer des théories favorisant l’autre coté du dilemme découvert par Vera Rubin. Il s’agit notamment de la théorie **\*Modified Newtonian Dynamique (ou Milgromian gravitation)** abrégée en **Mond**, qui en français veut dire en la théorie de la dynamique newtonienne modifiée, théorisée en 1982 par [Modehai Milgrom](https://fr.wikipedia.org/wiki/Mordehai_Milgrom).
 
 Dans sa version primaire, MOND est une théorie moderne non-relativiste de la gravitation qui étend celle de Newton en incorporant des données provenant de galaxies ; données qui n'étaient disponibles ni pour Newton ni pour Einstein, qui ont tous deux fondé leurs déductions sur des données limitées uniquement au système solaire. Grâce à cela, MOND explique le mouvement au sein des galaxies avec exactitude, et ce sans faire appel à la matière noire.
 
@@ -55,7 +57,7 @@ MOND propose que la force appliquée sur un objet change selon son accélératio
 
 Toutes les prédictions faites par Mordehai Milgrom ont été vérifiées par des observations faites dans notre galaxie ainsi que celles faites dans d’autres galaxies.
 
-**Étant donné le fait que MOND explique si bien le mouvement à l’intérieur des galaxies, pourquoi est-ce que cette théorie n’est toujours pas adoptée à la place de celle de la matière noire ?**
+**Vu que MOND explique si bien le mouvement à l’intérieur des galaxies, pourquoi est-ce que cette théorie n’est toujours pas adoptée à la place de celle de la matière noire ?**
 
 Comme avec toutes les théories, il y a plusieurs hics :
 

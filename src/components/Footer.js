@@ -7,7 +7,7 @@ import { lightTheme } from "../lib/themes"
 
 const FooterWrapper = styled(BaseWrapper)`
   min-height: 19vh;
-  background-color: ${lightTheme.primary};
+  // background-color: ${lightTheme.primary};
 `
 
 const Footer = () => {
@@ -26,11 +26,13 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <div className="row">
-        <div className="col offset-md-1">
+        <div className="col offset-md-1 offset-xl-3 col-xl-6 mt-50">
           <footer>
             <div className="footer__container">
-              <p>{copyright}</p>
-              <p>{location}</p>
+              <hr className="mt-4 mb-4" />
+              <p>
+                {copyright} · {location}
+              </p>
             </div>
           </footer>
         </div>

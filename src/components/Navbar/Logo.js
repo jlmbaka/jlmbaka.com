@@ -7,9 +7,9 @@ const LogoLink = styled(Link)`
   align-items: center;
   text-transform: uppercase;
   svg {
-    fill: transparent;
+    fill: LightSkyBlue;
     stroke-width: 4px;
-    stroke: currentColor;
+    stroke: LightSkyBlue;
     width: 2rem;
     height: 2rem;
     margin-right: 0.5rem;
