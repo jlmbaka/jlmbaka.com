@@ -3,7 +3,7 @@ import InternalPageLayout from "../components/InternalPageLayout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
-// import SEO from "../components/SEO"
+import SEO from "../components/SEO"
 
 const BookAuthor = styled.h2`
   font-size: 1.5rem;
@@ -19,10 +19,6 @@ const HTML = styled.html`
 const Featured = styled.div`
   margin-bottom: 40px;
 `
-
-// export const Head = ({ data }) => (
-//   <SEO title={data?.markdownRemark?.frontmatter?.title} />
-// )
 
 export default function ReadingDetails({ data }) {
   const { html } = data.markdownRemark
@@ -75,3 +71,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({ data }) => (
+  <SEO title={data?.markdownRemark?.frontmatter?.title} />
+)

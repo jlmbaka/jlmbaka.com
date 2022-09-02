@@ -1,5 +1,5 @@
 import React from "react"
-import { SEO } from "../components/SEO"
+import SEO from "../components/SEO"
 import { graphql } from "gatsby"
 import Button from "../components/Button"
 import LatestSection from "../components/LatestSection"
