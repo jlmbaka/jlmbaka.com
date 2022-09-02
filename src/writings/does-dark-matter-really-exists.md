@@ -2,8 +2,8 @@
 title: La Matière Noire existe-t-elle ?
 slug: does-dark-matter-really-exists
 date: 2022-09-01T00:00:00+00:00
-featuredImg: ../images/writings/andromeda.jpeg
-featuredImgCaption: Une section de la galaxie d'Andromède M31, tirée de l'image la plus grande et la plus détaillée jamais prise par le télescope Hubble. L'image complète montre plus de 100 millions d'étoiles s'étendant sur plus de 40 000 années-lumière. Avec l'aimable autorisation de la NASA, de l'ESA, de J Dalcanton, de B F Williams, de L C Johnson (Université de Washington), de l'équipe PHAT et de R Gendler.
+featuredImg: ../images/writings/Webbs First Deep Field NIRCam Image.png
+featuredImgCaption: Des milliers de galaxies inondent cette image dans le domaine du proche infrarouge de l'amas de galaxies SMACS 0723. L'imagerie haute résolution du télescope spatial James Webb de la NASA, combinée à un effet naturel connu sous le nom de lentille gravitationnelle, a rendu possible cette image finement détaillée.
 categories: [Physique]
 ---
 
