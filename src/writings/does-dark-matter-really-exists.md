@@ -43,7 +43,7 @@ Les astronomes ont découvert que l’univers local s’étend à une vitesse su
 
 ## Une théorie alternative
 
-Il serait temps alors d’explorer des théories favorisant l’autre coté du dilemme découvert par Vera Rubin. Il s’agit notamment de la théorie **\*Modified Newtonian Dynamique (ou Milgromian gravitation)** abrégée en **Mond**, qui en français veut dire en la théorie de la dynamique newtonienne modifiée, théorisée en 1982 par [Modehai Milgrom](https://fr.wikipedia.org/wiki/Mordehai_Milgrom).
+Il serait temps alors d’explorer des théories favorisant l’autre coté du dilemme découvert par Vera Rubin. Il s’agit notamment des théories basées sur le **Modified Newtonian Dynamique** ou _Milgromian gravitation_, abrégée en **Mond**, qui en français veut dire la théorie de la dynamique newtonienne modifiée, théorisée en 1982 par [Modehai Milgrom](https://fr.wikipedia.org/wiki/Mordehai_Milgrom).
 
 Dans sa version primaire, MOND est une théorie moderne non-relativiste de la gravitation qui étend celle de Newton en incorporant des données provenant de galaxies ; données qui n'étaient disponibles ni pour Newton ni pour Einstein, qui ont tous deux fondé leurs déductions sur des données limitées uniquement au système solaire. Grâce à cela, MOND explique le mouvement au sein des galaxies avec exactitude, et ce sans faire appel à la matière noire.
 
@@ -59,11 +59,11 @@ Toutes les prédictions faites par Mordehai Milgrom ont été vérifiées par de
 
 **Vu que MOND explique si bien le mouvement à l’intérieur des galaxies, pourquoi est-ce que cette théorie n’est toujours pas adoptée à la place de celle de la matière noire ?**
 
-Comme avec toutes les théories, il y a plusieurs hics :
+Comme avec toutes les théories, il y a plusieurs limitations :
 
-Premièrement, MOND n'explique pas le mouvement entre les amas de galaxies. C’est le cas par exemple de l’[Amas de la Balle](https://fr.wikipedia.org/wiki/Amas_de_la_Balle) ou _Bullet Cluster_ en anglais. Les partisans de MOND pensent que le mouvement entre les galaxies peut être expliqué par des particules régulières telles que les **neutrinos** ou de la “matière noire” encore inconnue. Bien que les neutrinos se déplacent trop rapidement pour former des halos à l'échelle d’une galaxie, ils peuvent probablement en former autour des amas de galaxies étant donné que les distances sont suffisamment grandes.
+Premièrement, MOND n'explique pas le mouvement entre les amas de galaxies. C’est le cas par exemple de l’[Amas de la Balle](https://fr.wikipedia.org/wiki/Amas_de_la_Balle) ou _Bullet Cluster_ en anglais. Les partisans de MOND pensent que le mouvement entre les galaxies pourrait être expliqué par des particules régulières telles que les **neutrinos** ou de la “matière noire” encore inconnue. Bien que les neutrinos se déplacent trop rapidement pour former des halos à l'échelle d’une galaxie, ils peuvent probablement en former autour des amas de galaxies étant donné que les distances sont suffisamment grandes.
 
-Deuxièmement, l’un des plus grand défis de MOND concerne le début de l’univers. Les physiciens de la matière noire ont déjà montré que leur théorie pouvait très bien reproduire toutes les oscillations liées au rayonnement de fond cosmique, relique des premiers instants de l’univers, témoignant du Big Bang. Néanmoins, la gravité modifiée ou émergente (théorisée par le physicien néerlandais Erik Verlinde) a échoué à ce test critique jusqu'à présent.
+Deuxièmement, l’un des plus grand défis de MOND concerne le début de l’univers. Les physiciens de la matière noire ont déjà montré que leur théorie pouvait très bien reproduire toutes les oscillations liées au rayonnement de fond cosmique, relique des premiers instants de l’univers, témoignant du Big Bang. Néanmoins, la gravité modifiée ou émergente (version améliorée de MOND, théorisée par le physicien néerlandais Erik Verlinde) a échoué à ce test critique jusqu'à présent.
 
 ## Conclusion
 
