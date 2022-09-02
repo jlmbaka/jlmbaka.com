@@ -3,6 +3,8 @@ const lightTheme = {
   secondary: "#ffffff",
   background: "#ffffff",
   gray: "#b3b3b3", // Test CCCCCC or bbbbbb
+  gray1: "#f9f7f6",
+  gray2: "#6d676d",
   text: "#000000",
   body: "#ffffff",
 }
@@ -12,6 +14,8 @@ const darkTheme = {
   secondary: "#222020",
   background: "#222020",
   gray: "#b3b3b3",
+  gray1: "#6d676d",
+  gray2: "#f9f7f6",
   text: "#ffffff",
   body: "#222020",
 }
@@ -25,6 +29,8 @@ export const COLORS = {
   secondary: { light: "#ffffff", dark: "#222020" },
   background: { light: "#ffffff", dark: "#222020" },
   gray: { light: "#b3b3b3", dark: "#b3b3b3" },
+  gray1: { light: "#f9f7f6", dark: "#6d676d" },
+  gray2: { light: "#6d676d", dark: "#f9f7f6" },
   text: { light: "#000000", dark: "#ffffff" },
   body: { light: "#ffffff", dark: "#222020" },
 }

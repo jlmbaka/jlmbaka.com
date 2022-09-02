@@ -3,6 +3,7 @@ import InternalPageLayout from "../components/InternalPageLayout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import SEO from "../components/SEO"
 
 const Style = styled.div`
   h2 {
@@ -57,3 +58,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({ data }) => (
+  <SEO title={data?.markdownRemark?.frontmatter?.title} />
+)

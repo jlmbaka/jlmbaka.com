@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
     },
     {
       basePath: "writings",
-      componentPath: "./src/templates/details.js",
+      componentPath: "./src/templates/writing-details.js",
     },
   ]
 
