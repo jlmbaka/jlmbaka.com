@@ -14,6 +14,26 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://www.goodreads.com/review/list_rss/17801759?key=9ukXKmX7HQ8pOObv4FV1jhp3JhfosvD96fsG8G9bOj37KiRf&shelf=read`,
+        name: `GoodreadsBook`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: [
+              ["author_name", "author"],
+              ["book_large_image_url", "coverImageUrl"],
+              ["user_read_at", "finished"],
+              ["user_date_added", "added"],
+              ["user_date_created", "created"],
+            ],
+          },
+        },
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

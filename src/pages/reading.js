@@ -1,30 +1,26 @@
 import { graphql } from "gatsby"
-// import SEO from "../components/SEO"
+import SEO from "../components/SEO"
+import React from "react"
 import Reading from "../components/views/reading"
-// import React from "react"
 
-/* export const Head = ({}) => {
-  // const { title } = data.markdownRemark.frontmatter
-  return <SEO title="foo" />
-} */
+export default Reading
 
 export const query = graphql`
-  query ReadingsPage {
-    readings: allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//readings//" } }
+  query UseGoodreadsShelves {
+    recentlyFinished: allFeedGoodreadsBook(
+      sort: { fields: created, order: DESC }
     ) {
-      nodes {
-        frontmatter {
-          slug
-          title
-          date
-          author
-        }
+      books: nodes {
         id
+        created
+        finished
+        title
+        author
       }
     }
   }
 `
 
-export default Reading
+export const Head = ({}) => {
+  return <SEO title="My Readings" />
+}
