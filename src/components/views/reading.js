@@ -3,15 +3,13 @@ import InternalPageLayout from "../InternalPageLayout"
 import ContentList from "../ContentList"
 import slugify from "slugify"
 
-export default function Reading({
-  data: { currentlyReading, recentlyFinished },
-}) {
+export default function Reading({ data: { recentlyFinished } }) {
   const readings = recentlyFinished.books.map(
-    ({ isbn, title, author, finished }) => ({
-      id: isbn,
-      date: finished,
+    ({ id, title, author, created, finished }) => ({
+      id,
       title,
       author,
+      date: finished ? finished : created,
       slug: slugify(title),
     })
   )
@@ -24,6 +22,8 @@ export default function Reading({
       })
     )
   )
+    .sort()
+    .reverse()
 
   return (
     <InternalPageLayout>

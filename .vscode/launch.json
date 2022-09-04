@@ -12,7 +12,6 @@
       ],
       "stopOnEntry": false,
       "runtimeArgs": [
-        "--nolazy"
       ],
       "sourceMaps": false,
       "console": "integratedTerminal"

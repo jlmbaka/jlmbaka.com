@@ -1,6 +1,6 @@
 import React from "react"
 import InternalPageLayout from "../components/InternalPageLayout"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import SEO from "../components/SEO"
@@ -21,7 +21,8 @@ const Featured = styled.div`
 `
 
 export default function ReadingDetails({ data }) {
-  const { title, author, coverImage } = data.goodreadsBook
+  const { title, author, coverImage } = data.feedGoodreadsBook
+
   return (
     <InternalPageLayout>
       <div className="row">
@@ -33,7 +34,8 @@ export default function ReadingDetails({ data }) {
         <div className="col-12 order-lg-0 col-lg-4">
           <Featured>
             <GatsbyImage
-              image={coverImage.childImageSharp.gatsbyImageData}
+              image={coverImage?.childImageSharp?.gatsbyImageData}
+              placeholder="blurred"
               alt={title}
             />
           </Featured>
@@ -52,12 +54,11 @@ export default function ReadingDetails({ data }) {
 
 export const query = graphql`
   query ReadingPage($id: String) {
-    goodreadsBook(id: { eq: $id }) {
+    feedGoodreadsBook(id: { eq: $id }) {
       id
       title
       author
       coverImage {
-        id
         childImageSharp {
           gatsbyImageData
         }
@@ -66,4 +67,4 @@ export const query = graphql`
   }
 `
 
-export const Head = ({ data }) => <SEO title={data?.goodreadsBook?.title} />
+export const Head = ({ data }) => <SEO title={data?.feedGoodreadsBook?.title} />

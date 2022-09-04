@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
           fileAbsolutePath
         }
       }
-      allGoodreadsBook {
+      allFeedGoodreadsBook {
         books: nodes {
           title
           id
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
       })
   })
 
-  data.allGoodreadsBook.books.forEach(book => {
+  data.allFeedGoodreadsBook.books.forEach(book => {
     actions.createPage({
       path: `/readings/${slugify(book.title)}`,
       component: path.resolve("./src/templates/reading-details.js"),
