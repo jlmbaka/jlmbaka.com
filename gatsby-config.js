@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+const isProduction = process.env.NODE_ENV === "production"
+
 module.exports = {
   /* Your site config here */
   plugins: [
@@ -13,6 +15,17 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        // Either `code` or `selfHostUrl` is required.
+        // REQUIRED IF USING HOSTED GOATCOUNTER! https://[my_code].goatcounter.com
+        code: isProduction
+          ? "jlmbaka.goatcounter.com"
+          : "https://jlmbaka-dev.goatcounter.com/",
+        pixel: true,
+      },
+    },
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
@@ -75,13 +88,6 @@ module.exports = {
         path: `${__dirname}/src/writings/`,
       },
     },
-    /*     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `speakings`,
-        path: `${__dirname}/src/speakings/`,
-      },
-    }, */
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -95,12 +101,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-with-attributes`,
       options: {
-        fonts: [
-          `Rubik\:300,400,500,700`, // you can also specify font weights and styles
-        ],
+        fonts: [`Rubik\:300,400,500,700`],
         display: "swap",
+        attributes: {
+          rel: "stylesheet preload prefetch",
+        },
       },
     },
   ],

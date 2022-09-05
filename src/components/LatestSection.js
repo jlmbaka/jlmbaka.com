@@ -9,7 +9,7 @@ const Style = styled.div`
 
   .post {
     margin-top: 2rem;
-    h3 {
+    h2 {
       margin-bottom: 0;
       font-size: 1.4rem;
       font-weight: 400;
@@ -27,7 +27,7 @@ const LatestSection = ({ title, items = [], to, titleTo = "All writing" }) => (
       {items.map(({ to, title, date }) => (
         <div className="post" key={to}>
           <Link to={to}>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <div>{new Date(date).toDateString()}</div>
           </Link>
         </div>
