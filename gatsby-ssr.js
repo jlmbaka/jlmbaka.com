@@ -79,9 +79,14 @@ const FallbackStyles = ({ preferedColorKey = "dark" }) => {
   return <style>{wrappedInSelector}</style>
 }
 
-export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
+export const onRenderBody = ({
+  setPreBodyComponents,
+  setHeadComponents,
+  setHtmlAttributes,
+}) => {
   setHeadComponents(<FallbackStyles />)
   setPreBodyComponents(<MagicScriptTag />)
+  setHtmlAttributes({ lang: "en-GB" })
 }
 
 export const wrapRootElement = ({ element }) => {

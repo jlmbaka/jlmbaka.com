@@ -2,7 +2,7 @@ import React from "react"
 import styled, { css } from "styled-components"
 
 const ButtonOpenMenu = styled(({ onClick, className }) => (
-  <button className={className} onClick={onClick}>
+  <button className={className} onClick={onClick} aria-label="Open menu">
     <span />
   </button>
 ))`
