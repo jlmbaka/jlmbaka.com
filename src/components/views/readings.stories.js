@@ -1,12 +1,12 @@
 import React from "react"
-import Reading from "./reading"
+import Readings from "./readings"
 
 export default {
-  title: "Reading Page",
-  component: Reading,
+  title: "Readings Page",
+  component: Readings,
 }
 
-const Template = args => <Reading {...args} />
+const Template = args => <Readings {...args} />
 
 // Empty
 export const Empty = Template.bind({})

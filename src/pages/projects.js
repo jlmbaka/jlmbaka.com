@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 
-import Project from "../components/views/project"
-export default Project
+import Projects from "../components/views/projects"
+export default Projects
 
 export const query = graphql`
   query ProjectsPage {

@@ -1,12 +1,13 @@
 import { graphql } from "gatsby"
 
-import Writing from "../components/views/writing"
+import Speakings from "../components/views/speakings"
+export default Speakings
 
 export const query = graphql`
-  query WritingsPage {
-    writings: allMarkdownRemark(
+  query SpeakingsPage {
+    speakings: allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//writings//" } }
+      filter: { fileAbsolutePath: { regex: "//speakings//" } }
     ) {
       nodes {
         frontmatter {
@@ -19,5 +20,3 @@ export const query = graphql`
     }
   }
 `
-
-export default Writing

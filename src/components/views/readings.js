@@ -3,7 +3,7 @@ import InternalPageLayout from "../InternalPageLayout"
 import ContentList from "../ContentList"
 import slugify from "slugify"
 
-export default function Reading({ data: { recentlyFinished } }) {
+export default function Readings({ data: { recentlyFinished } }) {
   const readings = recentlyFinished.books.map(
     ({ id, title, author, created, finished }) => ({
       id,

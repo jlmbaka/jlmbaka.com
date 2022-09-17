@@ -30,11 +30,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const markDownPages = [
     {
-      basePath: "projects",
+      basePath: "project",
       componentPath: "./src/templates/details.js",
     },
     {
-      basePath: "writings",
+      basePath: "writing",
       componentPath: "./src/templates/writing-details.js",
     },
   ]
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   data.allFeedGoodreadsBook.books.forEach(book => {
     actions.createPage({
-      path: `/readings/${slugify(book.title)}`,
+      path: `/reading/${slugify(book.title)}`,
       component: path.resolve("./src/templates/reading-details.js"),
       context: { id: book.id },
     })

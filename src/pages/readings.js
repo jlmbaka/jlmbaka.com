@@ -1,9 +1,9 @@
 import { graphql } from "gatsby"
 import SEO from "../components/SEO"
 import React from "react"
-import Reading from "../components/views/reading"
+import Readings from "../components/views/readings"
 
-export default Reading
+export default Readings
 
 export const query = graphql`
   query UseGoodreadsShelves {

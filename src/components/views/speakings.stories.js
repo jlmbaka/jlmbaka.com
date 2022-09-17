@@ -1,9 +1,9 @@
 import React from "react"
-import Speaking from "./speaking"
+import Speakings from "./speakings"
 
 export default {
-  title: "Speaking Page",
-  component: Speaking,
+  title: "Speakings Page",
+  component: Speakings,
 }
 
 const speakings = [
@@ -174,7 +174,7 @@ const speakings = [
   //
 ]
 
-const Template = args => <Speaking {...args} />
+const Template = args => <Speakings {...args} />
 // Default
 export const Default = Template.bind({})
 Default.args = { data: { speakings: { nodes: speakings } } }

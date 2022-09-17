@@ -1,12 +1,12 @@
 import React from "react"
-import Writing from "./writing"
+import Writings from "./writings"
 
 export default {
-  title: "Writing Page",
-  component: Writing,
+  title: "Writings Page",
+  component: Writings,
 }
 
-const Template = args => <Writing {...args} />
+const Template = args => <Writings {...args} />
 
 // Empty
 export const Empty = Template.bind({})

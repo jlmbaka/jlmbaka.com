@@ -2,7 +2,7 @@ import React from "react"
 import InternalPageLayout from "../InternalPageLayout"
 import ContentList from "../ContentList"
 
-export default function Speaking({ data }) {
+export default function Speakings({ data }) {
   const speakings = data.speakings.nodes.map(speaking => ({
     ...speaking.frontmatter,
     id: speaking.id,
