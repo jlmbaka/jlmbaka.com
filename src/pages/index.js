@@ -66,12 +66,12 @@ export default function Home({ data }) {
         <LatestSection
           items={latestWritings.map(
             ({ frontmatter: { slug, title, date } }) => ({
-              to: `writings/${slug}`,
+              to: `writing/${slug}`,
               title,
               date,
             })
           )}
-          to="/writing"
+          to="/writings"
           title="Latest Writing"
         />
       </section>

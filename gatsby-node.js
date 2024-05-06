@@ -1,6 +1,10 @@
 const path = require("path")
 const slugify = require("slugify")
 
+exports.onPreInit = () => {
+  console.log("Testing...")
+}
+
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     devtool: "eval-source-map",
@@ -17,12 +21,6 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
           }
           fileAbsolutePath
-        }
-      }
-      allFeedGoodreadsBook {
-        books: nodes {
-          title
-          id
         }
       }
     }
@@ -50,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
       })
   })
 
-  data.allFeedGoodreadsBook.books.forEach(book => {
+  data?.allFeedGoodreadsBook?.books.forEach(book => {
     actions.createPage({
       path: `/reading/${slugify(book.title)}`,
       component: path.resolve("./src/templates/reading-details.js"),
