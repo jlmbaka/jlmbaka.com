@@ -1,8 +1,20 @@
 const path = require("path")
 const slugify = require("slugify")
 
-exports.onPreInit = () => {
-  console.log("Testing...")
+let unsubscribe
+export const onPreBootstrap = async ({ store }) => {
+  console.log("onPreBootstrap()")
+  unsubscribe = store.subscribe(() => {
+    const lastAction = store.getState().lastAction
+
+    if (lastAction.type === "ADD_FIELD_TO_NODE") {
+      console.log(lastAction.payload)
+    }
+  })
+}
+
+export const onPostBootstrap = async () => {
+  unsubscribe()
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {

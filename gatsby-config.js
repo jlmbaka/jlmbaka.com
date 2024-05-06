@@ -95,8 +95,6 @@ module.exports = {
       options: {
         url: `https://www.goodreads.com/review/list_rss/17801759?key=9ukXKmX7HQ8pOObv4FV1jhp3JhfosvD96fsG8G9bOj37KiRf&shelf=read`,
         name: `GoodreadsBook`,
-        // Optional
-        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
         parserOption: {
           customFields: {
             item: [

@@ -5,7 +5,7 @@ import Readings from "../components/views/readings"
 
 export default Readings
 
-const query = graphql`
+export const query = graphql`
   query UseGoodreadsShelves {
     recentlyFinished: allFeedGoodreadsBook(
       sort: { fields: created, order: DESC }
