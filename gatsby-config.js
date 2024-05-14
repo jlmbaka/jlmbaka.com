@@ -115,6 +115,7 @@ module.exports = {
         ignore: ["readings.js"],
       },
     },
+    `gatsby-plugin-netlify`,
   ],
   siteMetadata: {
     title: "jlmbaka",
