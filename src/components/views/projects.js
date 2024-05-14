@@ -13,7 +13,11 @@ export default function Projects({ data }) {
     <InternalPageLayout>
       <>
         <h1 className="mb-5">Portfolio</h1>
-        <p>{projects.length > 0 ? "Side Projects I'm currently working on." : "I'm not currently working on any side projects."}</p>
+        <p>
+          {projects.length > 0
+            ? "Side Projects I'm currently working on."
+            : "I'm not currently working on any side projects."}
+        </p>
         <p>
           For professional work, kindly visit{" "}
           <a href="https://kinshasadigital.com" target="_blank">
@@ -29,7 +33,7 @@ export default function Projects({ data }) {
           {projects.map(project => (
             <Project className="col-12 col-sm-6 col-lg-4" key={project.id}>
               <Card
-                to={`/projects/${project.frontmatter.slug}`}
+                to={`/project/${project.frontmatter.slug}`}
                 image={
                   project.frontmatter.thumb.childImageSharp.gatsbyImageData
                 }

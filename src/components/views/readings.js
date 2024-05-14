@@ -33,7 +33,7 @@ export default function Readings({ data: { recentlyFinished } }) {
             <ContentList
               year={year}
               key={year}
-              baseUrl="readings"
+              baseUrl="reading"
               items={readings.filter(
                 ({ date }) => new Date(date).getFullYear() === year
               )}

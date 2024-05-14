@@ -16,37 +16,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-goatcounter`,
-      options: {
-        // Either `code` or `selfHostUrl` is required.
-        // REQUIRED IF USING HOSTED GOATCOUNTER! https://[my_code].goatcounter.com
-        code: isProduction
-          ? "jlmbaka.goatcounter.com"
-          : "https://jlmbaka-dev.goatcounter.com/",
-        pixel: true,
-      },
-    },
-    {
-      resolve: `gatsby-source-rss-feed`,
-      options: {
-        url: `https://www.goodreads.com/review/list_rss/17801759?key=9ukXKmX7HQ8pOObv4FV1jhp3JhfosvD96fsG8G9bOj37KiRf&shelf=read`,
-        name: `GoodreadsBook`,
-        // Optional
-        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
-        parserOption: {
-          customFields: {
-            item: [
-              ["author_name", "author"],
-              ["book_large_image_url", "coverImageUrl"],
-              ["user_read_at", "finished"],
-              ["user_date_added", "added"],
-              ["user_date_created", "created"],
-            ],
-          },
-        },
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -108,6 +77,42 @@ module.exports = {
         attributes: {
           rel: "stylesheet preload prefetch",
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        // Either `code` or `selfHostUrl` is required.
+        // REQUIRED IF USING HOSTED GOATCOUNTER! https://[my_code].goatcounter.com
+        code: isProduction
+          ? "jlmbaka.goatcounter.com"
+          : "https://jlmbaka-dev.goatcounter.com/",
+        pixel: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://www.goodreads.com/review/list_rss/17801759?key=9ukXKmX7HQ8pOObv4FV1jhp3JhfosvD96fsG8G9bOj37KiRf&shelf=read`,
+        name: `GoodreadsBook`,
+        parserOption: {
+          customFields: {
+            item: [
+              ["author_name", "author"],
+              ["book_large_image_url", "coverImageUrl"],
+              ["user_read_at", "finished"],
+              ["user_date_added", "added"],
+              ["user_date_created", "created"],
+            ],
+          },
+        },
+      },
+    },
+    isProduction && {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: ["readings.js"],
       },
     },
   ],

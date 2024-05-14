@@ -29,7 +29,7 @@ export default function Speakings({ data }) {
           items={upcoming}
           showYear={false}
           showDate={true}
-          baseUrl="speakings"
+          baseUrl="speaking"
         />
       ) : (
         <p>No events scheduled!</p>

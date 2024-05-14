@@ -21,7 +21,7 @@ const Featured = styled.div`
 `
 
 export default function ReadingDetails({ data }) {
-  const { title, author, coverImage } = data.feedGoodreadsBook
+  const { title, author, coverImage } = data?.feedGoodreadsBook
 
   return (
     <InternalPageLayout>
@@ -52,7 +52,7 @@ export default function ReadingDetails({ data }) {
   )
 }
 
-export const query = graphql`
+const query = graphql`
   query ReadingPage($id: String) {
     feedGoodreadsBook(id: { eq: $id }) {
       id
