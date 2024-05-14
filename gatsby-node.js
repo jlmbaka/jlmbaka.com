@@ -1,21 +1,6 @@
 const path = require("path")
 const slugify = require("slugify")
-
-let unsubscribe
-export const onPreBootstrap = async ({ store }) => {
-  console.log("onPreBootstrap()")
-  unsubscribe = store.subscribe(() => {
-    const lastAction = store.getState().lastAction
-
-    if (lastAction.type === "ADD_FIELD_TO_NODE") {
-      console.log(lastAction.payload)
-    }
-  })
-}
-
-export const onPostBootstrap = async () => {
-  unsubscribe()
-}
+const flags = require("./src/lib/feature-flags")
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -48,6 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
       componentPath: "./src/templates/writing-details.js",
     },
   ]
+
   markDownPages.forEach(({ basePath, componentPath }) => {
     data.allMarkdownRemark.nodes
       .filter(node => node.fileAbsolutePath.includes(`src/${basePath}`))
@@ -60,11 +46,13 @@ exports.createPages = async ({ graphql, actions }) => {
       })
   })
 
-  data?.allFeedGoodreadsBook?.books.forEach(book => {
-    actions.createPage({
-      path: `/reading/${slugify(book.title)}`,
-      component: path.resolve("./src/templates/reading-details.js"),
-      context: { id: book.id },
+  if (flags.readings) {
+    data?.allFeedGoodreadsBook?.books.forEach(book => {
+      actions.createPage({
+        path: `/reading/${slugify(book.title)}`,
+        component: path.resolve("./src/templates/reading-details.js"),
+        context: { id: book.id },
+      })
     })
-  })
+  }
 }

@@ -108,6 +108,13 @@ module.exports = {
         },
       },
     },
+    isProduction && {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: ["readings.js"],
+      },
+    },
   ],
   siteMetadata: {
     title: "jlmbaka",

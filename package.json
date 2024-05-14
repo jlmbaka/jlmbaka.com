@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
-    "clean-serve:": "npm run clean && npm run build && npm run serve",
+    "clean-serve": "npm run clean && npm run build && npm run serve",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -38,7 +38,7 @@
     "gatsby-remark-katex": "^6.25.0",
     "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-source-filesystem": "^4.25.0",
-    "gatsby-source-rss-feed": "^1.2.2",
+    "gatsby-source-rss-feed": "github:jlmbaka/gatsby-source-rss-feed",
     "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.25.0",
     "katex": "^0.13.24",

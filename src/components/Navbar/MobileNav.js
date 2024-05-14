@@ -20,11 +20,13 @@ const MobileNav = styled(({ className }) => {
     <div className={classNames(className)}>
       <PageNavList className="list page-nav--mobile">
         <>
-          {menuItems.map(({ to, label }) => (
-            <NavItem to={to} key={to}>
-              {label}
-            </NavItem>
-          ))}
+          {menuItems
+            .filter(item => !item.hidden)
+            .map(({ to, label }) => (
+              <NavItem to={to} key={to}>
+                {label}
+              </NavItem>
+            ))}
           <MobileSocialContainer className="d-flex justify-content-between">
             {socialItems.map(({ url, icon }) => (
               <a target="_blank" href={url} rel="nofollow" key={url}>

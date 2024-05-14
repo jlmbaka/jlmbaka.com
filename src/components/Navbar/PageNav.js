@@ -5,11 +5,13 @@ import menuItems from "../../lib/menu-Items"
 
 const PageNav = () => (
   <PageNavList className="list">
-    {menuItems.map(({ to, label, className }) => (
-      <NavItem to={to} key={to} className={className}>
-        {label}
-      </NavItem>
-    ))}
+    {menuItems
+      .filter(item => !item.hidden)
+      .map(({ to, label, className }) => (
+        <NavItem to={to} key={to} className={className}>
+          {label}
+        </NavItem>
+      ))}
   </PageNavList>
 )
 
